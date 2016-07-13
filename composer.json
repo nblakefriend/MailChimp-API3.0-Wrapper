@@ -1,0 +1,22 @@
+{
+    "name": "mailchimp/mailchimp",
+    "description": "none",
+    "type": "library",
+    "license": "none",
+    "authors": [
+        {
+            "name": "MailChimp",
+            "email": "nblakefriend@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=5.3.19",
+        "guzzlehttp/guzzle": "^6.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "MailChimp\\": "src/"
+        }
+    }
+}
