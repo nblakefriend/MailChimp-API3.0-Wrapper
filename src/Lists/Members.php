@@ -8,7 +8,7 @@ class Members extends Lists
      * @param string $listId
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
-    **/
+    */
     public function getListMembers($listId, array $query = [])
     {
         return self::execute("GET", "lists/{$listId}/members", $query);
@@ -20,7 +20,7 @@ class Members extends Lists
      * @param string $email_address
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
-    **/
+    */
     public function getListMember($listId, $email_address, array $query = [])
     {
         $hash = self::getMemberHash($email_address);
@@ -36,7 +36,7 @@ class Members extends Lists
      * @param string $listId
      * @param array subscriber data
      * @return object
-    **/
+    */
     public function addListMember($listId, array $data = [])
     {
         return self::execute("POST", "lists/{$listId}/members", $data);
@@ -51,7 +51,7 @@ class Members extends Lists
      * @param string $listId
      * @param array subscriber data
      * @return object
-    **/
+    */
     public function upsertListMember($listId, array $data = [])
     {
         $hash = self::getMemberHash($data["email_address"]);
@@ -67,7 +67,7 @@ class Members extends Lists
      * @param string $listId
      * @param array subscriber data
      * @return object
-    **/
+    */
     public function updateListMember($listId, $email_address, array $data = [])
     {
         $hash = self::getMemberHash($email_address);
@@ -78,7 +78,7 @@ class Members extends Lists
      * Delete a subscriber
      * @param string $listId
      * @param string email address
-    **/
+    */
     public function deleteListMember($listId, $email_address)
     {
         $hash = self::getMemberHash($email_address);

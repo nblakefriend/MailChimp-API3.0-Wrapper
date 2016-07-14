@@ -28,7 +28,7 @@ class Campaigns extends MailChimp
      *
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
-    **/
+    */
     public function getCampaigns(array $query = [])
     {
         return self::execute("GET", "campaigns", $query);
@@ -43,7 +43,7 @@ class Campaigns extends MailChimp
      * @param string $campaignId for the campaign instance
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object campaign instance
-    **/
+    */
     public function getCampaign($campaignId, array $query = [])
     {
         return self::execute("GET", "campaigns/{$campaignId}", $query);
