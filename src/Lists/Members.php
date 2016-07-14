@@ -5,6 +5,7 @@ class Members extends Lists
 {
     /**
      * Get a list of list members
+     * @param string $listId
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
     **/
@@ -32,7 +33,7 @@ class Members extends Lists
      *      ["email_address"]       string      required
      *      ["status"]              string      required
      *                                          Possible Values: subscribed,unsubscribed,cleaned,pending
-     * @param string list_id
+     * @param string $listId
      * @param array subscriber data
      * @return object
     **/
@@ -47,7 +48,7 @@ class Members extends Lists
      *      ["email_address"]       string      required
      *      ["status"]              string      required
      *                                          Possible Values: subscribed,unsubscribed,cleaned,pending
-     * @param string list_id
+     * @param string $listId
      * @param array subscriber data
      * @return object
     **/
@@ -63,7 +64,7 @@ class Members extends Lists
      *      ["email_address"]       string      required
      *      ["status"]              string      required
      *                                          Possible Values: subscribed,unsubscribed,cleaned,pending
-     * @param string list_id
+     * @param string $listId
      * @param array subscriber data
      * @return object
     **/
@@ -75,7 +76,7 @@ class Members extends Lists
 
     /**
      * Delete a subscriber
-     * @param string list id
+     * @param string $listId
      * @param string email address
     **/
     public function deleteListMember($listId, $email_address)

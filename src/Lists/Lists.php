@@ -122,4 +122,9 @@ class Lists extends MailChimp
         return new Members;
     }
 
+    public function webhooks()
+    {
+        return new Webhooks;
+    }
+
 }
