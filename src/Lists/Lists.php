@@ -191,7 +191,7 @@ class Lists extends MailChimp
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
      * @param string $listId list id for list to edit
-     * @param string $month format: yyyy-mm 
+     * @param string $month format: yyyy-mm
      * @param array $query fields to update (See structure from createList)
      * @return object
      */
@@ -215,6 +215,11 @@ class Lists extends MailChimp
     /**
      *  Instantiate lists subresources
      */
+     public function interests()
+     {
+         return new Interests;
+     }
+
     public function members()
     {
         return new Members;
