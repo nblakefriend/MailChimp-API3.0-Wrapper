@@ -215,6 +215,11 @@ class Lists extends MailChimp
     /**
      *  Instantiate lists subresources
      */
+     public function mergeFields()
+     {
+         return new MergeFields;
+     }
+
      public function interests()
      {
          return new Interests;
