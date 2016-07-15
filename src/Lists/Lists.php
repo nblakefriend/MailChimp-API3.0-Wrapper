@@ -212,14 +212,10 @@ class Lists extends MailChimp
         return self::execute("DELETE", "lists/{$listId}");
     }
 
+
     /**
      *  Instantiate lists subresources
      */
-     public function mergeFields()
-     {
-         return new MergeFields;
-     }
-
      public function interests()
      {
          return new Interests;
@@ -228,6 +224,11 @@ class Lists extends MailChimp
     public function members()
     {
         return new Members;
+    }
+
+    public function mergeFields()
+    {
+        return new MergeFields;
     }
 
     public function webhooks()
