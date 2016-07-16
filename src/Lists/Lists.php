@@ -2,8 +2,11 @@
 namespace MailChimp\Lists;
 
 use MailChimp\MailChimp as MailChimp;
+use MailChimp\Lists\Interests as Interests;
 use MailChimp\Lists\Members as Members;
-
+use MailChimp\Lists\MergeFields as MergeFields;
+use MailChimp\Lists\Segments as Segments;
+use MailChimp\Lists\Webhooks as Webhooks;
 
 class Lists extends MailChimp
 {
@@ -229,6 +232,11 @@ class Lists extends MailChimp
     public function mergeFields()
     {
         return new MergeFields;
+    }
+
+    public function segments()
+    {
+        return new Segments;
     }
 
     public function webhooks()
