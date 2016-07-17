@@ -5,6 +5,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use MailChimp\AuthorizedApps\AuthorizedApps as AuthorizedApps;
 use MailChimp\Batches\Batches as Batches;
+use MailChimp\CampaignFolders\CampaignFolders as CampaignFolders;
 use MailChimp\Campaigns\Campaigns as Campaigns;
 use MailChimp\Ecommerce\Ecommerce as Ecommerce;
 use MailChimp\Lists\Lists as Lists;
@@ -130,28 +131,12 @@ class MailChimp
     * Available query fields:
     * array["fields"]              array       list of strings of response fields to return
     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
-    *
     * @param array $query (See Above) OPTIONAL associative array of query parameters.
     * @return object
     */
     public function getAccountInfo(array $query = [])
     {
         return self::execute("GET", "", $query);
-    }
-
-    public function campaigns()
-    {
-        return new Campaigns;
-    }
-
-    public function lists()
-    {
-        return new Lists;
-    }
-
-    public function ecommerce()
-    {
-        return new Ecommerce;
     }
 
     public function authorizedApps()
@@ -161,7 +146,7 @@ class MailChimp
 
     public function automations()
     {
-
+        return "This collection is not completed";
     }
 
     public function batchOps()
@@ -171,36 +156,57 @@ class MailChimp
 
     public function campaignFolders()
     {
+        return new CampaignFolders;
+    }
 
+    public function campaigns()
+    {
+        return new Campaigns;
     }
 
     public function conversations()
     {
+        return "This collection is not completed";
+    }
 
+    public function ecommerce()
+    {
+        /**
+         * TODO: Collection in progress
+         */
+        return new Ecommerce;
     }
 
     public function fileManagerFiles()
     {
-
+        return "This collection is not completed";
     }
 
     public function fileManagerFolders()
     {
+        return "This collection is not completed";
+    }
 
+    public function lists()
+    {
+        return new Lists;
     }
 
     public function reports()
     {
-
+        return "This collection is not completed";
     }
 
     public function templateFolders()
     {
-
+        return "This collection is not completed";
     }
 
     public function templates()
     {
+        /**
+         * TODO: Collection in progress
+         */
         return new Templates;
     }
 

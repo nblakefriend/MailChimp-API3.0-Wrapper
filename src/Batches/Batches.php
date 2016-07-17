@@ -37,10 +37,10 @@ class Batches extends MailChimp
 
     /**
      * Begin processing a batch operations request.
-     * @param array $data 
+     * @param array $data
      * @return object
      */
-    public function createBatch ($data = array("method" => "", "path" => "", "params" => [], "body"=> null, "operation_id" => null)  )
+    public function createBatch ($data = array(["method" => "", "path" => "", "params" => [], "body"=> null, "operation_id" => null])  )
     {
         $operation = [];
 

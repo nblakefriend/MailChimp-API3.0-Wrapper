@@ -13,6 +13,7 @@ class Campaigns extends MailChimp
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
      * array["count"]               int         number of records to return
      * array["offset"]              int         number of records from a collection to skip.
+     * array["folder_id"]           string      Filter results by a specific campaign folder.
      * array["type"]                string      The campaign type.
      *                                          Possible values: regular,plaintext,absplit,rss,variate
      * array["status"]              string      The status of the campaign.
