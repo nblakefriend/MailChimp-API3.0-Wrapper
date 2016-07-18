@@ -4,6 +4,7 @@ namespace MailChimp;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use MailChimp\AuthorizedApps\AuthorizedApps as AuthorizedApps;
+use MailChimp\Automations\Automations as Automations;
 use MailChimp\Batches\Batches as Batches;
 use MailChimp\CampaignFolders\CampaignFolders as CampaignFolders;
 use MailChimp\Campaigns\Campaigns as Campaigns;
@@ -124,6 +125,18 @@ class MailChimp
         return $responseBody;
     }
 
+    /**
+     * Create the member hash
+     *
+     * @param string email address
+     * @return string
+     */
+    protected static function getMemberHash($emailAddress)
+    {
+        return md5(strtolower($emailAddress));
+    }
+
+
     /** RESOURCES */
 
     /**
@@ -146,7 +159,7 @@ class MailChimp
 
     public function automations()
     {
-        return "This collection is not completed";
+        return new Automations;
     }
 
     public function batchOps()

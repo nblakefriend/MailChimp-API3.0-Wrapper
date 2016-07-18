@@ -10,16 +10,6 @@ use MailChimp\Lists\Webhooks as Webhooks;
 
 class Lists extends MailChimp
 {
-    /**
-     * Create the member hash
-     *
-     * @param string email address
-     * @return string
-     */
-    protected static function getMemberHash($email_address)
-    {
-        return md5(strtolower($email_address));
-    }
 
     /**
      * Get a list of lists for the account
