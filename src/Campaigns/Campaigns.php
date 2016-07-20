@@ -66,16 +66,82 @@ class Campaigns extends MailChimp
     }
 
     /**
-     * TODO: determine best way to set up complex request body.
      * Create a campaign
-     * $type            string      Required Possible Values: regular,plaintext,rss,variate
-     * $recipients      array
-     *      $recipients["list_id"]      string      Required
-     *      $recipients["segment_opts"] array
-     * @param array $data
+     * Example Request Body:
+     *      "type"                          string      REQUIRED The campaign type. Possible Values: regular, plaintext, variate, rss
+     *      "recipients"                    array       List setting for the campaign
+     *          ["list_id"]                 string      REQUIRED The unique list id from lists()->getLists()
+     *          ["segment_opts"]            array       optional segmentation options
+     *               ["saved_segment_id"]   int         The id for an existing saved segment from lists()->segments()->getListSegments($listId)
+     *               ["match"]              string      Segement match type. Possible Values: any, all
+     *               ["conditions"]         array       An array of segment conditions
+     *                                                  Structure depends on segment http://developer.mailchimp.com/documentation/mailchimp/reference/lists/segments/#
+     *      "settings"                      array       REQUIRED
+     *          ["subject_line"]            string      REQUIRED The subject line for the campaign.
+     *          ["title"]                   string      The title of the campaign.
+     *          ["from_name"]               string      REQUIRED The ‘from’ name on the campaign (not an email address).
+     *          ["reply_to"]                string      REQUIRED The reply-to email address for the campaign.
+     *          ["use_conversation"]        boolean     Use MailChimp Conversation feature to manage out-of-office replies.
+     *          ["to_name"]                 string      The campaign’s custom ‘To’ name. Typically the first name merge field.
+     *          ["folder_id"]               string      If the campaign is listed in a folder, the id for that folder.
+     *          ["authenticate"]            boolean     Whether MailChimp authenticated the campaign. Defaults to true.
+     *          ["auto_footer"]             boolean     Automatically append MailChimp’s default footer to the campaign.
+     *          ["inline_css"]              boolean     Automatically inline the CSS included with the campaign content.
+     *          ["auto_tweet"]              boolean     Automatically tweet a link to the campaign archive page when the campaign is sent.
+     *          ["auto_fb_post"]            array       An array of Facebook page ids to auto-post to.
+     *          ["fb_comments"]             boolean     Allows Facebook comments on the campaign (also force-enables the Campaign Archive toolbar). Defaults to true.
+     *      "optionalSettings"              array       associative array of optional/conditional campaign options.
+     *          ["variate_settings"]        array       Required if type "variate" is set. The settings specific to variate campaigns.
+     *               ["winner_criteria"]    string      Required is variate. Possible Values: opens,clicks,manual, total_revenue
+     *               ["wait_time"]          int         The number of minutes to wait before choosing the winning campaign. The value of wait_time must be greater than 0 and in whole hours, specified in minutes.
+     *               ["test_size"]          int         The percentage of recipients to send the test combinations to, must be a value between 10 and 100.
+     *               ["subject_lines"]      array       The possible subject lines to test. If no subject lines are provided, settings.subject_line will be used.
+     *               ["send_times"]         array       The possible send times to test. The times provided should be in the format YYYY-MM-DD HH:MM:SS. If send_times are provided to test, the test_size will be set to 100% and winner_criteria will be ignored.
+     *               ["from_names"]         array       The possible from names. The number of from_names provided must match the number of reply_to_addresses. If no from_names are provided, settings.from_name will be used.
+     *               ["reply_to_addresses"] array       The possible reply-to addresses. The number of reply_to_addresses provided must match the number of from_names. If no reply_to_addresses are provided, settings.reply_to will be used.
+     *          ["rss_opts"]                array       Required if type "rss" is set. The settings specific to rss campaigns.
+     *               ["feed_url"]           string      Required for rss. The URL for the RSS feed.
+     *               ["frequency"]          string      Required for rss. The frequency of the RSS Campaign. Possible Values: daily,weekly,monthly
+     *               ["schedule"]           array       The schedule for sending the RSS Campaign.
+     *                  ["hour"]            int         The hour to send the campaign in local time. Acceptable hours are 0-23. For example, ‘4’ would be 4am in your account’s default time zone.
+     *                  ["daily_send"]      array       The days of the week to send a daily RSS Campaign.
+     *                      ["sunday"]      boolean
+     *                      ["monday"]      boolean
+     *                      ["tuesday"]     boolean
+     *                      ["wednesday"]   boolean
+     *                      ["thursday"]    boolean
+     *                      ["friday"]      boolean
+     *                      ["saturday"]    boolean
+     *                  ["weekly_send_day"] string      The day of the week to send a weekly RSS Campaign. Possible Values:sunday,monday,tuesday,wednesday,thursday,friday,saturday
+     *                  ["monthly_send_date"]   number   The day of the month to send a monthly RSS Campaign. Acceptable days are 1-31, where ‘0’ is always the last day of a month
+     *               ["constrain_rss_img"]  boolean     Whether to add CSS to images in the RSS feed to constrain their width in campaigns.
+     *          ["tracking"]                array       Required if type variate is set. The settings specific to variate campaigns.
+     *               ["opens"]              boolean
+     *               ["html_clicks"]        boolean
+     *               ["text_clicks"]        boolean
+     *               ["goal_tracking"]      boolean
+     *               ["ecomm360"]           boolean
+     *               ["google_analytics"]   string      The custom slug for Google Analytics tracking (max of 50 bytes).
+     *               ["clicktale"]          string      The custom slug for ClickTale tracking (max of 50 bytes).
+     *               ["salesforce"]         array       Salesforce tracking options for a campaign. Must be using MailChimp’s built-in Salesforce integration.
+     *                    ["campaign"]      boolean     Create a campaign in a connected Salesforce account.
+     *                    ["notes"]         boolean     Update contact notes for a campaign based on subscriber email addresses.
+     *               ["highrise"]           array
+     *                    ["campaign"]      boolean     Create a campaign in a connected Highrise account.
+     *                    ["notes"]         boolean     Update contact notes for a campaign based on subscriber email addresses.
+     *               ["capsule"]            array
+     *                    ["notes"]         boolean     Update contact notes for a campaign based on subscriber email addresses.
+     *          ["social_cards"]            array       Required if type variate is set. The settings specific to rss campaigns.
+     *               ["image_url"]          string      The url for the header image for the card.
+     *               ["description"]        string      A short summary of the campaign to display.
+     *               ["title"]              string      The title for the card.
+     * @param array $type       Required
+     * @param array $recipients Required
+     * @param array $settings   Required
+     * @param array $optionalSettings (See possible values above)
      * @return object
      */
-    public function createCampaign($type, array $recipients = [], array $settings = [], array $optionalSettings = [])
+    public function createCampaign($type, array $recipients = [], array $settings = [], array $optionalSettings = null )
     {
         $data = [
             "type" => $type,
@@ -83,26 +149,38 @@ class Campaigns extends MailChimp
             "settings" => $settings
         ];
 
-        // If optional settings are passed, let's go ahead and lowercase the key values.
+        // If optional settings are passed, go ahead and lowercase the key values.
         if (isset($optionalSettings)) {
+
             foreach ($optionalSettings as $key => $value) {
                 $opts[strtolower($key)] = $value;
             }
-        }
 
-        if (strtolower($type) == "variate") {
-            $data["variate_settings"] = $opts["variate_settings"];
-        }
-        if (strtolower($type) == "rss") {
-            $data["rss_opts"] = $opts["rss_opts"];
-        }
-        if (array_key_exists("tracking", $opts)) {
-            $data["tracking"] = $opts["tracking"];
-        }
-        if (array_key_exists("social_card", $opts)) {
-            $data["social_card"] = $opts["social_card"];
+            if (array_key_exists("tracking", $opts)) {
+                $data["tracking"] = $opts["tracking"];
+            }
+            if (array_key_exists("social_card", $opts)) {
+                $data["social_card"] = $opts["social_card"];
+            }
+
+            if (strtolower($type) == "variate") {
+                $data["variate_settings"] = $opts["variate_settings"];
+            }
+            if (strtolower($type) == "rss") {
+                $data["rss_opts"] = $opts["rss_opts"];
+            }
         }
         return self::execute("POST", "campaigns", $data);
+    }
+
+
+    /**
+     * Update a Campaign
+     * @param string $campaignId for the campaign instance
+     */
+    public function updateCampaign($campaignId, array $data = [])
+    {
+        return self::execute("PATCH", "campaigns/{$campaignId}", $data);
     }
 
 
