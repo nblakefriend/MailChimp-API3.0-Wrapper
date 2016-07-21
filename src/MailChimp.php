@@ -10,7 +10,9 @@ use MailChimp\CampaignFolders\CampaignFolders as CampaignFolders;
 use MailChimp\Campaigns\Campaigns as Campaigns;
 use MailChimp\Ecommerce\Ecommerce as Ecommerce;
 use MailChimp\Lists\Lists as Lists;
+use MailChimp\TemplateFolders\TemplateFolders as TemplateFolders;
 use MailChimp\Templates\Templates as Templates;
+
 
 class MailChimp
 {
@@ -212,7 +214,7 @@ class MailChimp
 
     public function templateFolders()
     {
-        return "This collection is not completed";
+        return new TemplateFolders;
     }
 
     public function templates()
