@@ -48,4 +48,4 @@ Assuming your MailChimp instance is stored in the `$mc` variable
 This would return the response from calling /lists
 http://developer.mailchimp.com/documentation/mailchimp/reference/lists/#read-get_lists
 
-***Full documentation to come***
+***Full (prettier) documentation to come***
