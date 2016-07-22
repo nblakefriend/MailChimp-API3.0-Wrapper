@@ -44,6 +44,6 @@ Each MailChimp colleciton (lists, campaigns, e-commerce etc.) is accessed using 
 If your MailChimp instance is stored in the `$mc` variable
 
 #### Lists
-$mc->lists()->getLists();
+`$mc->lists()->getLists();`
 This would return the response from calling /lists
 http://developer.mailchimp.com/documentation/mailchimp/reference/lists/#read-get_lists
