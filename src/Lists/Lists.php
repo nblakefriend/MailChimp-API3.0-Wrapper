@@ -6,6 +6,7 @@ use MailChimp\Lists\Interests as Interests;
 use MailChimp\Lists\Members as Members;
 use MailChimp\Lists\MergeFields as MergeFields;
 use MailChimp\Lists\Segments as Segments;
+use MailChimp\Lists\SignupForms as SignupForms;
 use MailChimp\Lists\Webhooks as Webhooks;
 
 class Lists extends MailChimp
@@ -227,6 +228,11 @@ class Lists extends MailChimp
     public function segments()
     {
         return new Segments;
+    }
+
+    public function signupForms()
+    {
+        return new signupForms;
     }
 
     public function webhooks()
