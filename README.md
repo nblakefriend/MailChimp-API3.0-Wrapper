@@ -38,7 +38,7 @@ Whichever key[active] is true will be used.
 5. `print_r($mc->getAccountInfo());` should return the MailChimp API Root call.
 
 ### Using collections
-Each MailChimp colleciton (lists, campaigns, e-commerce etc.) is accessed using a method found at the bottom of the MailChimp.php file.
+Each MailChimp collections **(lists, campaigns, e-commerce etc.)** is accessed using a method found at the bottom of the `MailChimp.php` file.
 
 *For example:*
 If your MailChimp instance is stored in the `$mc` variable
