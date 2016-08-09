@@ -19,7 +19,7 @@ class MailChimp
 {
 
     private static $mc_root;
-    private static $apikey;
+    private static $api_key;
     private static $config = "config.ini";
     private static $config_dev = "configtest.ini";
     protected static $client;
@@ -73,9 +73,10 @@ class MailChimp
     private static function getActiveKey()
     {
         $config = self::getConfig();
-        foreach ($config["apikeys"] as $api) {
+        foreach ($config["api_keys"] as $api) {
             if ($api["active"]) {
-                return $api["apikey"];
+                return $api["api_key"];
+                break;
             }
         }
     }
@@ -129,10 +130,11 @@ class MailChimp
      * @param string email address
      * @return string
      */
-    protected static function getMemberHash($emailAddress)
+    protected static function getMemberHash($email_address)
     {
-        return md5(strtolower($emailAddress));
+        return md5(strtolower($email_address));
     }
+
 
     public function oauth()
     {

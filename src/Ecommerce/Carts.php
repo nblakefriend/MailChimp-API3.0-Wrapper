@@ -17,20 +17,18 @@ class Carts extends Ecommerce
     /**
      * Add a new cart to a store
      */
-    public function addCart($store_id, $cart_id, $currency_code, $order_total, array $customer = [], array $lines = [], array $optional_settings = [])
+    public function addCart($store_id, $cart_id, $currency_code, $cart_total, array $customer = [], array $lines = [], array $optional_settings = null)
     {
         $data = [
             "id" => $cart_id,
             "customer" => $customer,
             "currency_code" => $currency_code,
-            "order_total" => $order_total,
+            "cart_total" => $cart_total,
             "lines" => $lines
         ];
 
         if (isset($optional_settings)) {
             foreach ($optional_settings as $key => $value) {
-                // $opts[strtolower($key)] = $value;
-
                 switch (strtolower($key))
                 {
                     case "campaign_id":
@@ -56,7 +54,6 @@ class Carts extends Ecommerce
     }
 
 
-
     public function getCartLines($store_id, $cart_id, array $query = [])
     {
         return self::execute("GET", "ecommerce/stores/{$store_id}/carts/{$cart_id}/lines", $query);
@@ -65,6 +62,55 @@ class Carts extends Ecommerce
     public function getCartLine($store_id, $cart_id, $line_id, array $query = [])
     {
         return self::execute("GET", "ecommerce/stores/{$store_id}/carts/{$cart_id}/lines/{$line_id}", $query);
+    }
+
+    /**
+     * Add a new line item to an existing cart
+     *
+     * @param string $store_id
+     * @param string $cart_id
+     * @param string $line_id
+     * @param string $product_id
+     * @param string $product_variant_id
+     * @param int $quantity
+     * @param number price
+     * @return object
+     */
+    public function addCartLine($store_id, $cart_id, $line_id, $product_id, $product_variant_id, $quantity, $price)
+    {
+        $data = [
+            "id" => $line_id,
+            "product_id" => $product_id,
+            "product_variant_id" => $product_variant_id,
+            "quantity" => $quantity,
+            "price" => $price
+        ];
+        return self::execute("POST", "ecommerce/stores/{$store_id}/carts/{$cart_id}/lines/", $data);
+    }
+    /**
+     * Update a line item to an existing cart
+     *
+     * @param string $store_id
+     * @param string $cart_id
+     * @param string $line_id
+     * @param array $data
+     * @return object
+     */
+    public function updateCartLine($store_id, $cart_id, $line_id, array $data = [])
+    {
+        return self::execute("PATCH", "ecommerce/stores/{$store_id}/carts/{$cart_id}/lines/{$line_id}", $data);
+    }
+
+    /**
+     * Delete a line item to an existing cart
+     *
+     * @param string $store_id
+     * @param string $cart_id
+     * @param string $line_id
+     */
+    public function deleteCartLine($store_id, $cart_id, $line_id)
+    {
+        return self::execute("DELETE", "ecommerce/stores/{$store_id}/carts/{$cart_id}/lines/{$line_id}");
     }
 
 

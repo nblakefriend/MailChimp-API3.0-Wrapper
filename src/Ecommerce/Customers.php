@@ -4,11 +4,26 @@ namespace MailChimp\Ecommerce;
 class Customers extends Ecommerce
 {
 
+    /**
+     * Get information about a store’s customers.
+     *
+     * @param string $store_id
+     * @param  array (optional) $query
+     * @return object
+     */
     public function getCustomers($store_id, array $query = [])
     {
         return self::execute("GET", "ecommerce/stores/{$store_id}/customers", $query);
     }
 
+    /**
+     * Get information about a specific customer.
+     *
+     * @param string $store_id
+     * @param string $customer_id
+     * @param  array (optional) $query
+     * @return object
+     */
     public function getCustomer($store_id, $customer_id, array $query = [])
     {
         return self::execute("GET", "ecommerce/stores/{$store_id}/customers/{$customer_id}", $query);
@@ -16,8 +31,15 @@ class Customers extends Ecommerce
 
     /**
      * Add a new customer to a store
+     *
+     * @param string $store_id
+     * @param string $customer_id
+     * @param string $email_address
+     * @param boolean $opt_in_status
+     * @param  array (optional) $optional_settings
+     * @return object
      */
-    public function addCustomer($store_id, $customer_id, $email_address, $opt_in_status, array $optional_settings = [] )
+    public function addCustomer($store_id, $customer_id, $email_address, $opt_in_status, array $optional_settings = null)
     {
         $data = array(
             "id" => $customer_id,

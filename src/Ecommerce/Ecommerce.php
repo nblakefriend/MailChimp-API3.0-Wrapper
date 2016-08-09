@@ -13,8 +13,8 @@ class Ecommerce extends MailChimp
     /**
      * Get a list of ecommerce stores for the account
      *
-     * @param  (optional) array $query  of query parameters
-     * @return object List of Ecommerce Stores
+     * @param  array (optional)  $query
+     * @return object
      */
     public function getStores(array $query = [] )
     {
@@ -25,8 +25,8 @@ class Ecommerce extends MailChimp
      * Get a list of ecommerce stores for the account
      *
      * @param string $store_id
-     * @param  (optional) $query array of query parameters
-     * @return object List of Ecommerce Stores
+     * @param array (optional) $query
+     * @return object
      */
     public function getStore($store_id, array $query = [] )
     {
@@ -35,6 +35,15 @@ class Ecommerce extends MailChimp
 
     /**
      * Add a new store
+     *
+     * @param string $store_id
+     * @param string $list_id
+     * @param string $name
+     * @param string $currency_code The three-letter ISO 4217 code for the currency that the store accepts.
+     * @param array (optional) $optional_settings
+     * @return object
+
+     * TODO: expand comment
      */
     public function addStore($store_id, $list_id, $name, $currency_code, array $optional_settings = null)
     {
@@ -45,10 +54,11 @@ class Ecommerce extends MailChimp
             "currency_code" => $currency_code
         ];
 
+        /**
+         * TODO: See if this functionality can be made into a function in the parent class.
+         */
         if (isset($optional_settings)) {
             foreach ($optional_settings as $key => $value) {
-                $opts[strtolower($key)] = $value;
-
                 switch (strtolower($key))
                 {
                     case "platform":
@@ -85,6 +95,9 @@ class Ecommerce extends MailChimp
 
     /**
      * Update a store
+     *
+     * @param string $store_id
+     * @param array $data
      */
     public function updateStore($store_id, array $data = [])
     {
@@ -93,6 +106,8 @@ class Ecommerce extends MailChimp
 
     /**
      * Delete a store
+     *
+     * @param string $string_id
      */
     public function deleteStore($store_id)
     {
