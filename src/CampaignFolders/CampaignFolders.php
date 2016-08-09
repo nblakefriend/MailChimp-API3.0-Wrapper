@@ -26,13 +26,13 @@ class CampaignFolders extends MailChimp
      * Available query fields:
      * array["fields"]                  array       list of strings of response fields to return
      * array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")
-     * @param string $folderId
+     * @param string $folder_id
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function getCampaignFolder($folderId, array $query = [])
+    public function getCampaignFolder($folder_id, array $query = [])
     {
-        return self::execute("GET", "campaign-folders/{$folderId}", $query);
+        return self::execute("GET", "campaign-folders/{$folder_id}", $query);
     }
 
     /**
@@ -40,9 +40,9 @@ class CampaignFolders extends MailChimp
      * @param string folder name
      * @return object
      */
-    public function createCampaignFolder($folderName)
+    public function createCampaignFolder($folder_name)
     {
-        $data = ["name" => $folderName];
+        $data = ["name" => $folder_name];
         return self::execute("POST", "campaign-folders", $data);
     }
 
@@ -51,19 +51,19 @@ class CampaignFolders extends MailChimp
      * @param string folder name
      * @return object
      */
-    public function updateCampaignFolder($folderId, $folderName)
+    public function updateCampaignFolder($folder_id, $folder_name)
     {
-        $data = ["name" => $folderName];
-        return self::execute("PATCH", "campaign-folders/{$folderId}", $data);
+        $data = ["name" => $folder_name];
+        return self::execute("PATCH", "campaign-folders/{$folder_id}", $data);
     }
 
     /**
      * Delete a specific campaign folder, and mark all the campaigns in the folder as ‘unfiled’.
-     * @param string $folderId
+     * @param string $folder_id
      */
-    public function deleteCampaignFolder($folderId)
+    public function deleteCampaignFolder($folder_id)
     {
-        return self::execute("DELETE", "campaign-folders/{$folderId}");
+        return self::execute("DELETE", "campaign-folders/{$folder_id}");
     }
 
 }

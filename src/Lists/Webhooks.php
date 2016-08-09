@@ -5,25 +5,25 @@ class Webhooks extends Lists
 {
     /**
      * Get a list of webhooks
-     * @param string $listId
+     * @param string $list_id
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
     */
-    public function getWebhooks($listId, array $query = [])
+    public function getWebhooks($list_id, array $query = [])
     {
-        return self::execute("GET", "lists/{$listId}/webhooks", $query);
+        return self::execute("GET", "lists/{$list_id}/webhooks", $query);
     }
 
     /**
      * Get a single webhook
-     * @param string $listId
-     * @param string $webhookId
+     * @param string $list_id
+     * @param string $webhook_id
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
     */
-    public function getWebhook($listId, $webhookId, array $query = [])
+    public function getWebhook($list_id, $webhook_id, array $query = [])
     {
-        return self::execute("GET", "lists/{$listId}/webhooks/{$webhookId}", $query);
+        return self::execute("GET", "lists/{$list_id}/webhooks/{$webhook_id}", $query);
     }
 
     /**
@@ -42,23 +42,23 @@ class Webhooks extends Lists
      *          "admin"         boolean
      *          "api"           boolean
      *
-     * @param string $listId
+     * @param string $list_id
      * @param array $data
      * @return object
     */
-    public function createWebhook($listId, array $data = [])
+    public function createWebhook($list_id, array $data = [])
     {
-        return self::execute("POST", "lists/{$listId}/webhooks", $data);
+        return self::execute("POST", "lists/{$list_id}/webhooks", $data);
     }
 
     /**
      * Delete a webhook
-     * @param string $listId
-     * @param string $webhookId
+     * @param string $list_id
+     * @param string $webhook_id
     */
-    public function deleteWebhook($listId, $webhookId)
+    public function deleteWebhook($list_id, $webhook_id)
     {
-        return self::execute("DELETE", "lists/{$listId}/webhooks/{$webhookId}");
+        return self::execute("DELETE", "lists/{$list_id}/webhooks/{$webhook_id}");
     }
 
 }

@@ -21,13 +21,13 @@ class Segments extends Lists
      *                                          ISO 8601 time format: 2015-10-21T15:41:36+00:00.
      * array["before_updated_at"]   string      Restrict the response to segments updated after the set time.
      *                                          ISO 8601 time format: 2015-10-21T15:41:36+00:00.
-     * @param string $listId
+     * @param string $list_id
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function getListSegments($listId, array $query = [])
+    public function getListSegments($list_id, array $query = [])
     {
-        return self::execute("GET", "lists/{$listId}/segments", $query);
+        return self::execute("GET", "lists/{$list_id}/segments", $query);
     }
 
     /**
@@ -35,14 +35,14 @@ class Segments extends Lists
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
-     * @param string $listId
-     * @param string $segmentId
+     * @param string $list_id
+     * @param string $segment_id
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-     public function getListSegment($listId, $segmentId, array $query = [])
+     public function getListSegment($list_id, $segment_id, array $query = [])
      {
-         return self::execute("GET", "lists/{$listId}/segments/{$segmentId}", $query);
+         return self::execute("GET", "lists/{$list_id}/segments/{$segment_id}", $query);
      }
 
      /**
@@ -52,14 +52,14 @@ class Segments extends Lists
       * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
       * array["count"]               int         number of records to return
       * array["offset"]              int         number of records from a collection to skip.
-      * @param string $listId
-      * @param string $segmentId
+      * @param string $list_id
+      * @param string $segment_id
       * @param array $query (See Above) OPTIONAL associative array of query parameters.
       * @return object
       */
-      public function getListSegmentMember($listId, $segmentId, array $query = [])
+      public function getListSegmentMember($list_id, $segment_id, array $query = [])
       {
-          return self::execute("GET", "lists/{$listId}/segments/{$segmentId}/members", $query);
+          return self::execute("GET", "lists/{$list_id}/segments/{$segment_id}/members", $query);
       }
 
 
@@ -75,61 +75,61 @@ class Segments extends Lists
       *         ["match"]           string      Match Type Possible Values: any, all
       *         ["conditions"]      array       An array of segment conditions.
       *               Structure depends on segment http://developer.mailchimp.com/documentation/mailchimp/reference/lists/segments/#
-      * @param string $listId
+      * @param string $list_id
       * @param array $data
       * @return object
       */
-     public function createListSegment($listId, array $data =[])
+     public function createListSegment($list_id, array $data =[])
      {
-         return self::execute("POST", "lists/{$listId}/segments", $data);
+         return self::execute("POST", "lists/{$list_id}/segments", $data);
      }
 
      /**
       * Update a specific segment in a list.
       * Structure depends on segment http://developer.mailchimp.com/documentation/mailchimp/reference/lists/segments/#
-      * @param string $listId
+      * @param string $list_id
       * @param array $data
       * @return object
       */
-     public function updateListSegment($listId, $segmentId, array $data =[])
+     public function updateListSegment($list_id, $segment_id, array $data =[])
      {
-         return self::execute("PATCH", "lists/{$listId}/segments/{$segmentId}", $data);
+         return self::execute("PATCH", "lists/{$list_id}/segments/{$segment_id}", $data);
      }
 
      /**
      * Add a member to a static segment.
      * array["data"]
      *      ["email_address"]      string     required
-      * @param string $listId
+      * @param string $list_id
       * @param array $data
       * @return object
       */
-     public function addListSegmentMember($listId, $segmentId, $email_address, array $data =[])
+     public function addListSegmentMember($list_id, $segment_id, $email_address, array $data =[])
      {
-         return self::execute("POST", "lists/{$listId}/segments/{$segmentId}/members", $data);
+         return self::execute("POST", "lists/{$list_id}/segments/{$segment_id}/members", $data);
      }
 
 
      /**
       * Remove a member from the specified static segment.
-      * @param string $listId
-      * @param string $segmentId
+      * @param string $list_id
+      * @param string $segment_id
       * @param string $email_address
       */
-      public function removeListSegmentMember($listId, $segmentId, $email_address)
+      public function removeListSegmentMember($list_id, $segment_id, $email_address)
       {
           $hash = self::getMemberHash($email_address);
-          return self::execute("DELETE", "lists/{$listId}/segments/{$segmentId}/members/{$hash}");
+          return self::execute("DELETE", "lists/{$list_id}/segments/{$segment_id}/members/{$hash}");
       }
 
      /**
       * Delete a specific segment in a list.
-      * @param string $listId
-      * @param string $segmentId
+      * @param string $list_id
+      * @param string $segment_id
       */
-      public function deleteListSegment($listId, $segmentId)
+      public function deleteListSegment($list_id, $segment_id)
       {
-          return self::execute("DELETE", "lists/{$listId}/segments/{$segmentId}");
+          return self::execute("DELETE", "lists/{$list_id}/segments/{$segment_id}");
       }
 
 }

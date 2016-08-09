@@ -11,77 +11,111 @@ class Ecommerce extends MailChimp
 {
 
     /**
-    * Get a list of ecommerce stores for the account
-    *
-    * @param  (optional) $query array of query parameters
-    * @return List of Ecommerce Stores
-    **/
+     * Get a list of ecommerce stores for the account
+     *
+     * @param  (optional) array $query  of query parameters
+     * @return object List of Ecommerce Stores
+     */
     public function getStores(array $query = [] )
     {
         return self::execute("GET", "ecommerce/stores", $query);
     }
 
-    public function getStore($storeId, array $query = [] )
+    /**
+     * Get a list of ecommerce stores for the account
+     *
+     * @param string $store_id
+     * @param  (optional) $query array of query parameters
+     * @return object List of Ecommerce Stores
+     */
+    public function getStore($store_id, array $query = [] )
     {
-        return self::execute("GET", "ecommerce/stores/{$storeId}", $query);
-    }
-
-    public function getProductVariants($storeId, $productId, array $query = [])
-    {
-        return self::execute("GET", "ecommerce/stores/{$storeId}/products/{$productId}/variants", $query);
-    }
-
-    public function getProductVariant($storeId, $productId, $variantId, array $query = [])
-    {
-        return self::execute("GET", "ecommerce/stores/{$storeId}/products/{$productId}/variants/{$variantId}", $query);
-    }
-
-
-    public function getOrderLines($storeId, $orderId, array $query = [])
-    {
-        return self::execute("GET", "ecommerce/stores/{$storeId}/orders/{$orderId}/lines", $query);
-    }
-
-    public function getOrderLine($storeId, $cartId, $lineId, array $query = [])
-    {
-        return self::execute("GET", "ecommerce/stores/{$storeId}/orders/{$orderId}/lines/{$lineId}", $query);
-    }
-
-
-    public function getCartLines($storeId, $cartId, array $query = [])
-    {
-        return self::execute("GET", "ecommerce/stores/{$storeId}/carts/{$cartId}/lines", $query);
-    }
-
-    public function getCartLine($storeId, $cartId, $lineId, array $query = [])
-    {
-        return self::execute("GET", "ecommerce/stores/{$storeId}/carts/{$cartId}/lines/{$lineId}", $query);
-    }
-
-
-    // Update Things
-    public function updateStore($storeId, $data=array())
-    {
-        $availableFields = array("name", "platform","domain", "email_address", "currency_code", "money_format", "primary_locale", "timezone", "phone", "address");
-
-        $d = array();
-        foreach ($data as $key => $value) {
-            if (in_array($key, $availableFields)) {
-                $d[$key] = $value;
-            } else {
-                return new \Exception( "{$key} is not an available field." );
-            }
-        }
-        return self::execute("PATCH", "ecommerce/stores/{$storeId}", $d);
+        return self::execute("GET", "ecommerce/stores/{$store_id}", $query);
     }
 
     /**
-     *  Instantiate Ecommerce subresources
-    **/
+     * Add a new store
+     */
+    public function addStore($store_id, $list_id, $name, $currency_code, array $optional_settings = null)
+    {
+        $data = [
+            "id" => $store_id,
+            "list_id" => $list_id,
+            "name" => $name,
+            "currency_code" => $currency_code
+        ];
 
-    public function customers()
+        if (isset($optional_settings)) {
+            foreach ($optional_settings as $key => $value) {
+                $opts[strtolower($key)] = $value;
+
+                switch (strtolower($key))
+                {
+                    case "platform":
+                        $data["platform"] = $value;
+                        break;
+                    case "domain":
+                        $data["domain"] = $value;
+                        break;
+                    case "email_address":
+                        $data["email_address"] = $value;
+                        break;
+                    case "money_format":
+                        $data["money_format"] = $value;
+                        break;
+                    case "primary_locale":
+                        $data["primary_locale"] = $value;
+                        break;
+                    case "timezone":
+                        $data["timezone"] = $value;
+                        break;
+                    case "phone":
+                        $data["phone"] = $value;
+                        break;
+                    case "address":
+                        $data["address"] = $value;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        return self::execute("POST", "ecommerce/stores", $data);
+    }
+
+    /**
+     * Update a store
+     */
+    public function updateStore($store_id, array $data = [])
+    {
+        return self::execute("PATCH", "ecommerce/stores/{$store_id}", $d);
+    }
+
+    /**
+     * Delete a store
+     */
+    public function deleteStore($store_id)
+    {
+        return self::execute("DELETE", "ecommerce/stores/{$store_id}");
+    }
+
+    /**
+     *  Ecommerce subresources
+     */
+
+     public function carts()
+     {
+         return new Carts;
+     }
+
+     public function customers()
     {
         return new Customers;
+    }
+
+    public function orders()
+    {
+        return new Orders;
     }
 
     public function products()

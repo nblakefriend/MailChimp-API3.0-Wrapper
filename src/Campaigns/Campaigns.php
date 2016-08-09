@@ -41,13 +41,13 @@ class Campaigns extends MailChimp
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
      *
-     * @param string $campaignId for the campaign instance
+     * @param string $campaign_id for the campaign instance
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function getCampaign($campaignId, array $query = [])
+    public function getCampaign($campaign_id, array $query = [])
     {
-        return self::execute("GET", "campaigns/{$campaignId}", $query);
+        return self::execute("GET", "campaigns/{$campaign_id}", $query);
     }
 
     /**
@@ -56,13 +56,13 @@ class Campaigns extends MailChimp
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
      *
-     * @param string $campaignId for the campaign instance
+     * @param string $campaign_id for the campaign instance
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function getCampaignChecklist($campaignId, array $query = [])
+    public function getCampaignChecklist($campaign_id, array $query = [])
     {
-        return self::execute("GET", "campaigns/{$campaignId}/send-checklist", $query);
+        return self::execute("GET", "campaigns/{$campaign_id}/send-checklist", $query);
     }
 
     /**
@@ -89,11 +89,13 @@ class Campaigns extends MailChimp
      *          ["inline_css"]              boolean     Automatically inline the CSS included with the campaign content.
      *          ["auto_tweet"]              boolean     Automatically tweet a link to the campaign archive page when the campaign is sent.
      *          ["auto_fb_post"]            array       An array of Facebook page ids to auto-post to.
-     *          ["fb_comments"]             boolean     Allows Facebook comments on the campaign (also force-enables the Campaign Archive toolbar). Defaults to true.
-     *      "optionalSettings"              array       associative array of optional/conditional campaign options.
+     *          ["fb_comments"]             boolean     Allows Facebook comments on the campaign (also force-enables the Campaign Archive toolbar).
+     *                                                  Defaults to true.
+     *      "optional_settings"              array       associative array of optional/conditional campaign options.
      *          ["variate_settings"]        array       Required if type "variate" is set. The settings specific to variate campaigns.
      *               ["winner_criteria"]    string      Required is variate. Possible Values: opens,clicks,manual, total_revenue
-     *               ["wait_time"]          int         The number of minutes to wait before choosing the winning campaign. The value of wait_time must be greater than 0 and in whole hours, specified in minutes.
+     *               ["wait_time"]          int         The number of minutes to wait before choosing the winning campaign.
+     *                                                  The value of wait_time must be greater than 0 and in whole hours, specified in minutes.
      *               ["test_size"]          int         The percentage of recipients to send the test combinations to, must be a value between 10 and 100.
      *               ["subject_lines"]      array       The possible subject lines to test. If no subject lines are provided, settings.subject_line will be used.
      *               ["send_times"]         array       The possible send times to test. The times provided should be in the format YYYY-MM-DD HH:MM:SS. If send_times are provided to test, the test_size will be set to 100% and winner_criteria will be ignored.
@@ -112,8 +114,10 @@ class Campaigns extends MailChimp
      *                      ["thursday"]    boolean
      *                      ["friday"]      boolean
      *                      ["saturday"]    boolean
-     *                  ["weekly_send_day"] string      The day of the week to send a weekly RSS Campaign. Possible Values:sunday,monday,tuesday,wednesday,thursday,friday,saturday
-     *                  ["monthly_send_date"]   number   The day of the month to send a monthly RSS Campaign. Acceptable days are 1-31, where ‘0’ is always the last day of a month
+     *                  ["weekly_send_day"] string      The day of the week to send a weekly RSS Campaign.
+     *                                                  Possible Values:sunday,monday,tuesday,wednesday,thursday,friday,saturday
+     *                  ["monthly_send_date"]   number   The day of the month to send a monthly RSS Campaign.
+     *                                                  Acceptable days are 1-31, where ‘0’ is always the last day of a month
      *               ["constrain_rss_img"]  boolean     Whether to add CSS to images in the RSS feed to constrain their width in campaigns.
      *          ["tracking"]                array       Required if type variate is set. The settings specific to variate campaigns.
      *               ["opens"]              boolean
@@ -123,7 +127,8 @@ class Campaigns extends MailChimp
      *               ["ecomm360"]           boolean
      *               ["google_analytics"]   string      The custom slug for Google Analytics tracking (max of 50 bytes).
      *               ["clicktale"]          string      The custom slug for ClickTale tracking (max of 50 bytes).
-     *               ["salesforce"]         array       Salesforce tracking options for a campaign. Must be using MailChimp’s built-in Salesforce integration.
+     *               ["salesforce"]         array       Salesforce tracking options for a campaign.
+     *                                                  Must be using MailChimp’s built-in Salesforce integration.
      *                    ["campaign"]      boolean     Create a campaign in a connected Salesforce account.
      *                    ["notes"]         boolean     Update contact notes for a campaign based on subscriber email addresses.
      *               ["highrise"]           array
@@ -138,10 +143,10 @@ class Campaigns extends MailChimp
      * @param array $type       Required
      * @param array $recipients Required
      * @param array $settings   Required
-     * @param array $optionalSettings (See possible values above)
+     * @param array $optional_settings (See possible values above)
      * @return object
      */
-    public function createCampaign($type, array $recipients = [], array $settings = [], array $optionalSettings = null )
+    public function createCampaign($type, array $recipients = [], array $settings = [], array $optional_settings = null )
     {
         $data = [
             "type" => $type,
@@ -150,24 +155,31 @@ class Campaigns extends MailChimp
         ];
 
         // If optional settings are passed, go ahead and lowercase the key values.
-        if (isset($optionalSettings)) {
+        if (isset($optional_settings)) {
 
-            foreach ($optionalSettings as $key => $value) {
-                $opts[strtolower($key)] = $value;
-            }
+            foreach ($optional_settings as $key => $value) {
 
-            if (array_key_exists("tracking", $opts)) {
-                $data["tracking"] = $opts["tracking"];
-            }
-            if (array_key_exists("social_card", $opts)) {
-                $data["social_card"] = $opts["social_card"];
-            }
-
-            if (strtolower($type) == "variate") {
-                $data["variate_settings"] = $opts["variate_settings"];
-            }
-            if (strtolower($type) == "rss") {
-                $data["rss_opts"] = $opts["rss_opts"];
+                switch (strtolower($key))
+                {
+                    case "tracking":
+                        $data["tracking"] = $value;
+                        break;
+                    case "social_card":
+                        $data["social_card"] = $value;
+                        break;
+                    case "variate_settings":
+                        if (strtolower($type) == "variate") {
+                            $data["variate_settings"] = $value;
+                        }
+                        break;
+                    case "rss_opts":
+                        if (strtolower($type) == "rss") {
+                            $data["rss_opts"] = $value;
+                        }
+                        break;
+                    default:
+                        break;
+                }
             }
         }
         return self::execute("POST", "campaigns", $data);
@@ -176,94 +188,95 @@ class Campaigns extends MailChimp
 
     /**
      * Update a Campaign
-     * @param string $campaignId for the campaign instance
+     * @param string $campaign_id for the campaign instance
+     * @param array $data
      */
-    public function updateCampaign($campaignId, array $data = [])
+    public function updateCampaign($campaign_id, array $data = [])
     {
-        return self::execute("PATCH", "campaigns/{$campaignId}", $data);
+        return self::execute("PATCH", "campaigns/{$campaign_id}", $data);
     }
 
 
     /**
      * Pause an RSS-Driven campaign
-     * @param string $campaignId for the campaign instance
+     * @param string $campaign_id for the campaign instance
      */
-    public function pauseRSSCampaign($campaignId)
+    public function pauseRSSCampaign($campaign_id)
     {
-        return self::execute("POST", "campaigns/{$campaignId}/actions/pause");
+        return self::execute("POST", "campaigns/{$campaign_id}/actions/pause");
     }
 
     /**
      * Resume an RSS-Driven campaign
-     * @param string $campaignId for the campaign instance
+     * @param string $campaign_id for the campaign instance
      */
-    public function resumeRSSCampaign($campaignId)
+    public function resumeRSSCampaign($campaign_id)
     {
-        return self::execute("POST", "campaigns/{$campaignId}/actions/resume");
+        return self::execute("POST", "campaigns/{$campaign_id}/actions/resume");
     }
 
     /**
      * Replicate a campaign
-     * @param string $campaignId for the campaign instance
+     * @param string $campaign_id for the campaign instance
      */
-    public function replicateCampaign($campaignId)
+    public function replicateCampaign($campaign_id)
     {
-        return self::execute("POST", "campaigns/{$campaignId}/actions/replicate");
+        return self::execute("POST", "campaigns/{$campaign_id}/actions/replicate");
     }
 
 
     /**
      * Cancel a campaign
-     * @param string $campaignId for the campaign instance
+     * @param string $campaign_id for the campaign instance
      */
-    public function cancelCampaign($campaignId)
+    public function cancelCampaign($campaign_id)
     {
-        return self::execute("POST", "campaigns/{$campaignId}/actions/cancel-send");
+        return self::execute("POST", "campaigns/{$campaign_id}/actions/cancel-send");
     }
 
     /**
      * Schedule a campaign
-     * @param string $campaignId for the campaign instance
+     * @param string $campaign_id for the campaign instance
      */
-    public function scheduleCampaign($campaignId)
+    public function scheduleCampaign($campaign_id)
     {
-        return self::execute("POST", "campaigns/{$campaignId}/actions/schedule");
+        return self::execute("POST", "campaigns/{$campaign_id}/actions/schedule");
     }
 
     /**
      * Unschedule a campaign
-     * @param string $campaignId for the campaign instance
+     * @param string $campaign_id for the campaign instance
      */
-    public function unscheduleCampaign($campaignId)
+    public function unscheduleCampaign($campaign_id)
     {
-        return self::execute("POST", "campaigns/{$campaignId}/actions/unschedule");
+        return self::execute("POST", "campaigns/{$campaign_id}/actions/unschedule");
     }
 
     /**
      * Send a test email
-     * @param string $campaignId for the campaign instance
+     * @param string $campaign_id for the campaign instance
      */
-    public function sendCampaignTest($campaignId)
+    public function sendCampaignTest($campaign_id)
     {
-        return self::execute("POST", "campaigns/{$campaignId}/actions/test");
+        return self::execute("POST", "campaigns/{$campaign_id}/actions/test");
     }
 
     /**
      * Send a campaign
-     * @param string $campaignId for the campaign instance
+     * @param string $campaign_id for the campaign instance
      */
-    public function sendCampaign($campaignId)
+    public function sendCampaign($campaign_id)
     {
-        return self::execute("POST", "campaigns/{$campaignId}/actions/send");
+        return self::execute("POST", "campaigns/{$campaign_id}/actions/send");
     }
 
     /**
      * Delete a campaign
-     * @param string $campaignId for the campaign instance
+     * @param string $campaign_id for the campaign instance
      */
-    public function deleteCampaign($campaignId)
+    public function deleteCampaign($campaign_id)
     {
-        return self::execute("DELETE", "campaigns/{$campaignId}/");
+        return self::execute("DELETE", "campaigns/{$campaign_id}/");
     }
 
 

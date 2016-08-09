@@ -26,13 +26,13 @@ class TemplateFolders extends MailChimp
      * Available query fields:
      * array["fields"]                  array       list of strings of response fields to return
      * array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")
-     * @param string $folderId
+     * @param string $folder_id
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function getTemplateFolder($folderId, array $query = [])
+    public function getTemplateFolder($folder_id, array $query = [])
     {
-        return self::execute("GET", "template-folders/{$folderId}", $query);
+        return self::execute("GET", "template-folders/{$folder_id}", $query);
     }
 
     /**
@@ -40,9 +40,9 @@ class TemplateFolders extends MailChimp
      * @param string Folder Name
      * @return object
      */
-    public function createTemplateFolder($folderName)
+    public function createTemplateFolder($folder_name)
     {
-        $data = ["name" => $folderName];
+        $data = ["name" => $folder_name];
         return self::execute("POST", "template-folders", $data);
     }
 
@@ -51,19 +51,19 @@ class TemplateFolders extends MailChimp
      * @param string Folder Name
      * @return object
      */
-    public function updateTemplateFolder($folderId, $folderName)
+    public function updateTemplateFolder($folder_id, $folder_name)
     {
-        $data = ["name" => $folderName];
-        return self::execute("PATCH", "template-folders/{$folderId}", $data);
+        $data = ["name" => $folder_name];
+        return self::execute("PATCH", "template-folders/{$folder_id}", $data);
     }
 
     /**
      * Delete a specific Template folder, and mark all the Templates in the folder as ‘unfiled’.
-     * @param string $folderId
+     * @param string $folder_id
      */
-    public function deleteTemplateFolder($folderId)
+    public function deleteTemplateFolder($folder_id)
     {
-        return self::execute("DELETE", "template-folders/{$folderId}");
+        return self::execute("DELETE", "template-folders/{$folder_id}");
     }
 
 }

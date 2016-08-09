@@ -5,7 +5,7 @@ use MailChimp\MailChimp as MailChimp;
 
 class AuthorizedApps extends MailChimp
 {
-    
+
     /**
     * Get a list of Authorized Apps for the account
     * Available query fields:
@@ -25,9 +25,9 @@ class AuthorizedApps extends MailChimp
     * array["fields"]              array       list of strings of response fields to return
     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
     **/
-    public function getApp($appId, array $query = [])
+    public function getApp($app_id, array $query = [])
     {
-        return self::execute("GET", "authorized-apps/{$appId}", $query);
+        return self::execute("GET", "authorized-apps/{$app_id}", $query);
     }
 
     /**

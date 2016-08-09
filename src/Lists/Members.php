@@ -5,26 +5,26 @@ class Members extends Lists
 {
     /**
      * Get a list of list members
-     * @param string $listId
+     * @param string $list_id
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function getListMembers($listId, array $query = [])
+    public function getListMembers($list_id, array $query = [])
     {
-        return self::execute("GET", "lists/{$listId}/members", $query);
+        return self::execute("GET", "lists/{$list_id}/members", $query);
     }
 
     /**
      * Get a single list members
-     * @param string $listId
+     * @param string $list_id
      * @param string $email_address
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function getListMember($listId, $email_address, array $query = [])
+    public function getListMember($list_id, $email_address, array $query = [])
     {
         $hash = self::getMemberHash($email_address);
-        return self::execute("GET", "lists/{$listId}/members/{$hash}", $query);
+        return self::execute("GET", "lists/{$list_id}/members/{$hash}", $query);
     }
 
     /**
@@ -32,15 +32,15 @@ class Members extends Lists
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
-     * @param string $listId
+     * @param string $list_id
      * @param string $email_address
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function getMemberActiity($listId, $email_address, array $query = [])
+    public function getMemberActiity($list_id, $email_address, array $query = [])
     {
         $hash = self::getMemberHash($email_address);
-        return self::execute("GET", "lists/{$listId}/members/{$hash}/activity", $query);
+        return self::execute("GET", "lists/{$list_id}/members/{$hash}/activity", $query);
     }
 
     /**
@@ -48,15 +48,15 @@ class Members extends Lists
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
-     * @param string $listId
+     * @param string $list_id
      * @param string $email_address
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function getMemberGoals($listId, $email_address, array $query = [])
+    public function getMemberGoals($list_id, $email_address, array $query = [])
     {
         $hash = self::getMemberHash($email_address);
-        return self::execute("GET", "lists/{$listId}/members/{$hash}/goals", $query);
+        return self::execute("GET", "lists/{$list_id}/members/{$hash}/goals", $query);
     }
 
     /**
@@ -66,15 +66,15 @@ class Members extends Lists
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
      * array["count"]                   int         number of records to return
      * array["offset"]                  int         number of records from a collection to skip.
-     * @param string $listId
+     * @param string $list_id
      * @param string $email_address
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function getMemberNotes($listId, $email_address, array $query = [])
+    public function getMemberNotes($list_id, $email_address, array $query = [])
     {
         $hash = self::getMemberHash($email_address);
-        return self::execute("GET", "lists/{$listId}/members/{$hash}/notes", $query);
+        return self::execute("GET", "lists/{$list_id}/members/{$hash}/notes", $query);
     }
 
     /**
@@ -82,15 +82,15 @@ class Members extends Lists
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
-     * @param string $listId
+     * @param string $list_id
      * @param string $email_address
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function getMemberNote($listId, $email_address, $noteId, array $query = [])
+    public function getMemberNote($list_id, $email_address, $note_id, array $query = [])
     {
         $hash = self::getMemberHash($email_address);
-        return self::execute("GET", "lists/{$listId}/members/{$hash}/notes/{$noteId}", $query);
+        return self::execute("GET", "lists/{$list_id}/members/{$hash}/notes/{$note_id}", $query);
     }
 
 
@@ -100,13 +100,13 @@ class Members extends Lists
      *      ["email_address"]       string      required
      *      ["status"]              string      required
      *                                          Possible Values: subscribed,unsubscribed,cleaned,pending
-     * @param string $listId
+     * @param string $list_id
      * @param array subscriber data
      * @return object
      */
-    public function addListMember($listId, array $data = [])
+    public function addListMember($list_id, array $data = [])
     {
-        return self::execute("POST", "lists/{$listId}/members", $data);
+        return self::execute("POST", "lists/{$list_id}/members", $data);
     }
 
     /**
@@ -115,14 +115,14 @@ class Members extends Lists
      *      ["email_address"]       string      required
      *      ["status"]              string      required
      *                                          Possible Values: subscribed,unsubscribed,cleaned,pending
-     * @param string $listId
+     * @param string $list_id
      * @param array subscriber data
      * @return object
      */
-    public function upsertListMember($listId, $email_address, array $data = [])
+    public function upsertListMember($list_id, $email_address, array $data = [])
     {
         $hash = self::getMemberHash($email_address);
-        return self::execute("PUT", "lists/{$listId}/members/{$hash}", $data);
+        return self::execute("PUT", "lists/{$list_id}/members/{$hash}", $data);
     }
 
     /**
@@ -131,68 +131,68 @@ class Members extends Lists
      *      ["email_address"]       string      required
      *      ["status"]              string      required
      *                                          Possible Values: subscribed,unsubscribed,cleaned,pending
-     * @param string $listId
+     * @param string $list_id
      * @param array subscriber data
      * @return object
      */
-    public function updateListMember($listId, $email_address, array $data = [])
+    public function updateListMember($list_id, $email_address, array $data = [])
     {
         $hash = self::getMemberHash($email_address);
-        return self::execute("PATCH", "lists/{$listId}/members/{$hash}", $data);
+        return self::execute("PATCH", "lists/{$list_id}/members/{$hash}", $data);
     }
 
     /**
      * Add a new note for a specific subscriber
      * array["data"]
      *      ["note"]       string       The content of the note.
-     * @param string $listId
+     * @param string $list_id
      * @param string $email_address
      * @param array $data (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function addMemberNote($listId, $email_address, array $data = [])
+    public function addMemberNote($list_id, $email_address, array $data = [])
     {
         $hash = self::getMemberHash($email_address);
-        return self::execute("POST", "lists/{$listId}/members/{$hash}/notes", $data);
+        return self::execute("POST", "lists/{$list_id}/members/{$hash}/notes", $data);
     }
 
     /**
      * Update a specific note for a specific list member.
      * array["data"]
      *      ["note"]       string       The content of the note.
-     * @param string $listId
+     * @param string $list_id
      * @param string $email_address
      * @param int $noteId
      * @param array $data (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function updateMemberNote($listId, $email_address, $noteId, array $data = [])
+    public function updateMemberNote($list_id, $email_address, $note_id, array $data = [])
     {
         $hash = self::getMemberHash($email_address);
-        return self::execute("PATCH", "lists/{$listId}/members/{$hash}/notes/{$noteId}", $data);
+        return self::execute("PATCH", "lists/{$list_id}/members/{$hash}/notes/{$note_id}", $data);
     }
 
     /**
      * Delete a specific note for a specific list member.
-     * @param string $listId
+     * @param string $list_id
      * @param string $email_address
      * @param int $noteId
      */
-    public function deleteMemberNote($listId, $email_address, $noteId)
+    public function deleteMemberNote($list_id, $email_address, $note_id)
     {
         $hash = self::getMemberHash($email_address);
-        return self::execute("DELETE", "lists/{$listId}/members/{$hash}/notes/{$noteId}");
+        return self::execute("DELETE", "lists/{$list_id}/members/{$hash}/notes/{$note_id}");
     }
 
     /**
      * Delete a subscriber
-     * @param string $listId
+     * @param string $list_id
      * @param string email address
      */
-    public function deleteListMember($listId, $email_address)
+    public function deleteListMember($list_id, $email_address)
     {
         $hash = self::getMemberHash($email_address);
-        return self::execute("DELETE", "lists/{$listId}/members/{$hash}");
+        return self::execute("DELETE", "lists/{$list_id}/members/{$hash}");
     }
 
 }

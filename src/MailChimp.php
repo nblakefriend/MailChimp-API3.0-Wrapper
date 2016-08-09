@@ -12,6 +12,7 @@ use MailChimp\Ecommerce\Ecommerce as Ecommerce;
 use MailChimp\Lists\Lists as Lists;
 use MailChimp\TemplateFolders\TemplateFolders as TemplateFolders;
 use MailChimp\Templates\Templates as Templates;
+use MailChimp\OAuth\OAuth as OAuth;
 
 
 class MailChimp
@@ -112,19 +113,14 @@ class MailChimp
             $response = self::$client->request($method, $url);
         }
 
-        $statusCode = $response->getStatusCode();
-        $responseBody = json_decode($response->getBody()->getContents());
+        $status_code = $response->getStatusCode();
+        $response_body = json_decode($response->getBody()->getContents());
+        // if ($status_code === 200 || $status_code === 204) {
+            // return $response_body;
+        // } else {
 
-        /**
-         * TODO: Expand exception handling
-         * return Details if set
-         * return errors if set
-        */
-        if (isset($responseBody->detail)) {
-            return $responseBody;
-        }
-
-        return $responseBody;
+        // }
+        return $response_body;
     }
 
     /**
@@ -138,6 +134,10 @@ class MailChimp
         return md5(strtolower($emailAddress));
     }
 
+    public function oauth()
+    {
+        return new OAuth;
+    }
 
     /** RESOURCES */
 

@@ -46,9 +46,9 @@ class Templates extends MailChimp
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function getTemplate($templateId, array $query = [])
+    public function getTemplate($template_id, array $query = [])
     {
-        return self::execute("GET", "templates/{$templateId}", $query);
+        return self::execute("GET", "templates/{$template_id}", $query);
     }
 
     /**
@@ -57,18 +57,29 @@ class Templates extends MailChimp
      * @param array data
      * @return object
      */
-    public function updateTemplate($templateId, array $data = [])
+    public function createTemplate(array $data = [])
     {
-        return self::execute("PATCH", "templates/{$templateId}", $data);
+        return self::execute("POST", "templates/", $data);
+    }
+
+    /**
+     * Update an existing template
+     * @param int template id
+     * @param array data
+     * @return object
+     */
+    public function updateTemplate($template_id, array $data = [])
+    {
+        return self::execute("PATCH", "templates/{$template_id}", $data);
     }
 
     /**
      * Update an existing template
      * @param int Template id
      */
-    public function deleteTemplate($templateId)
+    public function deleteTemplate($template_id)
     {
-        return self::execute("DELETE", "templates/{$templateId}");
+        return self::execute("DELETE", "templates/{$template_id}");
     }
 
 }

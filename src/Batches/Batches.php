@@ -26,13 +26,13 @@ class Batches extends MailChimp
      * Available query fields:
      * array["fields"]                  array       list of strings of response fields to return
      * array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")
-     * @param string $batchId
+     * @param string $batch_id
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function getBatch ($batchId, array $query = [])
+    public function getBatch ($batch_id, array $query = [])
     {
-        return self::execute("GET", "batches/{$batchId}", $query);
+        return self::execute("GET", "batches/{$batch_id}", $query);
     }
 
     /**
@@ -68,11 +68,11 @@ class Batches extends MailChimp
 
     /**
      * Delete a batch request and stop if from processing further.
-     * @param string $batchId
+     * @param string $batch_id
      */
-    public function deleteBatch ($batchId)
+    public function deleteBatch ($batch_id)
     {
-        return self::execute("DELETE", "batches/{$batchId}");
+        return self::execute("DELETE", "batches/{$batch_id}");
     }
 
 }

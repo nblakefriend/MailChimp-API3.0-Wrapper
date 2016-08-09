@@ -13,13 +13,13 @@ class MergeFields extends Lists
      * array["offset"]                  int         number of records from a collection to skip.
      * array["type"]                    string      The merge field type.
      * array["required"]                boolean     The boolean value if the merge field is required.
-     * @param string $listId
+     * @param string $list_id
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function getMergeFields($listId, array $query = [])
+    public function getMergeFields($list_id, array $query = [])
     {
-        return self::execute("GET", "lists/{$listId}/merge-fields", $query);
+        return self::execute("GET", "lists/{$list_id}/merge-fields", $query);
     }
 
     /**
@@ -27,14 +27,14 @@ class MergeFields extends Lists
      * Available query fields:
      * array["fields"]                  array       list of strings of response fields to return
      * array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")
-     * @param string $listId
-     * @param int $mergeId
+     * @param string $list_id
+     * @param int $merge_id
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function getMergeField($listId, $mergeId, array $query = [])
+    public function getMergeField($list_id, $merge_id, array $query = [])
     {
-        return self::execute("GET", "lists/{$listId}/merge-fields/{$mergeId}", $query);
+        return self::execute("GET", "lists/{$list_id}/merge-fields/{$merge_id}", $query);
     }
 
     /**
@@ -54,36 +54,36 @@ class MergeFields extends Lists
      *             ["choices"]          array        In a radio or dropdown non-group field, the available options.
      *             ["size"]             int          In a text field, the default length fo the text field
      *      ["help_text"]               string        Extra text to help the subscrber fill out the form
-     * @param string $listId
+     * @param string $list_id
      * @param array $data
      * @return object
      */
-     public function createMergeField($listId, array $data = [])
+     public function createMergeField($list_id, array $data = [])
      {
-        return self::execute("POST", "lists/{$listId}/merge-fields", $data);
+        return self::execute("POST", "lists/{$list_id}/merge-fields", $data);
      }
 
     /**
      * Update a specific merge field in a list
-     * @param string $listId
-     * @param string $mergeId
+     * @param string $list_id
+     * @param string $merge_id
      * @param array $data (See createMergeField() for structure)
      * @return object
      */
-     public function updateMergeField($listId, $mergeId, array $data = [])
+     public function updateMergeField($list_id, $merge_id, array $data = [])
      {
-        return self::execute("PATCH", "lists/{$listId}/merge-fields/{$mergeId}", $data);
+        return self::execute("PATCH", "lists/{$list_id}/merge-fields/{$merge_id}", $data);
      }
 
 
     /**
      * Delete a specific merge field in a list.
-     * @param string $listId
-     * @param int $mergeId
+     * @param string $list_id
+     * @param int $merge_id
      */
-    public function deleteMergeField($listId, $mergeId)
+    public function deleteMergeField($list_id, $merge_id)
     {
-        return self::execute("DELETE", "lists/{$listId}/merge-fields/{$mergeId}");
+        return self::execute("DELETE", "lists/{$list_id}/merge-fields/{$merge_id}");
     }
 
 }
