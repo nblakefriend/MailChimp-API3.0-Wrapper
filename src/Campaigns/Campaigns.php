@@ -156,9 +156,7 @@ class Campaigns extends MailChimp
 
         // If optional settings are passed, go ahead and lowercase the key values.
         if (isset($optional_settings)) {
-
             foreach ($optional_settings as $key => $value) {
-
                 switch (strtolower($key))
                 {
                     case "tracking":

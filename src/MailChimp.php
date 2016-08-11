@@ -39,7 +39,7 @@ class MailChimp
 
     /**
      * Get the API URL to use
-    */
+     */
     private static function getUrl()
     {
         $dc = self::getDatacenter();
@@ -48,7 +48,7 @@ class MailChimp
 
     /**
      * Get the Datacenter from a the set API key
-    */
+     */
     private static function getDatacenter()
     {
         // Determine the Datacenter from the API Key
@@ -58,7 +58,7 @@ class MailChimp
 
     /**
      * Get the config file from the name set in $config
-    */
+     */
     private static function getConfig()
     {
         $path_to_config = self::$config;
@@ -69,7 +69,7 @@ class MailChimp
     /**
      * Find the key to use from the "active" key.
      * TODO: Is this way unnessesary?
-    */
+     */
     private static function getActiveKey()
     {
         $config = self::getConfig();
@@ -82,11 +82,11 @@ class MailChimp
     }
 
     /**
-    * Set the data passed for GET query parameters or POST/PUT/PATCH data
-    *
-    * @param array $data
-    * @return array
-    */
+     * Set the data passed for GET query parameters or POST/PUT/PATCH data
+     *
+     * @param array $data
+     * @return array
+     */
     private static function setData($method, array $data = [])
     {
         // TODO: consider sanitizing incoming data?
@@ -144,13 +144,13 @@ class MailChimp
     /** RESOURCES */
 
     /**
-    * Get account information from the API Root
-    * Available query fields:
-    * array["fields"]              array       list of strings of response fields to return
-    * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
-    * @param array $query (See Above) OPTIONAL associative array of query parameters.
-    * @return object
-    */
+     * Get account information from the API Root
+     * Available query fields:
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
     public function getAccountInfo(array $query = [])
     {
         return self::execute("GET", "", $query);
