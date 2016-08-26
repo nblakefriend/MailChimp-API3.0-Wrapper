@@ -135,6 +135,36 @@ class MailChimp
         return md5(strtolower($email_address));
     }
 
+    protected static function createLog($output, $overwrite = false, $tag = null)
+    {
+        $w = "a+";
+        if ($overwrite) {
+            $w = "w+";
+        }
+        $file = 'request.log';
+        $json_output = json_encode($output);
+        $date = new \DateTime("now", new \DateTimeZone('America/New_York'));
+        $time_formatted = $date->format("Y/m/d H:i:s");
+        $handle = fopen($file, $w);
+        $content = "Request: {$time_formatted}\n";
+        if ($tag) {
+            $content .= "TAGGED: {$tag}";
+            $content .= "\n";
+        }
+        $content .= $json_output;
+        $content .= "\n";
+        // $content .= print_r($output, true)."\n  ----------------------------------------------------  \n";
+        $content .= "\n  ----------------------------------------------------  \n";
+        fwrite($handle, $content);
+        fclose($handle);
+    }
+
+
+    public function logData($data, $call)
+    {
+        return self::createLog($data, false, $call);
+    }
+
 
     public function oauth()
     {

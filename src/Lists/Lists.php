@@ -80,8 +80,37 @@ class Lists extends MailChimp
      * @param array $data (See Above)
      * @return object created list information
      */
-    public function createList(array $data = [])
+    public function createList($name, $permission_reminder, $email_type_option, array $campaign_defaults = [], array $contact = [], array $optional_settings = null)
     {
+        $data = [
+            "name" => $name,
+            "permission_reminder" => $permission_reminder,
+            "email_type_option" => $email_type_option,
+            "campaign_defaults" => $campaign_defaults,
+            "contact" => $contact
+        ];
+
+        if (isset($optional_settings)) {
+            foreach ($optional_settings as $key => $value) {
+                switch (strtolower($key))
+                {
+                    case "visibility":
+                        $data["visibility"] = $value;
+                        break;
+                    case "notify_on_subscribe":
+                        $data["notify_on_subscribe"] = $value;
+                        break;
+                    case "notify_on_unsubscribe":
+                        $data["notify_on_unsubscribe"] = $value;
+                        break;
+                    case "use_archive_bar":
+                        $data["use_archive_bar"] = $value;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
         return self::execute("POST", "lists", $data);
     }
 
@@ -95,6 +124,16 @@ class Lists extends MailChimp
     public function updateList($list_id, array $data = [])
     {
         return self::execute("PATCH", "lists/{$list_id}", $data);
+    }
+
+    /*
+     * Batch Sub/Unsub members
+     */
+    public function batchMembers($list_id, array $batch = [], $updateExisting = false)
+    {
+
+        $b = ["members" => $batch, "update_existing" => $updateExisting];
+        return self::execute("POST", "lists/{$list_id}", $b);
     }
 
     /**

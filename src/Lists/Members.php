@@ -96,26 +96,65 @@ class Members extends Lists
 
     /**
      * Add List Member
-     * array["data"]
-     *      ["email_address"]       string      required
-     *      ["status"]              string      required
-     *                                          Possible Values: subscribed,unsubscribed,cleaned,pending
+     * "email_address"       string      required
+     * "status"              string      required
+     *                                   Possible Values: subscribed,unsubscribed,cleaned,pending
+     * array["optional_settings"]
      * @param string $list_id
-     * @param array subscriber data
+     * @param string $email_address
+     * @param string $status
+     * @param array $optional_settings
      * @return object
      */
-    public function addListMember($list_id, array $data = [])
+    public function addListMember($list_id, $email_address, $status, array $optional_settings = null)
     {
-        return self::execute("POST", "lists/{$list_id}/members", $data);
+        $data = [
+            "email_address" => $email_address,
+            "status" => $status
+        ];
+
+        if (isset($optional_settings)) {
+            foreach ($optional_settings as $key => $value) {
+                switch (strtolower($key))
+                {
+                    case "email_type":
+                        $data["email_type"] = $value;
+                        break;
+                    case "merge_fields":
+                        $data["merge_fields"] = $value;
+                        break;
+                    case "interests":
+                        $data["interests"] = $value;
+                        break;
+                    case "language":
+                        $data["language"] = $value;
+                        break;
+                    case "vip":
+                        $data["vip"] = $value;
+                        break;
+                    case "location":
+                        $data["location"] = $value;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        try {
+            throw new \Exception("Testing some exceptions");
+            // return self::execute("POST", "lists/{$list_id}/members", $data);
+        } catch (\Exception $e) {
+            self::createLog($e->getMessage(), true, "TESTING");
+        }
     }
 
     /**
      * Add or Update List Member
      * array["data"]
-     *      ["email_address"]       string      required
      *      ["status"]              string      required
      *                                          Possible Values: subscribed,unsubscribed,cleaned,pending
      * @param string $list_id
+     * @param string $email_address
      * @param array subscriber data
      * @return object
      */

@@ -183,7 +183,6 @@ class Campaigns extends MailChimp
         return self::execute("POST", "campaigns", $data);
     }
 
-
     /**
      * Update a Campaign
      * @param string $campaign_id for the campaign instance
@@ -193,7 +192,6 @@ class Campaigns extends MailChimp
     {
         return self::execute("PATCH", "campaigns/{$campaign_id}", $data);
     }
-
 
     /**
      * Pause an RSS-Driven campaign

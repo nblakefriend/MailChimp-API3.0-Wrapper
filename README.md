@@ -41,7 +41,7 @@ Whichever key[active] is true will be used.
 Each MailChimp collections *(lists, campaigns, e-commerce etc.)* is accessed using a method found at the bottom of the `MailChimp.php` file.
 
 **For example:**
-Assuming your MailChimp instance is stored in the `$mc` variable
+*Assuming your MailChimp instance is stored in the `$mc` variable*
 
 #### Lists
 `$mc->lists()->getLists();`
