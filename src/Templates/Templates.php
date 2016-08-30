@@ -52,14 +52,25 @@ class Templates extends MailChimp
     }
 
     /**
-     * Update an existing template
-     * @param int template id
-     * @param array data
+     * Upload a new image or file to the File Manager.
+     *
+     * @param string $name
+     * @param string $html
+     * @param int  (optional) $folder_id
      * @return object
      */
-    public function createTemplate(array $data = [])
+    public function createTemplate($name, $html, $folder_id = null)
     {
-        return self::execute("POST", "templates/", $data);
+        $data = [
+            "name" => $name,
+            "html" => $html
+        ];
+
+        if ($folder_id) {
+            $data["folder_id"] = $folder_id;
+        }
+
+        return self::execute("POST", "templates", $data);
     }
 
     /**

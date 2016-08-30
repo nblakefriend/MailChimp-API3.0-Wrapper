@@ -9,7 +9,10 @@ use MailChimp\Batches\Batches as Batches;
 use MailChimp\CampaignFolders\CampaignFolders as CampaignFolders;
 use MailChimp\Campaigns\Campaigns as Campaigns;
 use MailChimp\Ecommerce\Ecommerce as Ecommerce;
+use MailChimp\FileManager\Files as FileManagerFiles;
+use MailChimp\FileManager\Folders as FileManagerFolders;
 use MailChimp\Lists\Lists as Lists;
+use MailChimp\Reports\Reports as Reports;
 use MailChimp\TemplateFolders\TemplateFolders as TemplateFolders;
 use MailChimp\Templates\Templates as Templates;
 use MailChimp\OAuth\OAuth as OAuth;
@@ -224,14 +227,14 @@ class MailChimp
         return new Ecommerce;
     }
 
-    public function fileManagerFiles()
+    public function fileManager()
     {
-        return "This collection is not completed";
+        return new FileManager\Files;
     }
 
     public function fileManagerFolders()
     {
-        return "This collection is not completed";
+        return new FileManager\Folders;
     }
 
     public function lists()
@@ -241,7 +244,10 @@ class MailChimp
 
     public function reports()
     {
-        return "This collection is not completed";
+        /**
+         * TODO: Collection in progress
+         */
+        return new Reports;
     }
 
     public function templateFolders()

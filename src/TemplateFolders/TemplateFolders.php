@@ -16,7 +16,7 @@ class TemplateFolders extends MailChimp
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function getTemplateFolders(array $query = [])
+    public function getFolders(array $query = [])
     {
         return self::execute("GET", "template-folders", $query);
     }
@@ -30,7 +30,7 @@ class TemplateFolders extends MailChimp
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function getTemplateFolder($folder_id, array $query = [])
+    public function getFolder($folder_id, array $query = [])
     {
         return self::execute("GET", "template-folders/{$folder_id}", $query);
     }
@@ -40,7 +40,7 @@ class TemplateFolders extends MailChimp
      * @param string Folder Name
      * @return object
      */
-    public function createTemplateFolder($folder_name)
+    public function createFolder($folder_name)
     {
         $data = ["name" => $folder_name];
         return self::execute("POST", "template-folders", $data);
@@ -51,7 +51,7 @@ class TemplateFolders extends MailChimp
      * @param string Folder Name
      * @return object
      */
-    public function updateTemplateFolder($folder_id, $folder_name)
+    public function updateFolder($folder_id, $folder_name)
     {
         $data = ["name" => $folder_name];
         return self::execute("PATCH", "template-folders/{$folder_id}", $data);
@@ -61,7 +61,7 @@ class TemplateFolders extends MailChimp
      * Delete a specific Template folder, and mark all the Templates in the folder as ‘unfiled’.
      * @param string $folder_id
      */
-    public function deleteTemplateFolder($folder_id)
+    public function deleteFolder($folder_id)
     {
         return self::execute("DELETE", "template-folders/{$folder_id}");
     }
