@@ -52,6 +52,21 @@ class Templates extends MailChimp
     }
 
     /**
+     * Get a list of campaigns for the account
+     * Available query fields:
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     *
+     * @param int template id
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
+    public function getDefaultContent($template_id, array $query = [])
+    {
+        return self::execute("GET", "templates/{$template_id}/default-content", $query);
+    }
+
+    /**
      * Upload a new image or file to the File Manager.
      *
      * @param string $name
