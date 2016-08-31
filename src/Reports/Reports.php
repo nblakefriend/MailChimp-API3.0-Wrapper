@@ -25,7 +25,7 @@ class Reports extends MailChimp
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function getReports(array $query = [])
+    public function getCamapaignReports(array $query = [])
     {
         return self::execute("GET", "reports", $query);
     }
@@ -36,14 +36,286 @@ class Reports extends MailChimp
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
      *
-     * @param int template id
+     * @param string $campaign_id
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function getReport($campaign_id, array $query = [])
+    public function getCampaignReport($campaign_id, array $query = [])
     {
         return self::execute("GET", "reports/{$campaign_id}", $query);
     }
 
+    /**
+     * Get a list of abuse complaints for a specific campaign.
+     * Available query fields:
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     *
+     * @param string $campaign_id
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
+    public function getAbuseReports($campaign_id, array $query = [])
+    {
+        return self::execute("GET", "reports/{$campaign_id}/abuse-reports", $query);
+    }
+
+    /**
+     * Get information about a specific abuse report for a campaign.
+     * Available query fields:
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     *
+     * @param string $campaign_id
+     * @param string $report_id
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
+    public function getAbuseReport($campaign_id, $report_id, array $query = [])
+    {
+        return self::execute("GET", "reports/{$campaign_id}/abuse-reports/{$report_id}", $query);
+    }
+
+    /**
+     * Get feedback based on a campaign’s statistics.
+     * Available query fields:
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     *
+     * @param string $campaign_id
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
+    public function getAdvice($campaign_id, array $query = [])
+    {
+        return self::execute("GET", "reports/{$campaign_id}/advice", $query);
+    }
+
+    /**
+     * Get information about clicks on specific links in your MailChimp campaigns.
+     * Available query fields:
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     * array["count"]               int         number of records to return
+     * array["offset"]              int         number of records from a collection to skip.
+     *
+     * @param string $campaign_id
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
+    public function getClickReports($campaign_id, array $query = [])
+    {
+        return self::execute("GET", "reports/{$campaign_id}/click-details", $query);
+    }
+
+    /**
+     * Get click details for a specific link.
+     * Available query fields:
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     *
+     * @param string $campaign_id
+     * @param string $report_id
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
+    public function getClickReport($campaign_id, $link_id, array $query = [])
+    {
+        return self::execute("GET", "reports/{$campaign_id}/click-details/{$link_id}", $query);
+    }
+
+    /**
+     * Get information about list members who clicked on a specific link in a campaign.
+     * Available query fields:
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     * array["count"]               int         number of records to return
+     * array["offset"]              int         number of records from a collection to skip.
+     *
+     * @param string $campaign_id
+     * @param string $link_id
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
+    public function getClickReportMembers($campaign_id, $link_id, array $query = [])
+    {
+        return self::execute("GET", "reports/{$campaign_id}/click-details/{$link_id}/members", $query);
+    }
+
+    /**
+     * Get information about a specific subscriber who clicked a link in a specific campaign.
+     * Available query fields:
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     *
+     * @param string $campaign_id
+     * @param string $link_id
+     * @param string $subscriber_hash
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
+    public function getClickReportMember($campaign_id, $link_id, $subscriber_hash, array $query = [])
+    {
+        return self::execute("GET", "reports/{$campaign_id}/click-details/{$link_id}/members/{$subscriber_hash}", $query);
+    }
+
+    /**
+     * Get statistics for the top-performing email domains in a campaign.
+     * Available query fields:
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     *
+     * @param string $campaign_id
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
+    public function getDomainPerformance($campaign_id, array $query = [])
+    {
+        return self::execute("GET", "reports/{$campaign_id}/domain-performance", $query);
+    }
+
+    /**
+     * Get a summary of social activity for the campaign, tracked by EepURL.
+     * Available query fields:
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     *
+     * @param string $campaign_id
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
+    public function getSocialActivity($campaign_id, array $query = [])
+    {
+        return self::execute("GET", "reports/{$campaign_id}/eepurl", $query);
+    }
+
+    /**
+     * Get a list of member’s subscriber activity in a specific campaign.
+     * Available query fields:
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     * array["count"]               int         number of records to return
+     * array["offset"]              int         number of records from a collection to skip.
+     *
+     * @param string $campaign_id
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
+    public function getEmailActivity($campaign_id, array $query = [])
+    {
+        return self::execute("GET", "reports/{$campaign_id}/email-activity", $query);
+    }
+
+    /**
+     * Get a specific list member’s activity in a campaign including opens, clicks, and bounces.
+     * Available query fields:
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     *
+     * @param string $campaign_id
+     * @param string $subscriber_hash
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
+    public function getMemberActivity($campaign_id, $subscriber_hash, array $query = [])
+    {
+        return self::execute("GET", "reports/{$campaign_id}/email-activity/{$subscriber_hash}", $query);
+    }
+
+    /**
+     * Get top open locations for a specific campaign.
+     * Available query fields:
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     *
+     * @param string $campaign_id
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
+    public function getTopLocations($campaign_id, array $query = [])
+    {
+        return self::execute("GET", "reports/{$campaign_id}/locations", $query);
+    }
+
+    /**
+     * Get information about campaign recipients.
+     * Available query fields:
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     * array["count"]               int         number of records to return
+     * array["offset"]              int         number of records from a collection to skip.
+     *
+     * @param string $campaign_id
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
+    public function getSentToMembers($campaign_id, array $query = [])
+    {
+        return self::execute("GET", "reports/{$campaign_id}/sent-to", $query);
+    }
+
+    /**
+     * Get information about a specific campaign recipient.
+     * Available query fields:
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     *
+     * @param string $campaign_id
+     * @param string $subscriber_hash
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
+    public function getSentToMember($campaign_id, $subscriber_hash, array $query = [])
+    {
+        return self::execute("GET", "reports/{$campaign_id}/sent-to/{$subscriber_hash}", $query);
+    }
+
+    /**
+     * Get a list of reports with child campaigns for a specific parent campaign.
+     * Available query fields:
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     *
+     * @param string $campaign_id
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
+    public function getSubReports($campaign_id, array $query = [])
+    {
+        return self::execute("GET", "reports/{$campaign_id}/sub-reports", $query);
+    }
+
+    /**
+     * Get information about members who have unsubscribed from a specific campaign.
+     * Available query fields:
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     * array["count"]               int         number of records to return
+     * array["offset"]              int         number of records from a collection to skip.
+     *
+     * @param string $campaign_id
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
+    public function getUnsubscribedMembers($campaign_id, array $query = [])
+    {
+        return self::execute("GET", "reports/{$campaign_id}/unsubscribed", $query);
+    }
+
+    /**
+     * Get information about a specific list member who unsubscribed from a campaign.
+     * Available query fields:
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     *
+     * @param string $campaign_id
+     * @param string $subscriber_hash
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
+    public function getUnsubscribedMember($campaign_id, $subscriber_hash, array $query = [])
+    {
+        return self::execute("GET", "reports/{$campaign_id}/unsubscribed/{$subscriber_hash}", $query);
+    }
 
 }
