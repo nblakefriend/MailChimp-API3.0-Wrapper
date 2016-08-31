@@ -8,6 +8,7 @@ use MailChimp\Automations\Automations as Automations;
 use MailChimp\Batches\Batches as Batches;
 use MailChimp\CampaignFolders\CampaignFolders as CampaignFolders;
 use MailChimp\Campaigns\Campaigns as Campaigns;
+use MailChimp\Conversations\Conversations as Conversations;
 use MailChimp\Ecommerce\Ecommerce as Ecommerce;
 use MailChimp\FileManager\Files as FileManagerFiles;
 use MailChimp\FileManager\Folders as FileManagerFolders;
@@ -216,7 +217,7 @@ class MailChimp
 
     public function conversations()
     {
-        return "This collection is not completed";
+        return new Conversations;
     }
 
     public function ecommerce()
@@ -244,9 +245,6 @@ class MailChimp
 
     public function reports()
     {
-        /**
-         * TODO: Collection in progress
-         */
         return new Reports;
     }
 
