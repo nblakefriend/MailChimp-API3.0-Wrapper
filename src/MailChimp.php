@@ -139,6 +139,23 @@ class MailChimp
         return md5(strtolower($email_address));
     }
 
+    /**
+     * Process optional fields for POST requests
+     * @param array $optional_fields
+     * @param array $provided_fields
+     * @return array
+     */
+    protected static function optionalFields(array $optional_fields, array $provided_fields)
+    {
+        $data = [];
+        foreach ($provided_fields as $key => $value) {
+            if (in_array(strtolower($key), $optional_fields) ) {
+                $data[$key] = $value;
+            }
+        }
+        return $data;
+    }
+
     protected static function createLog($output, $overwrite = false, $tag = null)
     {
         $w = "a+";

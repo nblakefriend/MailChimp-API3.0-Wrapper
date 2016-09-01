@@ -108,44 +108,17 @@ class Members extends Lists
      */
     public function addListMember($list_id, $email_address, $status, array $optional_settings = null)
     {
+        $optional_fields = ["email_type", "merge_fields", "interests", "language", "vip", "location"];
         $data = [
             "email_address" => $email_address,
             "status" => $status
         ];
 
         if (isset($optional_settings)) {
-            foreach ($optional_settings as $key => $value) {
-                switch (strtolower($key))
-                {
-                    case "email_type":
-                        $data["email_type"] = $value;
-                        break;
-                    case "merge_fields":
-                        $data["merge_fields"] = $value;
-                        break;
-                    case "interests":
-                        $data["interests"] = $value;
-                        break;
-                    case "language":
-                        $data["language"] = $value;
-                        break;
-                    case "vip":
-                        $data["vip"] = $value;
-                        break;
-                    case "location":
-                        $data["location"] = $value;
-                        break;
-                    default:
-                        break;
-                }
-            }
+            $data = array_merge($data, self::optionalFields($optional_fields, $optional_settings));
         }
-        try {
-            throw new \Exception("Testing some exceptions");
-            // return self::execute("POST", "lists/{$list_id}/members", $data);
-        } catch (\Exception $e) {
-            self::createLog($e->getMessage(), true, "TESTING");
-        }
+
+        return self::execute("POST", "lists/{$list_id}/members", $data);
     }
 
     /**

@@ -2,6 +2,7 @@
 namespace MailChimp\Campaigns;
 
 use MailChimp\MailChimp as MailChimp;
+use MailChimp\Campaigns\Feedback as Feedback;
 
 class Campaigns extends MailChimp
 {
@@ -148,38 +149,19 @@ class Campaigns extends MailChimp
      */
     public function createCampaign($type, array $recipients = [], array $settings = [], array $optional_settings = null )
     {
+        $optional_fields = ["tracking", "social_card", "variate_settings", "rss_opts"];
+
         $data = [
             "type" => $type,
             "recipients" => $recipients,
             "settings" => $settings
         ];
 
-        // If optional settings are passed, go ahead and lowercase the key values.
+        // If the optional fields are passed, process them against the list of optional fields.
         if (isset($optional_settings)) {
-            foreach ($optional_settings as $key => $value) {
-                switch (strtolower($key))
-                {
-                    case "tracking":
-                        $data["tracking"] = $value;
-                        break;
-                    case "social_card":
-                        $data["social_card"] = $value;
-                        break;
-                    case "variate_settings":
-                        if (strtolower($type) == "variate") {
-                            $data["variate_settings"] = $value;
-                        }
-                        break;
-                    case "rss_opts":
-                        if (strtolower($type) == "rss") {
-                            $data["rss_opts"] = $value;
-                        }
-                        break;
-                    default:
-                        break;
-                }
-            }
+            $data = array_merge($data, self::optionalFields($optional_fields, $optional_settings));
         }
+
         return self::execute("POST", "campaigns", $data);
     }
 
@@ -187,6 +169,7 @@ class Campaigns extends MailChimp
      * Update a Campaign
      * @param string $campaign_id for the campaign instance
      * @param array $data
+     * @return object
      */
     public function updateCampaign($campaign_id, array $data = [])
     {
@@ -274,6 +257,16 @@ class Campaigns extends MailChimp
     {
         return self::execute("DELETE", "campaigns/{$campaign_id}/");
     }
+
+    /**
+     *  Campaign subresources
+     */
+
+     public function feedback()
+     {
+         return new Feedback;
+     }
+
 
 
 }

@@ -32,6 +32,7 @@ class Orders extends Ecommerce
      */
     public function addOrder($store_id, $order_id, $currency_code, $order_total, array $customer = [], array $lines = [], array $optional_settings = null)
     {
+        $optional_fields = ["campaign_id", "financial_status", "tax_total", "shipping_total", "tracking_code", "processed_at_foreign", "updated_at_foreign", "cancelled_at_foreign", "shipping_address", "billing_address"];
         $data = [
             "id" => $order_id,
             "customer" => $customer,
@@ -40,44 +41,9 @@ class Orders extends Ecommerce
             "lines" => $lines
         ];
 
+        // If the optional fields are passed, process them against the list of optional fields.
         if (isset($optional_settings)) {
-            foreach ($optional_settings as $key => $value) {
-                switch (strtolower($key))
-                {
-                    case "campaign_id":
-                        $data["campaign_id"] = $value;
-                        break;
-                    case "financial_status":
-                        $data["financial_status"] = $value;
-                        break;
-                    case "tax_total":
-                        $data["tax_total"] = $value;
-                        break;
-                    case "shipping_total":
-                        $data["shipping_total"] = $value;
-                        break;
-                    case "tracking_code":
-                        $data["tracking_code"] = $value;
-                        break;
-                    case "processed_at_foreign":
-                        $data["processed_at_foreign"] = $value;
-                        break;
-                    case "cancelled_at_foreign":
-                        $data["cancelled_at_foreign"] = $value;
-                        break;
-                    case "updated_at_foreign":
-                        $data["updated_at_foreign"] = $value;
-                        break;
-                    case "shipping_address":
-                        $data["shipping_address"] = $value;
-                        break;
-                    case "billing_address":
-                        $data["billing_address"] = $value;
-                        break;
-                    default:
-                        break;
-                }
-            }
+            $data = array_merge($data, self::optionalFields($optional_fields, $optional_settings));
         }
         return self::execute("POST", "ecommerce/stores/{$store_id}/orders/", $data);
     }

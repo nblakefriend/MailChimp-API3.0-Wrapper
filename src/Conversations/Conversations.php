@@ -87,27 +87,17 @@ class Conversations extends MailChimp
      */
     public function postMessage($conversation_id, $from_email, $read = false, array $optional_settings = null)
     {
+        $optional_fields = ["subject", "message"];
         $data = [
             "from_email" => $from_email,
             "read" => $read
         ];
 
-        // If optional settings are passed, go ahead and lowercase the key values.
+        // If the optional fields are passed, process them against the list of optional fields.
         if (isset($optional_settings)) {
-            foreach ($optional_settings as $key => $value) {
-                switch (strtolower($key))
-                {
-                    case "subject":
-                        $data["subject"] = $value;
-                        break;
-                    case "message":
-                        $data["message"] = $value;
-                        break;
-                    default:
-                        break;
-                }
-            }
+            $data = array_merge($data, self::optionalFields($optional_fields, $optional_settings));
         }
+
         return self::execute("POST", "conversations/{$conversation_id}/messages", $data);
     }
 

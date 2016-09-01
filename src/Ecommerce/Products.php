@@ -41,41 +41,16 @@ class Products extends Ecommerce
      */
     public function addProduct($store_id, $product_id, $title, array $variants = [], array $optional_settings = null)
     {
+        $optional_fields = ["handle", "url", "description", "type", "vendor", "image_url", "published_at_foreign"];
         $data = [
             "id" => $product_id,
             "title" => $title,
             "variants" => $variants
         ];
 
+        // If the optional fields are passed, process them against the list of optional fields.
         if (isset($optional_settings)) {
-            foreach ($optional_settings as $key => $value) {
-                switch (strtolower($key))
-                {
-                    case "handle":
-                        $data["handle"] = $value;
-                        break;
-                    case "url":
-                        $data["url"] = $value;
-                        break;
-                    case "description":
-                        $data["description"] = $value;
-                        break;
-                    case "type":
-                        $data["type"] = $value;
-                        break;
-                    case "vendor":
-                        $data["vendor"] = $value;
-                        break;
-                    case "image_url":
-                        $data["image_url"] = $value;
-                        break;
-                    case "published_at_foreign":
-                        $data["published_at_foreign"] = $value;
-                        break;
-                    default:
-                        break;
-                }
-            }
+            $data = array_merge($data, self::optionalFields($optional_fields, $optional_settings));
         }
         return self::execute("POST", "ecommerce/stores/{$store_id}/products", $data);
     }
@@ -120,56 +95,16 @@ class Products extends Ecommerce
      */
     public function addVariant($store_id, $product_id, $variant_id, $title, array $optional_settings = [])
     {
+        $optional_fields = ["url", "sku", "price", "inventory_quantity", "image_url", "backorders", "visibility"];
         $data = [
             "id" => $variant_id,
             "title" => $title
         ];
-
+        // If the optional fields are passed, process them against the list of optional fields.
         if (isset($optional_settings)) {
-            foreach ($optional_settings as $key => $value) {
-                switch (strtolower($key))
-                {
-                    case "url":
-                        $data["url"] = $value;
-                        break;
-                    case "sku":
-                        $data["sku"] = $value;
-                        break;
-                    case "price":
-                        $data["price"] = $value;
-                        break;
-                    case "inventory_quantity":
-                        $data["inventory_quantity"] = $value;
-                        break;
-                    case "image_url":
-                        $data["image_url"] = $value;
-                        break;
-                    case "backorders":
-                        $data["backorders"] = $value;
-                        break;
-                    case "visibility":
-                        $data["visibility"] = $value;
-                        break;
-                    default:
-                        break;
-                }
-            }
+            $data = array_merge($data, self::optionalFields($optional_fields, $optional_settings));
         }
         return self::execute("POST", "ecommerce/stores/{$store_id}/products/{$product_id}/variants", $data);
-    }
-
-    /**
-     * Update a product variant..
-     *
-     * @param string $store_id
-     * @param string $product_id
-     * @param string $variant_id
-     * @param array $data
-     * @return object
-     */
-    public function updateVariant($store_id, $product_id, $variant_id, array $data = [])
-    {
-        return self::execute("PATCH", "ecommerce/stores/{$store_id}/products/{$product_id}/variants/{$variant_id}", $data);
     }
 
     /**
@@ -184,6 +119,20 @@ class Products extends Ecommerce
     public function upsertVariant($store_id, $product_id, $variant_id, array $data = [])
     {
         return self::execute("PUT", "ecommerce/stores/{$store_id}/products/{$product_id}/variants/{$variant_id}", $data);
+    }
+
+    /**
+     * Update a product variant..
+     *
+     * @param string $store_id
+     * @param string $product_id
+     * @param string $variant_id
+     * @param array $data
+     * @return object
+     */
+    public function updateVariant($store_id, $product_id, $variant_id, array $data = [])
+    {
+        return self::execute("PATCH", "ecommerce/stores/{$store_id}/products/{$product_id}/variants/{$variant_id}", $data);
     }
 
     /**

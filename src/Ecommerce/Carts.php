@@ -19,6 +19,7 @@ class Carts extends Ecommerce
      */
     public function addCart($store_id, $cart_id, $currency_code, $cart_total, array $customer = [], array $lines = [], array $optional_settings = null)
     {
+        $optional_fields = ["campaign_id", "checkout_url", "tax_total"];
         $data = [
             "id" => $cart_id,
             "customer" => $customer,
@@ -26,33 +27,17 @@ class Carts extends Ecommerce
             "cart_total" => $cart_total,
             "lines" => $lines
         ];
-
+        // If the optional fields are passed, process them against the list of optional fields.
         if (isset($optional_settings)) {
-            foreach ($optional_settings as $key => $value) {
-                switch (strtolower($key))
-                {
-                    case "campaign_id":
-                        $data["campaign_id"] = $value;
-                        break;
-                    case "checkout_url":
-                        $data["checkout_url"] = $value;
-                        break;
-                    case "tax_total":
-                        $data["tax_total"] = $value;
-                        break;
-                    default:
-                        break;
-                }
-            }
+            $data = array_merge($data, self::optionalFields($optional_fields, $optional_settings));
         }
         return self::execute("POST", "ecommerce/stores/{$store_id}/carts", $data);
     }
 
     public function updateCart($store_id, $cart_id, array $data = [])
     {
-
+        return self::excecute("PATCH", "ecommerce/stores/{$store_id}/carts/{$cart_id}", $data);
     }
-
 
     public function getCartLines($store_id, $cart_id, array $query = [])
     {
@@ -113,7 +98,12 @@ class Carts extends Ecommerce
         return self::execute("DELETE", "ecommerce/stores/{$store_id}/carts/{$cart_id}/lines/{$line_id}");
     }
 
-
+    /**
+     * Delete a cart
+     *
+     * @param string $store_id
+     * @param string $cart_id
+     */
     public function deleteCart($store_id, $cart_id)
     {
         return self::execute("DELETE", "ecommerce/stores/{$store_id}/carts/{$cart_id}");

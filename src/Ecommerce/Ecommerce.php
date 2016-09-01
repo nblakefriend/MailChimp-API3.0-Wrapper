@@ -47,6 +47,8 @@ class Ecommerce extends MailChimp
      */
     public function addStore($store_id, $list_id, $name, $currency_code, array $optional_settings = null)
     {
+        $optional_fields = ["platform", "domain", "email_address", "money_format", "primary_locale", "timezone", "phone", "address"];
+
         $data = [
             "id" => $store_id,
             "list_id" => $list_id,
@@ -54,41 +56,9 @@ class Ecommerce extends MailChimp
             "currency_code" => $currency_code
         ];
 
-        /**
-         * TODO: See if this functionality can be made into a function in the parent class.
-         */
+        // If the optional fields are passed, process them against the list of optional fields.
         if (isset($optional_settings)) {
-            foreach ($optional_settings as $key => $value) {
-                switch (strtolower($key))
-                {
-                    case "platform":
-                        $data["platform"] = $value;
-                        break;
-                    case "domain":
-                        $data["domain"] = $value;
-                        break;
-                    case "email_address":
-                        $data["email_address"] = $value;
-                        break;
-                    case "money_format":
-                        $data["money_format"] = $value;
-                        break;
-                    case "primary_locale":
-                        $data["primary_locale"] = $value;
-                        break;
-                    case "timezone":
-                        $data["timezone"] = $value;
-                        break;
-                    case "phone":
-                        $data["phone"] = $value;
-                        break;
-                    case "address":
-                        $data["address"] = $value;
-                        break;
-                    default:
-                        break;
-                }
-            }
+            $data = array_merge($data, self::optionalFields($optional_fields, $optional_settings));
         }
         return self::execute("POST", "ecommerce/stores", $data);
     }
@@ -101,7 +71,7 @@ class Ecommerce extends MailChimp
      */
     public function updateStore($store_id, array $data = [])
     {
-        return self::execute("PATCH", "ecommerce/stores/{$store_id}", $d);
+        return self::execute("PATCH", "ecommerce/stores/{$store_id}", $data);
     }
 
     /**

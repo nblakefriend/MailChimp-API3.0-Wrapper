@@ -54,10 +54,10 @@ class Lists extends MailChimp
 
     /**
      * Create a list
-     * array["data"]
      *      ["name"]                string      required
      *      ["permission_reminder"] string      required
-     *      ["contact"]             array       required
+     *      ["email_type_option"]   boolean     required
+     * array["contact"]             array       required
      *          ["company"]         string      required
      *          ["address1"]        string      required
      *          ["address2"]        string
@@ -66,22 +66,28 @@ class Lists extends MailChimp
      *          ["zip"]             string      required
      *          ["country"]         string      required
      *          ["phone"]           string
-     *      ["use_archive_bar"]     boolean
-     *      ["campaign_defaults"]   array       required
+     * array["campaign_defaults"]   array       required
      *          ["from_name"]       string      required
      *          ["from_email"]      string      required
      *          ["subject"]         string      required
      *          ["language"]        string      required
+     * array["optional_settings"]
+     *      ["use_archive_bar"]     boolean
      *      ["notify_on_subscribe"] string      The email address to send subscribe notifications to.
      *      ["notify_on_unsubscribe"] string    The email address to send unsubscribe notifications to.
-     *      ["email_type_option"]   boolean
      *      ["visibility"]          string      Whether this list is public or private.
      *                                          Possible Values: pub,prv
-     * @param array $data (See Above)
+     * @param string $name
+     * @param string $permission_reminder
+     * @param boolean $email_type_option
+     * @param array $campaign_defaults
+     * @param array $contact
+     * @param array $optional_setttings (See Above)
      * @return object created list information
      */
     public function createList($name, $permission_reminder, $email_type_option, array $campaign_defaults = [], array $contact = [], array $optional_settings = null)
     {
+        $optional_fields = ["visibility", "notify_on_subscribe", "notify_on_unsubscribe", "use_archive_bar"];
         $data = [
             "name" => $name,
             "permission_reminder" => $permission_reminder,
@@ -90,27 +96,11 @@ class Lists extends MailChimp
             "contact" => $contact
         ];
 
+        // If the optional fields are passed, process them against the list of optional fields.
         if (isset($optional_settings)) {
-            foreach ($optional_settings as $key => $value) {
-                switch (strtolower($key))
-                {
-                    case "visibility":
-                        $data["visibility"] = $value;
-                        break;
-                    case "notify_on_subscribe":
-                        $data["notify_on_subscribe"] = $value;
-                        break;
-                    case "notify_on_unsubscribe":
-                        $data["notify_on_unsubscribe"] = $value;
-                        break;
-                    case "use_archive_bar":
-                        $data["use_archive_bar"] = $value;
-                        break;
-                    default:
-                        break;
-                }
-            }
+            $data = array_merge($data, self::optionalFields($optional_fields, $optional_settings));
         }
+
         return self::execute("POST", "lists", $data);
     }
 

@@ -141,7 +141,7 @@ class Automations extends MailChimp
      */
     public function addWorkflowEmailSubscriber($workflow_id, $workflow_email_id, $email_address)
     {
-        $data = ["email_address"] = $email_address];
+        $data = [ "email_address" => $email_address];
         return self::execute("POST", "automations/{$workflow_id}/email/{$workflow_email_id}/queue", $data);
     }
 
@@ -165,7 +165,7 @@ class Automations extends MailChimp
      */
     public function removeWorkflowSubscriber($workflow_id, $email_address)
     {
-        $data = ["email_address"] = $email_address];
+        $data = ["email_address" => $email_address];
         return self::execute("POST", "automations/{$workflow_id}/removed-subscribers", $data);
     }
 

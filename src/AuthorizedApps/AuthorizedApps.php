@@ -32,11 +32,16 @@ class AuthorizedApps extends MailChimp
 
     /**
     * Retrieve OAuth2-based credentials to associate API calls with your application.
-    * @param array $data
+    * @param string $client_id
+    * @param string $client_secret
     * @return object with access_token and viewer_token
     **/
-    public function manageApp(array $data = [])
+    public function manageApp($client_id, $client_secret)
     {
+        $data = [
+            "client_id" => $client_id,
+            "client_secret" => $client_secret
+        ];
         return self::execute("POST", "authorized-apps", $data);
     }
 

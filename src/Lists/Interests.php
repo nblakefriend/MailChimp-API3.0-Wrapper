@@ -48,8 +48,16 @@ class Interests extends Lists
      * @param array $data
      * @return object
      */
-     public function createInterestCategory($list_id, array $data = [])
+     public function createInterestCategory($list_id, $title, $type, $display_order = null)
      {
+        $data = [
+            "title" => $title,
+            "type" => $type
+        ];
+
+        if ($display_order) {
+            $data["display_order"] = $display_order;
+        }
         return self::execute("POST", "lists/{$list_id}/interest-categories", $data);
      }
 
@@ -122,8 +130,15 @@ class Interests extends Lists
      * @param array $data (See Above) OPTIONAL associative array of query parameters.
      * @return object
      */
-    public function createInterest($list_id, $interest_category_id, array $data = [])
+    public function createInterest($list_id, $interest_category_id, $name, $display_order = null)
     {
+        $data = [
+            "name" => $name
+        ];
+
+        if ($display_order !== null) {
+            $data["display_order"] = $display_order;
+        }
         return self::execute("POST", "lists/{$list_id}/interest-categories/{$interest_category_id}/interests/", $data);
     }
 

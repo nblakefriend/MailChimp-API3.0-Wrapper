@@ -39,10 +39,10 @@ class MergeFields extends Lists
 
     /**
      * Create a new merge field for a specific list
-     * array["data"]
+     *  "name"                    string       Required. The name of the merge field
+     *  "type"                    string       Required. The type for the merge field
+     * array["optional_settings"]
      *      ["tag"]                     string       The tag used in MailChimp campaigns and for the /members endpoint.
-     *      ["name"]                    string       Required. The name of the merge field
-     *      ["type"]                    string       Required. The type for the merge field
      *      ["required"]                boolean      The boolaen value if the merge field is required
      *      ["default_value"]           string       The type for the merge field
      *      ["public"]                  boolean      Whether the merge field is displayed on the signup form.
@@ -55,11 +55,25 @@ class MergeFields extends Lists
      *             ["size"]             int          In a text field, the default length fo the text field
      *      ["help_text"]               string        Extra text to help the subscrber fill out the form
      * @param string $list_id
-     * @param array $data
+     * @param string $name
+     * @param string $type
+     * @param array $optional_settings
      * @return object
      */
-     public function createMergeField($list_id, array $data = [])
+     public function createMergeField($list_id, $name, $type,  array $optional_settings = [])
      {
+        $optional_fields = ["tag", "required", "default_value", "public", "display_order", "options", "help_text"];
+
+        $data = [
+            "name" => $name,
+            "type" => $type
+        ];
+
+        // If the optional fields are passed, process them against the list of optional fields.
+        if (isset($optional_settings)) {
+            $data = array_merge($data, self::optionalFields($optional_fields, $optional_settings));
+        }
+
         return self::execute("POST", "lists/{$list_id}/merge-fields", $data);
      }
 
