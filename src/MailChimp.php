@@ -36,7 +36,11 @@ class MailChimp
             'auth' => ['api', self::getActiveKey()],
             'cookies' => true,
             'allow_redirects' => true,
-            'http_errors' => false
+            'http_errors' => false,
+            "headers" => [
+                "User-Agent" => "MC 3.0 / PHP",
+                "Accept" => "application/json"
+            ]
         ]);
         MailChimp::$client = $client;
     }
