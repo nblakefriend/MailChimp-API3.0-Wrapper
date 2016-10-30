@@ -24,7 +24,7 @@ class Carts extends Ecommerce
             "id" => $cart_id,
             "customer" => $customer,
             "currency_code" => $currency_code,
-            "cart_total" => $cart_total,
+            "order_total" => $cart_total,
             "lines" => $lines
         ];
         // If the optional fields are passed, process them against the list of optional fields.

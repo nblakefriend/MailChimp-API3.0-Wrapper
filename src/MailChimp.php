@@ -160,13 +160,13 @@ class MailChimp
         return $data;
     }
 
-    protected static function createLog($output, $overwrite = false, $tag = null)
+    protected static function createLog($output, $overwrite = false, $file_name = "request.log", $tag = null)
     {
         $w = "a+";
         if ($overwrite) {
             $w = "w+";
         }
-        $file = 'request.log';
+        $file = $file_name;
         $json_output = json_encode($output);
         $date = new \DateTime("now", new \DateTimeZone('America/New_York'));
         $time_formatted = $date->format("Y/m/d H:i:s");
@@ -185,9 +185,21 @@ class MailChimp
     }
 
 
-    public function logData($data, $call)
+    public function logData($data, $tag, array $optional_settings = [])
     {
-        return self::createLog($data, false, $call);
+        if (isset($optional_settings["file_name"])) {
+            $file_name = $optional_settings["file_name"];
+        } else {
+            $file_name = null;
+        }
+
+        if (isset($optional_settings["overwrite"])) {
+            $overwrite = true;
+        } else {
+            $overwrite = false;
+        }
+
+        return self::createLog($data, $overwrite, $file_name, $tag);
     }
 
 
@@ -210,6 +222,17 @@ class MailChimp
     {
         return self::execute("GET", "", $query);
     }
+
+    /**
+     * Search all lists for members matching query
+     * @param string $query
+     * @return array of objects
+     */
+    public function searchMembers($query)
+    {
+        return self::execute("GET", "search-members", $query);
+    }
+
 
     public function authorizedApps()
     {

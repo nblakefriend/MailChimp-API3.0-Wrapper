@@ -57,7 +57,7 @@ class Segments extends Lists
       * @param array $query (See Above) OPTIONAL associative array of query parameters.
       * @return object
       */
-      public function getListSegmentMember($list_id, $segment_id, array $query = [])
+      public function getListSegmentMembers($list_id, $segment_id, array $query = [])
       {
           return self::execute("GET", "lists/{$list_id}/segments/{$segment_id}/members", $query);
       }
@@ -91,7 +91,7 @@ class Segments extends Lists
       * @param array $data
       * @return object
       */
-     public function updateListSegment($list_id, $segment_id, array $data =[])
+     public function updateListSegment($list_id, $segment_id, array $data = null)
      {
          return self::execute("PATCH", "lists/{$list_id}/segments/{$segment_id}", $data);
      }
@@ -107,6 +107,29 @@ class Segments extends Lists
      public function addListSegmentMember($list_id, $segment_id, $email_address, array $data =[])
      {
          return self::execute("POST", "lists/{$list_id}/segments/{$segment_id}/members", $data);
+     }
+
+     /**
+     * Batch add/remover members to a static segment.
+     * array["emails"]
+     *      ["add"]      array
+     *      ["remove"]      array
+      * @param string $list_id
+      * @param string $segment_id
+      * @param array $emails
+      * @return object
+      */
+     public function batchAddRemoveSegmentMembers($list_id, $segment_id, array $emails = [])
+     {
+         if (isset($emails["add"])) {
+             $data["members_to_add"] = $emails["add"];
+         }
+
+         if (isset($emails["remove"])) {
+            $data["members_to_remove"] = $emails["remove"];
+        }
+        // print_r ($data);
+         return self::execute("POST", "lists/{$list_id}/segments/{$segment_id}", $data);
      }
 
 

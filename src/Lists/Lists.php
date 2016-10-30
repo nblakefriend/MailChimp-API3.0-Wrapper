@@ -11,7 +11,6 @@ use MailChimp\Lists\Webhooks as Webhooks;
 
 class Lists extends MailChimp
 {
-
     /**
      * Get a list of lists for the account
      * Available query fields:

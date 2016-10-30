@@ -113,7 +113,7 @@ class Automations extends MailChimp
      */
     public function getWorkflowEmailQueue($workflow_id, $workflow_email_id, array $query = [])
     {
-        return self::execute("GET", "automations/{$workflow_id}/emails/{$workflow_idEmailId}/queue", $query);
+        return self::execute("GET", "automations/{$workflow_id}/emails/{$workflow_email_id}/queue", $query);
     }
 
     /**
