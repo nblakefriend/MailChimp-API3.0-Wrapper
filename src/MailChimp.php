@@ -16,7 +16,6 @@ use MailChimp\Lists\Lists as Lists;
 use MailChimp\Reports\Reports as Reports;
 use MailChimp\TemplateFolders\TemplateFolders as TemplateFolders;
 use MailChimp\Templates\Templates as Templates;
-use MailChimp\OAuth\OAuth as OAuth;
 
 
 class MailChimp
@@ -38,7 +37,7 @@ class MailChimp
             'allow_redirects' => true,
             'http_errors' => false,
             "headers" => [
-                "User-Agent" => "MC 3.0 / PHP",
+                "User-Agent" => "MCv3.0 / PHP",
                 "Accept" => "application/json"
             ]
         ]);
@@ -200,12 +199,6 @@ class MailChimp
         }
 
         return self::createLog($data, $overwrite, $file_name, $tag);
-    }
-
-
-    public function oauth()
-    {
-        return new OAuth;
     }
 
     /** RESOURCES */
