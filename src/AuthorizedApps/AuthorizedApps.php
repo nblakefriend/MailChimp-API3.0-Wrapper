@@ -45,6 +45,4 @@ class AuthorizedApps extends MailChimp
         return self::execute("POST", "authorized-apps", $data);
     }
 
-
-
 }
