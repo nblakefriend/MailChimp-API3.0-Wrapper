@@ -1,8 +1,8 @@
 {
-    "name": "mailchimp/mailchimp",
-    "description": "none",
+    "name": "nblakefriend/mailchimp-apiv3",
+    "description": "Complete PHP Wrapper for MailChimp API v3.0.",
     "type": "library",
-    "license": "none",
+    "license": "MIT",
     "authors": [
         {
             "name": "MailChimp",
@@ -18,5 +18,14 @@
         "psr-4": {
             "MailChimp\\": "src/"
         }
-    }
+    },
+    "homepage": "https://github.com/nblakefriend/MailChimp-API3.0-Wrapper.git",
+    "authors": [
+       {
+           "name": "Nathan Friend",
+           "email": "nblakefriend@gmail.com",
+           "homepage": "https://github.com/nblakefriend/"
+
+       }
+   ]
 }
