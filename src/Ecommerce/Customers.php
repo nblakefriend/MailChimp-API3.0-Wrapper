@@ -41,43 +41,19 @@ class Customers extends Ecommerce
      */
     public function addCustomer($store_id, $customer_id, $email_address, $opt_in_status, array $optional_settings = null)
     {
+        $optional_fields = ["company", "first_name", "last_name", "orders_count", "vendor", "total_spent", "address"];
+
         $data = array(
             "id" => $customer_id,
             "email_address" => $email_address,
             "opt_in_status" => $opt_in_status
         );
 
+        // If the optional fields are passed, process them against the list of optional fields.
         if (isset($optional_settings)) {
-            foreach ($optional_settings as $key => $value) {
-
-                switch (strtolower($key))
-                {
-                    case "company":
-                        $data["company"] = $value;
-                        break;
-                    case "first_name":
-                        $data["first_name"] = $value;
-                        break;
-                    case "last_name":
-                        $data["last_name"] = $value;
-                        break;
-                    case "orders_count":
-                        $data["orders_count"] = $value;
-                        break;
-                    case "vendor":
-                        $data["vendor"] = $value;
-                        break;
-                    case "total_spent":
-                        $data["total_spent"] = $value;
-                        break;
-                    case "address":
-                        $data["address"] = $value;
-                        break;
-                    default:
-                        break;
-                }
-            }
+            $data = array_merge($data, self::optionalFields($optional_fields, $optional_settings));
         }
+
         return self::execute("POST", "ecommerce/stores/{$store_id}/customers/", $data);
     }
 
