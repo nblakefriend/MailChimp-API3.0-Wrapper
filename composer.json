@@ -3,13 +3,6 @@
     "description": "Complete PHP Wrapper for MailChimp API v3.0.",
     "type": "library",
     "license": "MIT",
-    "authors": [
-        {
-            "name": "MailChimp",
-            "email": "nblakefriend@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
     "require": {
         "php": ">=5.3.19",
         "guzzlehttp/guzzle": "^6.0.0"
