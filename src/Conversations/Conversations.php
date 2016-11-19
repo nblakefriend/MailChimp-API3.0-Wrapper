@@ -9,6 +9,7 @@ class Conversations extends MailChimp
 
     /**
      * Get a list of conversations for the account.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -28,6 +29,7 @@ class Conversations extends MailChimp
 
     /**
      * Get details about an individual conversation.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -43,6 +45,7 @@ class Conversations extends MailChimp
 
     /**
      * Get messages from a specific conversation.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -63,6 +66,7 @@ class Conversations extends MailChimp
 
     /**
      * Get an individual message in a conversation.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -79,6 +83,7 @@ class Conversations extends MailChimp
 
     /**
      * Post a new message to a conversation
+     *
      * @param string $conversation_id
      * @param string $from_email
      * @param boolean  $read

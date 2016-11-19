@@ -9,6 +9,7 @@ class Reports extends MailChimp
 
     /**
      * Get a list of templates for the account
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -32,6 +33,7 @@ class Reports extends MailChimp
 
     /**
      * Get a list of campaigns for the account
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -47,6 +49,7 @@ class Reports extends MailChimp
 
     /**
      * Get a list of abuse complaints for a specific campaign.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -62,6 +65,7 @@ class Reports extends MailChimp
 
     /**
      * Get information about a specific abuse report for a campaign.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -78,6 +82,7 @@ class Reports extends MailChimp
 
     /**
      * Get feedback based on a campaign’s statistics.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -93,6 +98,7 @@ class Reports extends MailChimp
 
     /**
      * Get information about clicks on specific links in your MailChimp campaigns.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -110,6 +116,7 @@ class Reports extends MailChimp
 
     /**
      * Get click details for a specific link.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -126,6 +133,7 @@ class Reports extends MailChimp
 
     /**
      * Get information about list members who clicked on a specific link in a campaign.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -144,6 +152,7 @@ class Reports extends MailChimp
 
     /**
      * Get information about a specific subscriber who clicked a link in a specific campaign.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -161,6 +170,7 @@ class Reports extends MailChimp
 
     /**
      * Get statistics for the top-performing email domains in a campaign.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -176,6 +186,7 @@ class Reports extends MailChimp
 
     /**
      * Get a summary of social activity for the campaign, tracked by EepURL.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -191,6 +202,7 @@ class Reports extends MailChimp
 
     /**
      * Get a list of member’s subscriber activity in a specific campaign.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -208,6 +220,7 @@ class Reports extends MailChimp
 
     /**
      * Get a specific list member’s activity in a campaign including opens, clicks, and bounces.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -224,6 +237,7 @@ class Reports extends MailChimp
 
     /**
      * Get top open locations for a specific campaign.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -239,6 +253,7 @@ class Reports extends MailChimp
 
     /**
      * Get information about campaign recipients.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -256,6 +271,7 @@ class Reports extends MailChimp
 
     /**
      * Get information about a specific campaign recipient.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -272,6 +288,7 @@ class Reports extends MailChimp
 
     /**
      * Get a list of reports with child campaigns for a specific parent campaign.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -287,6 +304,7 @@ class Reports extends MailChimp
 
     /**
      * Get information about members who have unsubscribed from a specific campaign.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -304,6 +322,7 @@ class Reports extends MailChimp
 
     /**
      * Get information about a specific list member who unsubscribed from a campaign.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")

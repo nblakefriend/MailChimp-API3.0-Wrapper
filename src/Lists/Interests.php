@@ -6,6 +6,7 @@ class Interests extends Lists
 
     /**
      * Get information about a list’s interest categories.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -23,6 +24,7 @@ class Interests extends Lists
 
     /**
      * Get information about a specific interest category.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -81,6 +83,7 @@ class Interests extends Lists
 
     /**
      * Delete a specific interest category.
+     *
      * @param string $list_id
      * @param string $interest_category_id
      */
@@ -91,6 +94,7 @@ class Interests extends Lists
 
     /**
      * Get a list of this category’s interests.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -107,6 +111,7 @@ class Interests extends Lists
 
     /**
      * Get interests or ‘group names’ for a specific category.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -123,6 +128,7 @@ class Interests extends Lists
 
     /**
      * Create a new interest or ‘group name’ for a specific category.
+     *
      * array["data"]
      *      ["name"]           string       The name of the interest.
      * @param string $list_id
@@ -144,6 +150,7 @@ class Interests extends Lists
 
     /**
      * Update interests or ‘group names’ for a specific category.
+     *
      * array["data"]
      *      ["name"]           string       The name of the interest.
      * @param string $list_id
@@ -160,6 +167,7 @@ class Interests extends Lists
 
     /**
      * Delete interests or group names in a specific category.
+     *
      * @param string $list_id
      * @param string $interest_category_id
      * @param string $interest_id

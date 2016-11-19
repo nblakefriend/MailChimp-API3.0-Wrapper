@@ -8,6 +8,7 @@ class TemplateFolders extends MailChimp
 
     /**
      * Get all folders used to organize Templates.
+     *
      * Available query fields:
      * array["fields"]                  array       list of strings of response fields to return
      * array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")
@@ -23,6 +24,7 @@ class TemplateFolders extends MailChimp
 
     /**
      * Get information about a specific folder used to organize Templates.
+     *
      * Available query fields:
      * array["fields"]                  array       list of strings of response fields to return
      * array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")
@@ -37,6 +39,7 @@ class TemplateFolders extends MailChimp
 
     /**
      * Create a new Template folder.
+     *
      * @param string Folder Name
      * @return object
      */
@@ -48,6 +51,7 @@ class TemplateFolders extends MailChimp
 
     /**
      * Update a specific folder used to organize Templates.
+     *
      * @param string Folder Name
      * @return object
      */
@@ -59,6 +63,7 @@ class TemplateFolders extends MailChimp
 
     /**
      * Delete a specific Template folder, and mark all the Templates in the folder as ‘unfiled’.
+     *
      * @param string $folder_id
      */
     public function deleteFolder($folder_id)

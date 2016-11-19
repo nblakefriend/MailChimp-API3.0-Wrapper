@@ -36,6 +36,7 @@ class Automations extends MailChimp
 
     /**
      * Start all emails in an Automation workflow.
+     *
      * @param string $workflow_id
      */
     public function startAutomation($workflow_id)
@@ -45,6 +46,7 @@ class Automations extends MailChimp
 
     /**
      * Pause all emails in an Automation workflow.
+     *
      * @param string $workflow_id
      */
     public function pauseAutomation($workflow_id)
@@ -83,6 +85,7 @@ class Automations extends MailChimp
 
     /**
      * Start an automated email
+     *
      * @param string $workflow_id
      * @param string $workflow_email_id
      */
@@ -93,6 +96,7 @@ class Automations extends MailChimp
 
     /**
      * Pause an automated email
+     *
      * @param string $workflow_id
      * @param string $workflow_email_id
      */
@@ -135,6 +139,7 @@ class Automations extends MailChimp
 
     /**
      * Add a subscriber to a workflow email
+     *
      * @param string $workflow_id
      * @param string $workflow_email_id
      * @param string $email_address
@@ -159,6 +164,7 @@ class Automations extends MailChimp
 
     /**
      * Remove subscriber from a workflow
+     *
      * @param string $workflow_id
      * @param string $workflow_email_id
      * @param string $email_address

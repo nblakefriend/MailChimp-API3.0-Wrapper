@@ -9,6 +9,7 @@ class Templates extends MailChimp
 
     /**
      * Get a list of templates for the account
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -38,6 +39,7 @@ class Templates extends MailChimp
 
     /**
      * Get a list of campaigns for the account
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -53,6 +55,7 @@ class Templates extends MailChimp
 
     /**
      * Get a list of campaigns for the account
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -90,6 +93,7 @@ class Templates extends MailChimp
 
     /**
      * Update an existing template
+     *
      * @param int template id
      * @param array data
      * @return object
@@ -101,6 +105,7 @@ class Templates extends MailChimp
 
     /**
      * Update an existing template
+     *
      * @param int Template id
      */
     public function deleteTemplate($template_id)

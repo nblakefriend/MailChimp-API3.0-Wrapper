@@ -8,6 +8,7 @@ class Batches extends MailChimp
 
     /**
      * Get a summary of batch requests that have been made.
+     *
      * Available query fields:
      * array["fields"]                  array       list of strings of response fields to return
      * array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")
@@ -23,6 +24,7 @@ class Batches extends MailChimp
 
     /**
      * Get the status of a batch request.
+     *
      * Available query fields:
      * array["fields"]                  array       list of strings of response fields to return
      * array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")
@@ -37,6 +39,7 @@ class Batches extends MailChimp
 
     /**
      * Begin processing a batch operations request.
+     *
      * @param array $data
      * @return object
      */
@@ -68,6 +71,7 @@ class Batches extends MailChimp
 
     /**
      * Delete a batch request and stop if from processing further.
+     *
      * @param string $batch_id
      */
     public function deleteBatch ($batch_id)

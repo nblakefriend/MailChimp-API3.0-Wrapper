@@ -6,6 +6,7 @@ class SignupForms extends Lists
 
     /**
      * Get a list of signup form values
+     *
      * @param string $list_id
      * @param array $query (See Above) OPTIONAL associative array of query parameters.
      * @return object
@@ -17,6 +18,7 @@ class SignupForms extends Lists
 
     /**
      * customize a lists signup form values
+     *
      * @param string $list_id
      * @param array $data (See Above) OPTIONAL associative array of query parameters.
      * @return object

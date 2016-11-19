@@ -9,6 +9,7 @@ class Files extends MailChimp
 
     /**
      * Get a list of available images and files stored in the File Manager for the account.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -35,6 +36,7 @@ class Files extends MailChimp
 
     /**
      * Get information about a specific file in the File Manager.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")

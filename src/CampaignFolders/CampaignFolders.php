@@ -8,6 +8,7 @@ class CampaignFolders extends MailChimp
 
     /**
      * Get all folders used to organize campaigns.
+     *
      * Available query fields:
      * array["fields"]                  array       list of strings of response fields to return
      * array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")
@@ -23,6 +24,7 @@ class CampaignFolders extends MailChimp
 
     /**
      * Get information about a specific folder used to organize campaigns.
+     *
      * Available query fields:
      * array["fields"]                  array       list of strings of response fields to return
      * array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")
@@ -37,6 +39,7 @@ class CampaignFolders extends MailChimp
 
     /**
      * Create a new campaign folder.
+     *
      * @param string folder name
      * @return object
      */
@@ -48,6 +51,7 @@ class CampaignFolders extends MailChimp
 
     /**
      * Update a specific folder used to organize campaigns.
+     *
      * @param string folder name
      * @return object
      */
@@ -59,6 +63,7 @@ class CampaignFolders extends MailChimp
 
     /**
      * Delete a specific campaign folder, and mark all the campaigns in the folder as ‘unfiled’.
+     *
      * @param string $folder_id
      */
     public function deleteCampaignFolder($folder_id)

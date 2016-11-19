@@ -122,7 +122,7 @@ class Products extends Ecommerce
     }
 
     /**
-     * Update a product variant..
+     * Update a product variant.
      *
      * @param string $store_id
      * @param string $product_id

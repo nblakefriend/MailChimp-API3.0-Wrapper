@@ -42,8 +42,6 @@ class Ecommerce extends MailChimp
      * @param string $currency_code The three-letter ISO 4217 code for the currency that the store accepts.
      * @param array (optional) $optional_settings
      * @return object
-
-     * TODO: expand comment
      */
     public function addStore($store_id, $list_id, $name, $currency_code, array $optional_settings = null)
     {
@@ -89,7 +87,7 @@ class Ecommerce extends MailChimp
      */
 
      /**
-      * Ecommerce Cart Resources
+      * Instantiate Ecommerce Cart subresources
       *
       */
      public function carts()
@@ -98,7 +96,7 @@ class Ecommerce extends MailChimp
      }
 
      /**
-      * Ecommerce Customer Resources
+      * Instantiate Ecommerce Customer subresources
       *
       */
      public function customers()
@@ -107,7 +105,7 @@ class Ecommerce extends MailChimp
     }
 
     /**
-     * Ecommerce Orders Resources
+     * Instantiate Ecommerce Orders subresources
      *
      */
     public function orders()
@@ -116,7 +114,7 @@ class Ecommerce extends MailChimp
     }
 
     /**
-     * Ecommerce Products Resources
+     * Instantiate Ecommerce Products subresources
      *
      */
     public function products()

@@ -9,6 +9,7 @@ class Folders extends MailChimp
 
     /**
      * Get a list of all folders in the File Manager.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -31,6 +32,7 @@ class Folders extends MailChimp
 
     /**
      * Get information about a specific folder in the File Manager.
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")

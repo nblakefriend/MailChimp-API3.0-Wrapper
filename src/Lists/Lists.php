@@ -13,6 +13,7 @@ class Lists extends MailChimp
 {
     /**
      * Get a list of lists for the account
+     *
      * Available query fields:
      * array["fields"]                  array       list of strings of response fields to return
      * array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")
@@ -37,7 +38,7 @@ class Lists extends MailChimp
     }
 
     /**
-     * Get a single campaign
+     * Get a single list
      *
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -53,6 +54,7 @@ class Lists extends MailChimp
 
     /**
      * Create a list
+     *
      *      ["name"]                string      required
      *      ["permission_reminder"] string      required
      *      ["email_type_option"]   boolean     required
@@ -160,6 +162,7 @@ class Lists extends MailChimp
 
     /**
      * Get recent daily, aggregated activity stats for your list.
+     *
      * For example, view unsubscribes, signups, total emails sent, opens, clicks, and more, for up to 180 days.
      *
      * Available query fields:
@@ -238,31 +241,50 @@ class Lists extends MailChimp
     /**
      *  Instantiate lists subresources
      */
+
+     /**
+      *  Instantiate lists interests subresources
+      */
      public function interests()
      {
          return new Interests;
      }
 
+     /**
+      *  Instantiate lists Members subresources
+      */
     public function members()
     {
         return new Members;
     }
 
+    /**
+     *  Instantiate lists MergeFields subresources
+     */
     public function mergeFields()
     {
         return new MergeFields;
     }
 
+    /**
+     *  Instantiate lists Segments subresources
+     */
     public function segments()
     {
         return new Segments;
     }
 
+    /**
+     *  Instantiate lists signupForms subresources
+     */
     public function signupForms()
     {
         return new signupForms;
     }
 
+    /**
+     *  Instantiate lists webhooks subresources
+     */
     public function webhooks()
     {
         return new Webhooks;

@@ -8,11 +8,30 @@ class Orders extends Ecommerce
      * TODO: comment requirements
      */
 
+     /**
+      * Get information about a store’s orders.
+      *
+      * array["fields"]              array       list of strings of response fields to return
+      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+      * array["count"]               int         number of records to return
+      * array["offset"]              int         number of records from a collection to skip.
+      * array["customer_id"]         string      Restrict results to orders made by a specific customer.
+      *
+      * @param string $store_id
+      * @param array $query (See Above) OPTIONAL associative array of query parameters.
+      * @return object
+      */
     public function getOrders($store_id, array $query = [])
     {
         return self::execute("GET", "ecommerce/stores/{$store_id}/orders", $query);
     }
 
+    /**
+     * Get information about a specific order.
+     *
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     */
     public function getOrder($store_id, $order_id, array $query = [])
     {
         return self::execute("GET", "ecommerce/stores/{$store_id}/orders/{$order_id}", $query);
@@ -48,16 +67,48 @@ class Orders extends Ecommerce
         return self::execute("POST", "ecommerce/stores/{$store_id}/orders/", $data);
     }
 
+    /**
+     * Update an order
+     *
+     * @param string $store_id
+     * @param string $order_id
+     * @param array $data
+     * @return object
+     */
     public function updateOrder($store_id, $order_id, array $data = [])
     {
         return self::execute("PATCH", "ecommerce/stores/{$store_id}/orders/{$order_id}", $data);
     }
 
+    /**
+     * Get information about a order’s line items
+     *
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     * array["count"]               int         number of records to return
+     * array["offset"]              int         number of records from a collection to skip.
+     *
+     * @param string $store_id
+     * @param string $order_id
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
     public function getOrderLines($store_id, $order_id, array $query = [])
     {
         return self::execute("GET", "ecommerce/stores/{$store_id}/orders/{$order_id}/lines", $query);
     }
 
+    /**
+     * Get information about a specific order line item.
+     *
+     * array["fields"]              array       list of strings of response fields to return
+     * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+     *
+     * @param string $store_id
+     * @param string $order_id
+     * @param array $query (See Above) OPTIONAL associative array of query parameters.
+     * @return object
+     */
     public function getOrderLine($store_id, $order_id, $line_id, array $query = [])
     {
         return self::execute("GET", "ecommerce/stores/{$store_id}/orders/{$order_id}/lines/{$line_id}", $query);

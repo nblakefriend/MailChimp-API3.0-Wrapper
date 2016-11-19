@@ -73,6 +73,7 @@ class Feedback extends MailChimp
 
     /**
      * Delete a campaign feedback message
+     *
      * @param string $campaign_id for the campaign instance
      * @param string $feedback_id
      */

@@ -2,6 +2,7 @@
 namespace MailChimp\Campaigns;
 
 use MailChimp\MailChimp as MailChimp;
+use MailChimp\Campaigns\Content as Content;
 use MailChimp\Campaigns\Feedback as Feedback;
 
 class Campaigns extends MailChimp
@@ -69,6 +70,7 @@ class Campaigns extends MailChimp
 
     /**
      * Create a campaign
+     *
      * Example Request Body:
      *      "type"                          string      REQUIRED The campaign type. Possible Values: regular, plaintext, variate, rss
      *      "recipients"                    array       List setting for the campaign
@@ -168,6 +170,7 @@ class Campaigns extends MailChimp
 
     /**
      * Update a Campaign
+     *
      * @param string $campaign_id for the campaign instance
      * @param array $data
      * @return object
@@ -179,6 +182,7 @@ class Campaigns extends MailChimp
 
     /**
      * Pause an RSS-Driven campaign
+     *
      * @param string $campaign_id for the campaign instance
      */
     public function pauseRSSCampaign($campaign_id)
@@ -188,6 +192,7 @@ class Campaigns extends MailChimp
 
     /**
      * Resume an RSS-Driven campaign
+     *
      * @param string $campaign_id for the campaign instance
      */
     public function resumeRSSCampaign($campaign_id)
@@ -197,6 +202,7 @@ class Campaigns extends MailChimp
 
     /**
      * Replicate a campaign
+     *
      * @param string $campaign_id for the campaign instance
      */
     public function replicateCampaign($campaign_id)
@@ -207,6 +213,7 @@ class Campaigns extends MailChimp
 
     /**
      * Cancel a campaign
+     *
      * @param string $campaign_id for the campaign instance
      */
     public function cancelCampaign($campaign_id)
@@ -216,6 +223,7 @@ class Campaigns extends MailChimp
 
     /**
      * Schedule a campaign
+     *
      * @param string $campaign_id for the campaign instance
      */
     public function scheduleCampaign($campaign_id)
@@ -225,6 +233,7 @@ class Campaigns extends MailChimp
 
     /**
      * Unschedule a campaign
+     *
      * @param string $campaign_id for the campaign instance
      */
     public function unscheduleCampaign($campaign_id)
@@ -234,6 +243,7 @@ class Campaigns extends MailChimp
 
     /**
      * Send a test email
+     *
      * @param string $campaign_id for the campaign instance
      */
     public function sendCampaignTest($campaign_id)
@@ -243,6 +253,7 @@ class Campaigns extends MailChimp
 
     /**
      * Send a campaign
+     *
      * @param string $campaign_id for the campaign instance
      */
     public function sendCampaign($campaign_id)
@@ -252,6 +263,7 @@ class Campaigns extends MailChimp
 
     /**
      * Delete a campaign
+     *
      * @param string $campaign_id for the campaign instance
      */
     public function deleteCampaign($campaign_id)
@@ -260,12 +272,23 @@ class Campaigns extends MailChimp
     }
 
     /**
-     *  Accesses the campaign feedback collection
+     *  Instantiates the Content class.
+     *
      */
-     public function feedback()
+     public function content()
      {
-         return new Feedback;
+         return new Content;
      }
+
+     /**
+      *  Instantiates the Feedback class.
+      *
+      */
+      public function feedback()
+      {
+          return new Feedback;
+      }
+
 
 
 

@@ -24,8 +24,7 @@ class MailChimp
     private static $mc_root;
     private static $api_key;
     private static $config = "config.ini";
-    private static $config_dev = "configtest.ini";
-    protected static $client;
+    private static $client;
 
     public function __construct()
     {
