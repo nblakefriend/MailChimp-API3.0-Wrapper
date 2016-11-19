@@ -13,7 +13,28 @@ class Docs {
         self::$desc = $desc;
     }
 
+    public static function collectionReflection($collections, $collection_map)
+    {
+        $reflections = [];
 
+        foreach ($collections as $collection) {
+            $reflections[$collection] = new ReflectionClass($collection_map[$collection]);
+        }
+        return $reflections;
+    }
+
+    public static function displayCollections(array $collections)
+    {
+        $output = "<ul>";
+        foreach ($collections as $collection) {
+            $output .= "<li>";
+            $output .= $collection;
+            $output .= "</li>";
+        }
+        $output .= "</ul>";
+
+        return $output;
+    }
     public static function displayClassName($class_name)
     {
         return "<h4>{$class_name} Methods</h4>";
@@ -23,9 +44,11 @@ class Docs {
     {
         $output = "";
         foreach ($class_methods as $method) {
+            $params = self::getMethodParmeters($method);
+            $p = self::displayParameters($params);
             if( $method->class == $reflector->getName() ) {
                     $output .= "<h5><strong>";
-                    $output .= $method->getName()."()";
+                    $output .= $method->getName()."({$p})";
                     $output .= "</strong></h5>";
                     $output .= "<p>";
                     $output .=  self::getShortDescription( $method->getDocComment() );
@@ -36,7 +59,22 @@ class Docs {
         return $output;
     }
 
-    public static function getShortDescription($full_comment)
+    public static function getMethodParmeters($method)
+    {
+        return $method->getParameters();
+    }
+
+    public static function displayParameters($params)
+    {
+        $p = [];
+        foreach ($params as $param) {
+            $p[] = "$" .$param->getName();
+        }
+
+        return implode(", ", $p);
+    }
+
+    protected static function getShortDescription($full_comment)
     {
         $parse = self::parseComment($full_comment);
         return self::$shortDesc;

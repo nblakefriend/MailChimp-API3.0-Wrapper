@@ -5,9 +5,23 @@ error_reporting(E_ALL);
 require "Docs.php";
 require "../vendor/autoload.php";
 $mc = new MailChimp\MailChimp;
+
+$collections = ["AuthorizedApps", "Automations", "Batches", "CampaignFolders", "Campaigns", "Conversations", "Ecommerce"];
+$collectionMap = [
+        "AuthorizedApps" => $mc->authorizedApps(),
+        "Automations" => $mc->automations(),
+        "Batches" => $mc->batchOps(),
+        "CampaignFolders" => $mc->campaignFolders(),
+        "Campaigns" => $mc->campaigns(),
+        "Conversations" => $mc->conversations(),
+        "Ecommerce" => $mc->ecommerce()
+];
+$reflections = Docs::collectionReflection($collections, $collectionMap);
+// $reflection = $reflections["Automations"];
+// // $reflection = new ReflectionClass($collectionMap["Campaigns"]);
+// $className = $reflection->getName();
+
 $display = "";
-$reflection = new ReflectionClass($mc->campaigns());
-$className = $reflection->getName();
 ?>
 <!doctype html>
 <html lang="en">
@@ -19,18 +33,43 @@ $className = $reflection->getName();
     <title>MailChimp API 3.0 Wrapper Documentation</title>
 </head>
 <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 bg-info">
-                    <?php echo Docs::displayClassName( $className ); ?>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>MailChimp API 3.0 Wrapper</h1>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <?php echo Docs::listClassMethods($reflection, $reflection->getMethods( ReflectionMethod::IS_PUBLIC) ); ?>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Collections</h3>
+                        <?php
+                            echo Docs::displayCollections($collections);
+                        ?>
+                    </div>
                 </div>
+
+                <?php
+                    foreach ($collections as $collection) {
+                        $reflection = $reflections[$collection];
+                        // $reflection = new ReflectionClass($collectionMap["Campaigns"]);
+                        $className = $reflection->getName();
+                ?>
+
+                <div class="row">
+                    <div class="col-md-12 bg-info">
+                        <?php echo Docs::displayClassName( $className ); ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <?php echo Docs::listClassMethods($reflection, $reflection->getMethods( ReflectionMethod::IS_PUBLIC) ); ?>
+                    </div>
+                </div>
+
+                <?php } ?>
+
             </div>
-        </div>
+
 
 <?php
 
