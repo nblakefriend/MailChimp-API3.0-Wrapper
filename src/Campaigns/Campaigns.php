@@ -9,6 +9,7 @@ class Campaigns extends MailChimp
 
     /**
      * Get a list of campaigns for the account
+     *
      * Available query fields:
      * array["fields"]              array       list of strings of response fields to return
      * array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
@@ -259,9 +260,8 @@ class Campaigns extends MailChimp
     }
 
     /**
-     *  Campaign subresources
+     *  Accesses the campaign feedback collection
      */
-
      public function feedback()
      {
          return new Feedback;

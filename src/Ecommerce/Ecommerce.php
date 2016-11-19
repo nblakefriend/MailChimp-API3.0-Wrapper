@@ -88,21 +88,37 @@ class Ecommerce extends MailChimp
      *  Ecommerce subresources
      */
 
+     /**
+      * Ecommerce Cart Resources
+      *
+      */
      public function carts()
      {
          return new Carts;
      }
 
+     /**
+      * Ecommerce Customer Resources
+      *
+      */
      public function customers()
     {
         return new Customers;
     }
 
+    /**
+     * Ecommerce Orders Resources
+     *
+     */
     public function orders()
     {
         return new Orders;
     }
 
+    /**
+     * Ecommerce Products Resources
+     *
+     */
     public function products()
     {
         return new Products;
