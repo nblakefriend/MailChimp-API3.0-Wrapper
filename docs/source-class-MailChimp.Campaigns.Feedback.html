@@ -114,6 +114,7 @@
 				<li><a href="class-MailChimp.Batches.Batches.html">MailChimp\Batches\Batches</a></li>
 				<li><a href="class-MailChimp.CampaignFolders.CampaignFolders.html">MailChimp\CampaignFolders\CampaignFolders</a></li>
 				<li><a href="class-MailChimp.Campaigns.Campaigns.html">MailChimp\Campaigns\Campaigns</a></li>
+				<li><a href="class-MailChimp.Campaigns.Content.html">MailChimp\Campaigns\Content</a></li>
 				<li><a href="class-MailChimp.Campaigns.Feedback.html">MailChimp\Campaigns\Feedback</a></li>
 				<li><a href="class-MailChimp.Conversations.Conversations.html">MailChimp\Conversations\Conversations</a></li>
 				<li><a href="class-MailChimp.Ecommerce.Carts.html">MailChimp\Ecommerce\Carts</a></li>
@@ -223,17 +224,18 @@
 </span><span id="73" class="l"><a href="#73">73 </a>
 </span><span id="74" class="l"><a href="#74">74 </a>    <span class="php-comment">/**
 </span></span><span id="75" class="l"><a href="#75">75 </a><span class="php-comment">     * Delete a campaign feedback message
-</span></span><span id="76" class="l"><a href="#76">76 </a><span class="php-comment">     * @param string $campaign_id for the campaign instance
-</span></span><span id="77" class="l"><a href="#77">77 </a><span class="php-comment">     * @param string $feedback_id
-</span></span><span id="78" class="l"><a href="#78">78 </a><span class="php-comment">     */</span>
-</span><span id="79" class="l"><a href="#79">79 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> deleteFeedbackMessage(<span class="php-var">$campaign_id</span>, <span class="php-var">$feedback_id</span>)
-</span><span id="80" class="l"><a href="#80">80 </a>    {
-</span><span id="81" class="l"><a href="#81">81 </a>        <span class="php-keyword1">return</span> self::execute(<span class="php-quote">&quot;DELETE&quot;</span>, <span class="php-quote">&quot;campaigns/</span><span class="php-var">{$campaign_id}</span><span class="php-quote">/feedback/</span><span class="php-var">{$feedback_id}</span><span class="php-quote">&quot;</span>);
-</span><span id="82" class="l"><a href="#82">82 </a>    }
-</span><span id="83" class="l"><a href="#83">83 </a>
+</span></span><span id="76" class="l"><a href="#76">76 </a><span class="php-comment">     *
+</span></span><span id="77" class="l"><a href="#77">77 </a><span class="php-comment">     * @param string $campaign_id for the campaign instance
+</span></span><span id="78" class="l"><a href="#78">78 </a><span class="php-comment">     * @param string $feedback_id
+</span></span><span id="79" class="l"><a href="#79">79 </a><span class="php-comment">     */</span>
+</span><span id="80" class="l"><a href="#80">80 </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> deleteFeedbackMessage(<span class="php-var">$campaign_id</span>, <span class="php-var">$feedback_id</span>)
+</span><span id="81" class="l"><a href="#81">81 </a>    {
+</span><span id="82" class="l"><a href="#82">82 </a>        <span class="php-keyword1">return</span> self::execute(<span class="php-quote">&quot;DELETE&quot;</span>, <span class="php-quote">&quot;campaigns/</span><span class="php-var">{$campaign_id}</span><span class="php-quote">/feedback/</span><span class="php-var">{$feedback_id}</span><span class="php-quote">&quot;</span>);
+</span><span id="83" class="l"><a href="#83">83 </a>    }
 </span><span id="84" class="l"><a href="#84">84 </a>
-</span><span id="85" class="l"><a href="#85">85 </a>}
-</span><span id="86" class="l"><a href="#86">86 </a></span></code></pre>
+</span><span id="85" class="l"><a href="#85">85 </a>
+</span><span id="86" class="l"><a href="#86">86 </a>}
+</span><span id="87" class="l"><a href="#87">87 </a></span></code></pre>
 	</div>
 
 	<div id="footer">
@@ -241,6 +243,6 @@
 	</div>
 </div>
 <script src="resources/combined.js?533e23ef2f02bd4b20548834a028566b6eb403e0"></script>
-<script src="elementlist.js?d9e48e1301e42e313066f963500dfbaa0cf721b8"></script>
+<script src="elementlist.js?5ee8e6f6e9da59c1a7416ca8a39ccee06ac836b7"></script>
 </body>
 </html>

@@ -157,7 +157,7 @@
 		<b>Namespace:</b> <a href="namespace-MailChimp.html">MailChimp</a>\<a href="namespace-MailChimp.Reports.html">Reports</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-MailChimp.Reports.Reports.html#7-321" title="Go to source code">Reports/Reports.php</a>
+			<b>Located at</b> <a href="source-class-MailChimp.Reports.Reports.html#7-340" title="Go to source code">Reports/Reports.php</a>
 		<br>
 	</div>
 
@@ -177,27 +177,16 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getCamapaignReports">#</a>
-			<code><a href="source-class-MailChimp.Reports.Reports.html#10-31" title="Go to source code">getCamapaignReports</a>( <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Reports.Reports.html#10-32" title="Go to source code">getCamapaignReports</a>( <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get a list of templates for the account
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
-array["count"]               int         number of records to return
-array["offset"]              int         number of records from a collection to skip.
-array["folder_id"]           string      Filter results by a specific campaign folder.
-array["type"]                string      The campaign type.
-                                         Possible values: regular,plaintext,absplit,rss,variate
-array["before_send_time"]    string      Restrict the response to campaigns sent before the set time.
-                                         ISO 8601 time format: 2015-10-21T15:41:36+00:00.
-array["since_send_time"]     string      Restrict the response to campaigns sent after the set time.
-                                         ISO 8601 time format: 2015-10-21T15:41:36+00:00.</p>
+				<p>Get a list of templates for the account</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get a list of templates for the account
-Available query fields:
+				<p>Get a list of templates for the account</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
 array["count"]               int         number of records to return
@@ -236,18 +225,16 @@ array["since_send_time"]     string      Restrict the response to campaigns sent
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getCampaignReport">#</a>
-			<code><a href="source-class-MailChimp.Reports.Reports.html#33-46" title="Go to source code">getCampaignReport</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Reports.Reports.html#34-48" title="Go to source code">getCampaignReport</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get a list of campaigns for the account
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get a list of campaigns for the account</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get a list of campaigns for the account
-Available query fields:
+				<p>Get a list of campaigns for the account</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -282,18 +269,16 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getAbuseReports">#</a>
-			<code><a href="source-class-MailChimp.Reports.Reports.html#48-61" title="Go to source code">getAbuseReports</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Reports.Reports.html#50-64" title="Go to source code">getAbuseReports</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get a list of abuse complaints for a specific campaign.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get a list of abuse complaints for a specific campaign.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get a list of abuse complaints for a specific campaign.
-Available query fields:
+				<p>Get a list of abuse complaints for a specific campaign.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -328,18 +313,16 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getAbuseReport">#</a>
-			<code><a href="source-class-MailChimp.Reports.Reports.html#63-77" title="Go to source code">getAbuseReport</a>( <span>string <var>$campaign_id</var></span>, <span>string <var>$report_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Reports.Reports.html#66-81" title="Go to source code">getAbuseReport</a>( <span>string <var>$campaign_id</var></span>, <span>string <var>$report_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get information about a specific abuse report for a campaign.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get information about a specific abuse report for a campaign.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get information about a specific abuse report for a campaign.
-Available query fields:
+				<p>Get information about a specific abuse report for a campaign.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -376,18 +359,16 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getAdvice">#</a>
-			<code><a href="source-class-MailChimp.Reports.Reports.html#79-92" title="Go to source code">getAdvice</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Reports.Reports.html#83-97" title="Go to source code">getAdvice</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get feedback based on a campaign’s statistics.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get feedback based on a campaign’s statistics.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get feedback based on a campaign’s statistics.
-Available query fields:
+				<p>Get feedback based on a campaign’s statistics.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -422,20 +403,16 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getClickReports">#</a>
-			<code><a href="source-class-MailChimp.Reports.Reports.html#94-109" title="Go to source code">getClickReports</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Reports.Reports.html#99-115" title="Go to source code">getClickReports</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get information about clicks on specific links in your MailChimp campaigns.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
-array["count"]               int         number of records to return
-array["offset"]              int         number of records from a collection to skip.</p>
+				<p>Get information about clicks on specific links in your MailChimp campaigns.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get information about clicks on specific links in your MailChimp campaigns.
-Available query fields:
+				<p>Get information about clicks on specific links in your MailChimp campaigns.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
 array["count"]               int         number of records to return
@@ -472,18 +449,16 @@ array["offset"]              int         number of records from a collection to 
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getClickReport">#</a>
-			<code><a href="source-class-MailChimp.Reports.Reports.html#111-125" title="Go to source code">getClickReport</a>( <span>string <var>$campaign_id</var></span>, <span>string <var>$link_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Reports.Reports.html#117-132" title="Go to source code">getClickReport</a>( <span>string <var>$campaign_id</var></span>, <span>string <var>$link_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get click details for a specific link.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get click details for a specific link.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get click details for a specific link.
-Available query fields:
+				<p>Get click details for a specific link.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -520,20 +495,16 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getClickReportMembers">#</a>
-			<code><a href="source-class-MailChimp.Reports.Reports.html#127-143" title="Go to source code">getClickReportMembers</a>( <span>string <var>$campaign_id</var></span>, <span>string <var>$link_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Reports.Reports.html#134-151" title="Go to source code">getClickReportMembers</a>( <span>string <var>$campaign_id</var></span>, <span>string <var>$link_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get information about list members who clicked on a specific link in a campaign.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
-array["count"]               int         number of records to return
-array["offset"]              int         number of records from a collection to skip.</p>
+				<p>Get information about list members who clicked on a specific link in a campaign.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get information about list members who clicked on a specific link in a campaign.
-Available query fields:
+				<p>Get information about list members who clicked on a specific link in a campaign.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
 array["count"]               int         number of records to return
@@ -572,18 +543,16 @@ array["offset"]              int         number of records from a collection to 
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getClickReportMember">#</a>
-			<code><a href="source-class-MailChimp.Reports.Reports.html#145-160" title="Go to source code">getClickReportMember</a>( <span>string <var>$campaign_id</var></span>, <span>string <var>$link_id</var></span>, <span>string <var>$subscriber_hash</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Reports.Reports.html#153-169" title="Go to source code">getClickReportMember</a>( <span>string <var>$campaign_id</var></span>, <span>string <var>$link_id</var></span>, <span>string <var>$subscriber_hash</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get information about a specific subscriber who clicked a link in a specific campaign.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get information about a specific subscriber who clicked a link in a specific campaign.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get information about a specific subscriber who clicked a link in a specific campaign.
-Available query fields:
+				<p>Get information about a specific subscriber who clicked a link in a specific campaign.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -622,18 +591,16 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getDomainPerformance">#</a>
-			<code><a href="source-class-MailChimp.Reports.Reports.html#162-175" title="Go to source code">getDomainPerformance</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Reports.Reports.html#171-185" title="Go to source code">getDomainPerformance</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get statistics for the top-performing email domains in a campaign.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get statistics for the top-performing email domains in a campaign.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get statistics for the top-performing email domains in a campaign.
-Available query fields:
+				<p>Get statistics for the top-performing email domains in a campaign.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -668,18 +635,16 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getSocialActivity">#</a>
-			<code><a href="source-class-MailChimp.Reports.Reports.html#177-190" title="Go to source code">getSocialActivity</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Reports.Reports.html#187-201" title="Go to source code">getSocialActivity</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get a summary of social activity for the campaign, tracked by EepURL.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get a summary of social activity for the campaign, tracked by EepURL.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get a summary of social activity for the campaign, tracked by EepURL.
-Available query fields:
+				<p>Get a summary of social activity for the campaign, tracked by EepURL.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -714,20 +679,16 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getEmailActivity">#</a>
-			<code><a href="source-class-MailChimp.Reports.Reports.html#192-207" title="Go to source code">getEmailActivity</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Reports.Reports.html#203-219" title="Go to source code">getEmailActivity</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get a list of member’s subscriber activity in a specific campaign.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
-array["count"]               int         number of records to return
-array["offset"]              int         number of records from a collection to skip.</p>
+				<p>Get a list of member’s subscriber activity in a specific campaign.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get a list of member’s subscriber activity in a specific campaign.
-Available query fields:
+				<p>Get a list of member’s subscriber activity in a specific campaign.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
 array["count"]               int         number of records to return
@@ -764,18 +725,16 @@ array["offset"]              int         number of records from a collection to 
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getMemberActivity">#</a>
-			<code><a href="source-class-MailChimp.Reports.Reports.html#209-223" title="Go to source code">getMemberActivity</a>( <span>string <var>$campaign_id</var></span>, <span>string <var>$subscriber_hash</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Reports.Reports.html#221-236" title="Go to source code">getMemberActivity</a>( <span>string <var>$campaign_id</var></span>, <span>string <var>$subscriber_hash</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get a specific list member’s activity in a campaign including opens, clicks, and bounces.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get a specific list member’s activity in a campaign including opens, clicks, and bounces.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get a specific list member’s activity in a campaign including opens, clicks, and bounces.
-Available query fields:
+				<p>Get a specific list member’s activity in a campaign including opens, clicks, and bounces.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -812,18 +771,16 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getTopLocations">#</a>
-			<code><a href="source-class-MailChimp.Reports.Reports.html#225-238" title="Go to source code">getTopLocations</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Reports.Reports.html#238-252" title="Go to source code">getTopLocations</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get top open locations for a specific campaign.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get top open locations for a specific campaign.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get top open locations for a specific campaign.
-Available query fields:
+				<p>Get top open locations for a specific campaign.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -858,20 +815,16 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getSentToMembers">#</a>
-			<code><a href="source-class-MailChimp.Reports.Reports.html#240-255" title="Go to source code">getSentToMembers</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Reports.Reports.html#254-270" title="Go to source code">getSentToMembers</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get information about campaign recipients.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
-array["count"]               int         number of records to return
-array["offset"]              int         number of records from a collection to skip.</p>
+				<p>Get information about campaign recipients.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get information about campaign recipients.
-Available query fields:
+				<p>Get information about campaign recipients.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
 array["count"]               int         number of records to return
@@ -908,18 +861,16 @@ array["offset"]              int         number of records from a collection to 
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getSentToMember">#</a>
-			<code><a href="source-class-MailChimp.Reports.Reports.html#257-271" title="Go to source code">getSentToMember</a>( <span>string <var>$campaign_id</var></span>, <span>string <var>$subscriber_hash</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Reports.Reports.html#272-287" title="Go to source code">getSentToMember</a>( <span>string <var>$campaign_id</var></span>, <span>string <var>$subscriber_hash</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get information about a specific campaign recipient.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get information about a specific campaign recipient.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get information about a specific campaign recipient.
-Available query fields:
+				<p>Get information about a specific campaign recipient.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -956,18 +907,16 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getSubReports">#</a>
-			<code><a href="source-class-MailChimp.Reports.Reports.html#273-286" title="Go to source code">getSubReports</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Reports.Reports.html#289-303" title="Go to source code">getSubReports</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get a list of reports with child campaigns for a specific parent campaign.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get a list of reports with child campaigns for a specific parent campaign.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get a list of reports with child campaigns for a specific parent campaign.
-Available query fields:
+				<p>Get a list of reports with child campaigns for a specific parent campaign.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -1002,20 +951,16 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getUnsubscribedMembers">#</a>
-			<code><a href="source-class-MailChimp.Reports.Reports.html#288-303" title="Go to source code">getUnsubscribedMembers</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Reports.Reports.html#305-321" title="Go to source code">getUnsubscribedMembers</a>( <span>string <var>$campaign_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get information about members who have unsubscribed from a specific campaign.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
-array["count"]               int         number of records to return
-array["offset"]              int         number of records from a collection to skip.</p>
+				<p>Get information about members who have unsubscribed from a specific campaign.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get information about members who have unsubscribed from a specific campaign.
-Available query fields:
+				<p>Get information about members who have unsubscribed from a specific campaign.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
 array["count"]               int         number of records to return
@@ -1052,18 +997,16 @@ array["offset"]              int         number of records from a collection to 
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getUnsubscribedMember">#</a>
-			<code><a href="source-class-MailChimp.Reports.Reports.html#305-319" title="Go to source code">getUnsubscribedMember</a>( <span>string <var>$campaign_id</var></span>, <span>string <var>$subscriber_hash</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Reports.Reports.html#323-338" title="Go to source code">getUnsubscribedMember</a>( <span>string <var>$campaign_id</var></span>, <span>string <var>$subscriber_hash</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get information about a specific list member who unsubscribed from a campaign.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get information about a specific list member who unsubscribed from a campaign.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get information about a specific list member who unsubscribed from a campaign.
-Available query fields:
+				<p>Get information about a specific list member who unsubscribed from a campaign.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -1123,21 +1066,6 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 
 
-
-
-
-
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h2>Properties summary</h2></div>
-		</div>
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h3>Properties inherited from <a href="class-MailChimp.MailChimp.html#properties">MailChimp\MailChimp</a></h3></div>
-			<p class="elementList">
-				<code><a href="class-MailChimp.MailChimp.html#$client"><var>$client</var></a></code>
-			</p>
-		</div>
 
 
 

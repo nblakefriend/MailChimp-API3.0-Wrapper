@@ -168,7 +168,7 @@
 		<b>Namespace:</b> <a href="namespace-MailChimp.html">MailChimp</a>\<a href="namespace-MailChimp.Ecommerce.html">Ecommerce</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-MailChimp.Ecommerce.Orders.html#4-126" title="Go to source code">Ecommerce/Orders.php</a>
+			<b>Located at</b> <a href="source-class-MailChimp.Ecommerce.Orders.html#4-177" title="Go to source code">Ecommerce/Orders.php</a>
 		<br>
 	</div>
 
@@ -181,24 +181,41 @@
 
 			<td class="attributes"><code>
 				 public 
-				
+				object
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getOrders">#</a>
-			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#8-14" title="Go to source code">getOrders</a>( <span> <var>$store_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#11-27" title="Go to source code">getOrders</a>( <span>string <var>$store_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>TODO: comment requirements</p>
+				<p>Get information about a store’s orders.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>TODO: comment requirements</p>
+				<p>Get information about a store’s orders.</p>
+
+<p>array["fields"]              array       list of strings of response fields to return
+array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+array["count"]               int         number of records to return
+array["offset"]              int         number of records from a collection to skip.
+array["customer_id"]         string      Restrict results to orders made by a specific customer.</p>
 
 
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$store_id</var></dt>
+						<dd></dd>
+						<dt><var>$query</var></dt>
+						<dd>(See Above) OPTIONAL associative array of query parameters.</dd>
+					</dl></div>
 
+					<h4>Returns</h4>
+					<div class="list">
+						object
+					</div>
 
 
 
@@ -217,14 +234,17 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getOrder">#</a>
-			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#16-19" title="Go to source code">getOrder</a>( <span> <var>$store_id</var></span>, <span> <var>$order_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#29-38" title="Go to source code">getOrder</a>( <span> <var>$store_id</var></span>, <span> <var>$order_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				
+				<p>Get information about a specific order.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Get information about a specific order.</p>
+
+<p>array["fields"]              array       list of strings of response fields to return
+array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
 
 
@@ -246,7 +266,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_addOrder">#</a>
-			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#21-49" title="Go to source code">addOrder</a>( <span>string <var>$store_id</var></span>, <span>string <var>$order_id</var></span>, <span>string <var>$currency_code</var></span>, <span>number <var>$order_total</var></span>, <span>array <var>$customer</var> = []</span>, <span>array <var>$lines</var> = []</span>, <span>array <var>$optional_settings</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#40-68" title="Go to source code">addOrder</a>( <span>string <var>$store_id</var></span>, <span>string <var>$order_id</var></span>, <span>string <var>$currency_code</var></span>, <span>number <var>$order_total</var></span>, <span>array <var>$customer</var> = []</span>, <span>array <var>$lines</var> = []</span>, <span>array <var>$optional_settings</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				<p>Add a new order to a store.</p>
@@ -289,24 +309,37 @@
 
 			<td class="attributes"><code>
 				 public 
-				
+				object
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_updateOrder">#</a>
-			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#51-54" title="Go to source code">updateOrder</a>( <span> <var>$store_id</var></span>, <span> <var>$order_id</var></span>, <span>array <var>$data</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#70-81" title="Go to source code">updateOrder</a>( <span>string <var>$store_id</var></span>, <span>string <var>$order_id</var></span>, <span>array <var>$data</var> = []</span> )</code>
 
 			<div class="description short">
-				
+				<p>Update an order</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Update an order</p>
 
 
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$store_id</var></dt>
+						<dd></dd>
+						<dt><var>$order_id</var></dt>
+						<dd></dd>
+						<dt><var>$data</var></dt>
+						<dd></dd>
+					</dl></div>
 
+					<h4>Returns</h4>
+					<div class="list">
+						object
+					</div>
 
 
 
@@ -318,24 +351,42 @@
 
 			<td class="attributes"><code>
 				 public 
-				
+				object
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getOrderLines">#</a>
-			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#56-59" title="Go to source code">getOrderLines</a>( <span> <var>$store_id</var></span>, <span> <var>$order_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#83-99" title="Go to source code">getOrderLines</a>( <span>string <var>$store_id</var></span>, <span>string <var>$order_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				
+				<p>Get information about a order’s line items</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Get information about a order’s line items</p>
+
+<p>array["fields"]              array       list of strings of response fields to return
+array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
+array["count"]               int         number of records to return
+array["offset"]              int         number of records from a collection to skip.</p>
 
 
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$store_id</var></dt>
+						<dd></dd>
+						<dt><var>$order_id</var></dt>
+						<dd></dd>
+						<dt><var>$query</var></dt>
+						<dd>(See Above) OPTIONAL associative array of query parameters.</dd>
+					</dl></div>
 
+					<h4>Returns</h4>
+					<div class="list">
+						object
+					</div>
 
 
 
@@ -347,24 +398,42 @@
 
 			<td class="attributes"><code>
 				 public 
-				
+				object
 				
 				</code>
 			</td>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getOrderLine">#</a>
-			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#61-64" title="Go to source code">getOrderLine</a>( <span> <var>$store_id</var></span>, <span> <var>$order_id</var></span>, <span> <var>$line_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#101-115" title="Go to source code">getOrderLine</a>( <span>string <var>$store_id</var></span>, <span>string <var>$order_id</var></span>, <span>array <var>$line_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				
+				<p>Get information about a specific order line item.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Get information about a specific order line item.</p>
+
+<p>array["fields"]              array       list of strings of response fields to return
+array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
 
+					<h4>Parameters</h4>
+					<div class="list"><dl>
+						<dt><var>$store_id</var></dt>
+						<dd></dd>
+						<dt><var>$order_id</var></dt>
+						<dd></dd>
+						<dt><var>$line_id</var></dt>
+						<dd>$query (See Above) OPTIONAL associative array of query parameters.</dd>
+						<dt><var>$query</var></dt>
+						<dd></dd>
+					</dl></div>
 
+					<h4>Returns</h4>
+					<div class="list">
+						object
+					</div>
 
 
 
@@ -383,7 +452,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_addOrderLine">#</a>
-			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#66-88" title="Go to source code">addOrderLine</a>( <span>string <var>$store_id</var></span>, <span>string <var>$order_id</var></span>, <span>string <var>$line_id</var></span>, <span>string <var>$product_id</var></span>, <span>string <var>$product_variant_id</var></span>, <span>integer <var>$quantity</var></span>, <span>number <var>$price</var></span> )</code>
+			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#117-139" title="Go to source code">addOrderLine</a>( <span>string <var>$store_id</var></span>, <span>string <var>$order_id</var></span>, <span>string <var>$line_id</var></span>, <span>string <var>$product_id</var></span>, <span>string <var>$product_variant_id</var></span>, <span>integer <var>$quantity</var></span>, <span>number <var>$price</var></span> )</code>
 
 			<div class="description short">
 				<p>Add a new line item to an existing order</p>
@@ -433,7 +502,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_updateOrderLine">#</a>
-			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#89-101" title="Go to source code">updateOrderLine</a>( <span>string <var>$store_id</var></span>, <span>string <var>$order_id</var></span>, <span>string <var>$line_id</var></span>, <span>array <var>$data</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#140-152" title="Go to source code">updateOrderLine</a>( <span>string <var>$store_id</var></span>, <span>string <var>$order_id</var></span>, <span>string <var>$line_id</var></span>, <span>array <var>$data</var> = []</span> )</code>
 
 			<div class="description short">
 				<p>Update a line item to an existing order</p>
@@ -477,7 +546,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_deleteOrderLine">#</a>
-			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#103-113" title="Go to source code">deleteOrderLine</a>( <span>string <var>$store_id</var></span>, <span>string <var>$order_id</var></span>, <span>string <var>$line_id</var></span> )</code>
+			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#154-164" title="Go to source code">deleteOrderLine</a>( <span>string <var>$store_id</var></span>, <span>string <var>$order_id</var></span>, <span>string <var>$line_id</var></span> )</code>
 
 			<div class="description short">
 				<p>Delete a line item to an existing order</p>
@@ -515,7 +584,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_deleteOrder">#</a>
-			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#115-124" title="Go to source code">deleteOrder</a>( <span>string <var>$store_id</var></span>, <span>string <var>$order_id</var></span> )</code>
+			<code><a href="source-class-MailChimp.Ecommerce.Orders.html#166-175" title="Go to source code">deleteOrder</a>( <span>string <var>$store_id</var></span>, <span>string <var>$order_id</var></span> )</code>
 
 			<div class="description short">
 				<p>Delete an existing order</p>
@@ -588,21 +657,6 @@
 
 
 
-
-
-
-
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h2>Properties summary</h2></div>
-		</div>
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h3>Properties inherited from <a href="class-MailChimp.MailChimp.html#properties">MailChimp\MailChimp</a></h3></div>
-			<p class="elementList">
-				<code><a href="class-MailChimp.MailChimp.html#$client"><var>$client</var></a></code>
-			</p>
-		</div>
 
 
 

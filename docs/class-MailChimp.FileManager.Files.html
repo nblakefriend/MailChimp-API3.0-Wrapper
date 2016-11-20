@@ -158,7 +158,7 @@
 		<b>Namespace:</b> <a href="namespace-MailChimp.html">MailChimp</a>\<a href="namespace-MailChimp.FileManager.html">FileManager</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-MailChimp.FileManager.Files.html#7-94" title="Go to source code">FileManager/Files.php</a>
+			<b>Located at</b> <a href="source-class-MailChimp.FileManager.Files.html#7-96" title="Go to source code">FileManager/Files.php</a>
 		<br>
 	</div>
 
@@ -178,30 +178,16 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getFiles">#</a>
-			<code><a href="source-class-MailChimp.FileManager.Files.html#10-34" title="Go to source code">getFiles</a>( <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.FileManager.Files.html#10-35" title="Go to source code">getFiles</a>( <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get a list of available images and files stored in the File Manager for the account.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
-array["count"]               int         number of records to return
-array["offset"]              int         number of records from a collection to skip.
-array["folder_id"]           int         Filter results by a specific campaign folder.
-array["created_by"]          string      The MailChimp account user who created the File Manager file.
-array["type"]                string      The file type for the File Manager file
-                                         Possible values: image,file
-array["before_created_at"]   string      Restrict the response to files created before the set date
-                                         ISO 8601 time format: 2015-10-21T15:41:36+00:00.
-array["since_created_at"]    string      Restrict the response to files created after the set date.
-                                         ISO 8601 time format: 2015-10-21T15:41:36+00:00.
-array["sort_field"]          string      Returns files sorted by the specified field.
-array["sort_dir"]            string      Determines the order direction for sorted results.</p>
+				<p>Get a list of available images and files stored in the File Manager for the account.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get a list of available images and files stored in the File Manager for the account.
-Available query fields:
+				<p>Get a list of available images and files stored in the File Manager for the account.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
 array["count"]               int         number of records to return
@@ -243,18 +229,16 @@ array["sort_dir"]            string      Determines the order direction for sort
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getFile">#</a>
-			<code><a href="source-class-MailChimp.FileManager.Files.html#36-49" title="Go to source code">getFile</a>( <span>integer <var>$file_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.FileManager.Files.html#37-51" title="Go to source code">getFile</a>( <span>integer <var>$file_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get information about a specific file in the File Manager.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get information about a specific file in the File Manager.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get information about a specific file in the File Manager.
-Available query fields:
+				<p>Get information about a specific file in the File Manager.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -289,7 +273,7 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_uploadFile">#</a>
-			<code><a href="source-class-MailChimp.FileManager.Files.html#51-71" title="Go to source code">uploadFile</a>( <span>string <var>$name</var></span>, <span>string <var>$file_data</var></span>, <span>integer <var>$folder_id</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-MailChimp.FileManager.Files.html#53-73" title="Go to source code">uploadFile</a>( <span>string <var>$name</var></span>, <span>string <var>$file_data</var></span>, <span>integer <var>$folder_id</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				<p>Upload a new image or file to the File Manager.</p>
@@ -331,7 +315,7 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_updateFile">#</a>
-			<code><a href="source-class-MailChimp.FileManager.Files.html#73-82" title="Go to source code">updateFile</a>( <span>string <var>$file_id</var></span>, <span>array <var>$data</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.FileManager.Files.html#75-84" title="Go to source code">updateFile</a>( <span>string <var>$file_id</var></span>, <span>array <var>$data</var> = []</span> )</code>
 
 			<div class="description short">
 				<p>Update a file in the File Manager.</p>
@@ -367,7 +351,7 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_deleteFile">#</a>
-			<code><a href="source-class-MailChimp.FileManager.Files.html#84-92" title="Go to source code">deleteFile</a>( <span>integer <var>$file_id</var></span> )</code>
+			<code><a href="source-class-MailChimp.FileManager.Files.html#86-94" title="Go to source code">deleteFile</a>( <span>integer <var>$file_id</var></span> )</code>
 
 			<div class="description short">
 				<p>Remove a specific file from the File Manager.</p>
@@ -424,21 +408,6 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 
 
-
-
-
-
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h2>Properties summary</h2></div>
-		</div>
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h3>Properties inherited from <a href="class-MailChimp.MailChimp.html#properties">MailChimp\MailChimp</a></h3></div>
-			<p class="elementList">
-				<code><a href="class-MailChimp.MailChimp.html#$client"><var>$client</var></a></code>
-			</p>
-		</div>
 
 
 

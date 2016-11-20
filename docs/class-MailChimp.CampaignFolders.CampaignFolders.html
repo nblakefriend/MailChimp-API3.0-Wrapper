@@ -157,7 +157,7 @@
 		<b>Namespace:</b> <a href="namespace-MailChimp.html">MailChimp</a>\<a href="namespace-MailChimp.CampaignFolders.html">CampaignFolders</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-MailChimp.CampaignFolders.CampaignFolders.html#6-69" title="Go to source code">CampaignFolders/CampaignFolders.php</a>
+			<b>Located at</b> <a href="source-class-MailChimp.CampaignFolders.CampaignFolders.html#6-74" title="Go to source code">CampaignFolders/CampaignFolders.php</a>
 		<br>
 	</div>
 
@@ -177,20 +177,16 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getCampaignFolders">#</a>
-			<code><a href="source-class-MailChimp.CampaignFolders.CampaignFolders.html#9-22" title="Go to source code">getCampaignFolders</a>( <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.CampaignFolders.CampaignFolders.html#9-23" title="Go to source code">getCampaignFolders</a>( <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get all folders used to organize campaigns.
-Available query fields:
-array["fields"]                  array       list of strings of response fields to return
-array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")
-array["count"]                   int         number of records to return
-array["offset"]                  int         number of records from a collection to skip.</p>
+				<p>Get all folders used to organize campaigns.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get all folders used to organize campaigns.
-Available query fields:
+				<p>Get all folders used to organize campaigns.</p>
+
+<p>Available query fields:
 array["fields"]                  array       list of strings of response fields to return
 array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")
 array["count"]                   int         number of records to return
@@ -225,18 +221,16 @@ array["offset"]                  int         number of records from a collection
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getCampaignFolder">#</a>
-			<code><a href="source-class-MailChimp.CampaignFolders.CampaignFolders.html#24-36" title="Go to source code">getCampaignFolder</a>( <span>string <var>$folder_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.CampaignFolders.CampaignFolders.html#25-38" title="Go to source code">getCampaignFolder</a>( <span>string <var>$folder_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get information about a specific folder used to organize campaigns.
-Available query fields:
-array["fields"]                  array       list of strings of response fields to return
-array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get information about a specific folder used to organize campaigns.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get information about a specific folder used to organize campaigns.
-Available query fields:
+				<p>Get information about a specific folder used to organize campaigns.</p>
+
+<p>Available query fields:
 array["fields"]                  array       list of strings of response fields to return
 array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -271,7 +265,7 @@ array["exclude_fields"]          array       list of strings of response fields 
 
 			<td class="name"><div>
 			<a class="anchor" href="#_createCampaignFolder">#</a>
-			<code><a href="source-class-MailChimp.CampaignFolders.CampaignFolders.html#38-47" title="Go to source code">createCampaignFolder</a>( <span>string <var>$folder_name</var></span> )</code>
+			<code><a href="source-class-MailChimp.CampaignFolders.CampaignFolders.html#40-50" title="Go to source code">createCampaignFolder</a>( <span>string <var>$folder_name</var></span> )</code>
 
 			<div class="description short">
 				<p>Create a new campaign folder.</p>
@@ -309,7 +303,7 @@ array["exclude_fields"]          array       list of strings of response fields 
 
 			<td class="name"><div>
 			<a class="anchor" href="#_updateCampaignFolder">#</a>
-			<code><a href="source-class-MailChimp.CampaignFolders.CampaignFolders.html#49-58" title="Go to source code">updateCampaignFolder</a>( <span>string <var>$folder_id</var></span>, <span> <var>$folder_name</var></span> )</code>
+			<code><a href="source-class-MailChimp.CampaignFolders.CampaignFolders.html#52-62" title="Go to source code">updateCampaignFolder</a>( <span>string <var>$folder_id</var></span>, <span> <var>$folder_name</var></span> )</code>
 
 			<div class="description short">
 				<p>Update a specific folder used to organize campaigns.</p>
@@ -349,7 +343,7 @@ array["exclude_fields"]          array       list of strings of response fields 
 
 			<td class="name"><div>
 			<a class="anchor" href="#_deleteCampaignFolder">#</a>
-			<code><a href="source-class-MailChimp.CampaignFolders.CampaignFolders.html#60-67" title="Go to source code">deleteCampaignFolder</a>( <span>string <var>$folder_id</var></span> )</code>
+			<code><a href="source-class-MailChimp.CampaignFolders.CampaignFolders.html#64-72" title="Go to source code">deleteCampaignFolder</a>( <span>string <var>$folder_id</var></span> )</code>
 
 			<div class="description short">
 				<p>Delete a specific campaign folder, and mark all the campaigns in the folder as ‘unfiled’.</p>
@@ -406,21 +400,6 @@ array["exclude_fields"]          array       list of strings of response fields 
 
 
 
-
-
-
-
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h2>Properties summary</h2></div>
-		</div>
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h3>Properties inherited from <a href="class-MailChimp.MailChimp.html#properties">MailChimp\MailChimp</a></h3></div>
-			<p class="elementList">
-				<code><a href="class-MailChimp.MailChimp.html#$client"><var>$client</var></a></code>
-			</p>
-		</div>
 
 
 

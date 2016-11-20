@@ -157,7 +157,7 @@
 		<b>Namespace:</b> <a href="namespace-MailChimp.html">MailChimp</a>\<a href="namespace-MailChimp.Templates.html">Templates</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-MailChimp.Templates.Templates.html#7-111" title="Go to source code">Templates/Templates.php</a>
+			<b>Located at</b> <a href="source-class-MailChimp.Templates.Templates.html#7-116" title="Go to source code">Templates/Templates.php</a>
 		<br>
 	</div>
 
@@ -177,33 +177,16 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getTemplates">#</a>
-			<code><a href="source-class-MailChimp.Templates.Templates.html#10-37" title="Go to source code">getTemplates</a>( <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Templates.Templates.html#10-38" title="Go to source code">getTemplates</a>( <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get a list of templates for the account
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
-array["count"]               int         number of records to return
-array["offset"]              int         number of records from a collection to skip.
-array["folder_id"]           string      Filter results by a specific campaign folder.
-array["type"]                string      The campaign type.
-                                         Possible values: regular,plaintext,absplit,rss,variate
-array["status"]              string      The status of the campaign.
-                                         Possible Values: save,paused,schedule,sending,sent
-array["before_send_time"]    string      Restrict the response to campaigns sent before the set time.
-                                         ISO 8601 time format: 2015-10-21T15:41:36+00:00.
-array["since_send_time"]     string      Restrict the response to campaigns sent after the set time.
-                                         ISO 8601 time format: 2015-10-21T15:41:36+00:00.
-array["before_create_time"]  string      Restrict the response to campaigns sent after the set time.
-                                         ISO 8601 time format: 2015-10-21T15:41:36+00:00.
-array["since_create_time"]   string      Restrict the response to campaigns created after the set time.
-                                         ISO 8601 time format: 2015-10-21T15:41:36+00:00.</p>
+				<p>Get a list of templates for the account</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get a list of templates for the account
-Available query fields:
+				<p>Get a list of templates for the account</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
 array["count"]               int         number of records to return
@@ -245,18 +228,16 @@ array["since_create_time"]   string      Restrict the response to campaigns crea
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getTemplate">#</a>
-			<code><a href="source-class-MailChimp.Templates.Templates.html#39-52" title="Go to source code">getTemplate</a>( <span>integer <var>$template_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Templates.Templates.html#40-54" title="Go to source code">getTemplate</a>( <span>integer <var>$template_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get a list of campaigns for the account
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get a list of campaigns for the account</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get a list of campaigns for the account
-Available query fields:
+				<p>Get a list of campaigns for the account</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -291,18 +272,16 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getDefaultContent">#</a>
-			<code><a href="source-class-MailChimp.Templates.Templates.html#54-67" title="Go to source code">getDefaultContent</a>( <span>integer <var>$template_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Templates.Templates.html#56-70" title="Go to source code">getDefaultContent</a>( <span>integer <var>$template_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get a list of campaigns for the account
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get a list of campaigns for the account</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get a list of campaigns for the account
-Available query fields:
+				<p>Get a list of campaigns for the account</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -337,7 +316,7 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_createTemplate">#</a>
-			<code><a href="source-class-MailChimp.Templates.Templates.html#69-89" title="Go to source code">createTemplate</a>( <span>string <var>$name</var></span>, <span>string <var>$html</var></span>, <span>integer <var>$folder_id</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-MailChimp.Templates.Templates.html#72-92" title="Go to source code">createTemplate</a>( <span>string <var>$name</var></span>, <span>string <var>$html</var></span>, <span>integer <var>$folder_id</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				<p>Upload a new image or file to the File Manager.</p>
@@ -379,7 +358,7 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_updateTemplate">#</a>
-			<code><a href="source-class-MailChimp.Templates.Templates.html#91-100" title="Go to source code">updateTemplate</a>( <span>integer <var>$template_id</var></span>, <span>array <var>$data</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Templates.Templates.html#94-104" title="Go to source code">updateTemplate</a>( <span>integer <var>$template_id</var></span>, <span>array <var>$data</var> = []</span> )</code>
 
 			<div class="description short">
 				<p>Update an existing template</p>
@@ -419,7 +398,7 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_deleteTemplate">#</a>
-			<code><a href="source-class-MailChimp.Templates.Templates.html#102-109" title="Go to source code">deleteTemplate</a>( <span>integer <var>$template_id</var></span> )</code>
+			<code><a href="source-class-MailChimp.Templates.Templates.html#106-114" title="Go to source code">deleteTemplate</a>( <span>integer <var>$template_id</var></span> )</code>
 
 			<div class="description short">
 				<p>Update an existing template</p>
@@ -476,21 +455,6 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 
 
-
-
-
-
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h2>Properties summary</h2></div>
-		</div>
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h3>Properties inherited from <a href="class-MailChimp.MailChimp.html#properties">MailChimp\MailChimp</a></h3></div>
-			<p class="elementList">
-				<code><a href="class-MailChimp.MailChimp.html#$client"><var>$client</var></a></code>
-			</p>
-		</div>
 
 
 

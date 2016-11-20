@@ -157,7 +157,7 @@
 		<b>Namespace:</b> <a href="namespace-MailChimp.html">MailChimp</a>\<a href="namespace-MailChimp.Conversations.html">Conversations</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-MailChimp.Conversations.Conversations.html#7-104" title="Go to source code">Conversations/Conversations.php</a>
+			<b>Located at</b> <a href="source-class-MailChimp.Conversations.Conversations.html#7-109" title="Go to source code">Conversations/Conversations.php</a>
 		<br>
 	</div>
 
@@ -177,23 +177,16 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getConversations">#</a>
-			<code><a href="source-class-MailChimp.Conversations.Conversations.html#10-27" title="Go to source code">getConversations</a>( <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Conversations.Conversations.html#10-28" title="Go to source code">getConversations</a>( <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get a list of conversations for the account.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
-array["count"]               int         number of records to return
-array["offset"]              int         number of records from a collection to skip.
-array["has_unread_messages"] string      Whether the conversation has any unread messages.
-array["list_id"]             string      The unique id for the list.
-array["campaign_id"]         string      The unique id for the camapign.</p>
+				<p>Get a list of conversations for the account.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get a list of conversations for the account.
-Available query fields:
+				<p>Get a list of conversations for the account.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
 array["count"]               int         number of records to return
@@ -231,18 +224,16 @@ array["campaign_id"]         string      The unique id for the camapign.</p>
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getConversation">#</a>
-			<code><a href="source-class-MailChimp.Conversations.Conversations.html#29-42" title="Go to source code">getConversation</a>( <span>string <var>$conversation_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Conversations.Conversations.html#30-44" title="Go to source code">getConversation</a>( <span>string <var>$conversation_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get details about an individual conversation.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get details about an individual conversation.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get details about an individual conversation.
-Available query fields:
+				<p>Get details about an individual conversation.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -277,23 +268,16 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getConversationMessages">#</a>
-			<code><a href="source-class-MailChimp.Conversations.Conversations.html#44-62" title="Go to source code">getConversationMessages</a>( <span>string <var>$conversation_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Conversations.Conversations.html#46-65" title="Go to source code">getConversationMessages</a>( <span>string <var>$conversation_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get messages from a specific conversation.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
-array["is_read"]             string      Whether a conversation message has been marked as read.
-array["before_timestamp"]    string      Restrict the response to messages created before the set time.
-                                         ISO 8601 time format: 2015-10-21T15:41:36+00:00.
-array["since_timestamp"]     string      Restrict the response to messages created after the set time.
-                                         ISO 8601 time format: 2015-10-21T15:41:36+00:00.</p>
+				<p>Get messages from a specific conversation.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get messages from a specific conversation.
-Available query fields:
+				<p>Get messages from a specific conversation.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
 array["is_read"]             string      Whether a conversation message has been marked as read.
@@ -331,18 +315,16 @@ array["since_timestamp"]     string      Restrict the response to messages creat
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getConversationMessage">#</a>
-			<code><a href="source-class-MailChimp.Conversations.Conversations.html#64-78" title="Go to source code">getConversationMessage</a>( <span>string <var>$conversation_id</var></span>, <span>string <var>$message_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Conversations.Conversations.html#67-82" title="Go to source code">getConversationMessage</a>( <span>string <var>$conversation_id</var></span>, <span>string <var>$message_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get an individual message in a conversation.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get an individual message in a conversation.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get an individual message in a conversation.
-Available query fields:
+				<p>Get an individual message in a conversation.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -379,7 +361,7 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_postMessage">#</a>
-			<code><a href="source-class-MailChimp.Conversations.Conversations.html#80-102" title="Go to source code">postMessage</a>( <span>string <var>$conversation_id</var></span>, <span>string <var>$from_email</var></span>, <span>boolean <var>$read</var> = <span class="php-keyword1">false</span></span>, <span>array <var>$optional_settings</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-MailChimp.Conversations.Conversations.html#84-107" title="Go to source code">postMessage</a>( <span>string <var>$conversation_id</var></span>, <span>string <var>$from_email</var></span>, <span>boolean <var>$read</var> = <span class="php-keyword1">false</span></span>, <span>array <var>$optional_settings</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
 				<p>Post a new message to a conversation</p>
@@ -446,21 +428,6 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 
 
-
-
-
-
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h2>Properties summary</h2></div>
-		</div>
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h3>Properties inherited from <a href="class-MailChimp.MailChimp.html#properties">MailChimp\MailChimp</a></h3></div>
-			<p class="elementList">
-				<code><a href="class-MailChimp.MailChimp.html#$client"><var>$client</var></a></code>
-			</p>
-		</div>
 
 
 

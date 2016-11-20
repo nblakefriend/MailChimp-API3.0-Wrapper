@@ -157,7 +157,7 @@
 		<b>Namespace:</b> <a href="namespace-MailChimp.html">MailChimp</a>\<a href="namespace-MailChimp.Batches.html">Batches</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-MailChimp.Batches.Batches.html#6-78" title="Go to source code">Batches/Batches.php</a>
+			<b>Located at</b> <a href="source-class-MailChimp.Batches.Batches.html#6-82" title="Go to source code">Batches/Batches.php</a>
 		<br>
 	</div>
 
@@ -177,20 +177,16 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getBatches">#</a>
-			<code><a href="source-class-MailChimp.Batches.Batches.html#9-22" title="Go to source code">getBatches</a>( <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Batches.Batches.html#9-23" title="Go to source code">getBatches</a>( <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get a summary of batch requests that have been made.
-Available query fields:
-array["fields"]                  array       list of strings of response fields to return
-array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")
-array["count"]                   int         number of records to return
-array["offset"]                  int         number of records from a collection to skip.</p>
+				<p>Get a summary of batch requests that have been made.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get a summary of batch requests that have been made.
-Available query fields:
+				<p>Get a summary of batch requests that have been made.</p>
+
+<p>Available query fields:
 array["fields"]                  array       list of strings of response fields to return
 array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")
 array["count"]                   int         number of records to return
@@ -225,18 +221,16 @@ array["offset"]                  int         number of records from a collection
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getBatch">#</a>
-			<code><a href="source-class-MailChimp.Batches.Batches.html#24-36" title="Go to source code">getBatch</a>( <span>string <var>$batch_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Batches.Batches.html#25-38" title="Go to source code">getBatch</a>( <span>string <var>$batch_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get the status of a batch request.
-Available query fields:
-array["fields"]                  array       list of strings of response fields to return
-array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get the status of a batch request.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get the status of a batch request.
-Available query fields:
+				<p>Get the status of a batch request.</p>
+
+<p>Available query fields:
 array["fields"]                  array       list of strings of response fields to return
 array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -271,7 +265,7 @@ array["exclude_fields"]          array       list of strings of response fields 
 
 			<td class="name"><div>
 			<a class="anchor" href="#_createBatch">#</a>
-			<code><a href="source-class-MailChimp.Batches.Batches.html#38-67" title="Go to source code">createBatch</a>( <span>array <var>$data</var> = <span class="php-keyword1">array</span>([<span class="php-quote">&quot;method&quot;</span> =&gt; <span class="php-quote">&quot;&quot;</span>, <span class="php-quote">&quot;path&quot;</span> =&gt; <span class="php-quote">&quot;&quot;</span>, <span class="php-quote">&quot;params&quot;</span> =&gt; <span class="php-keyword1">null</span>, <span class="php-quote">&quot;body&quot;</span>=&gt; <span class="php-keyword1">null</span>, <span class="php-quote">&quot;operation_id&quot;</span> =&gt; <span class="php-keyword1">null</span>]) </span> )</code>
+			<code><a href="source-class-MailChimp.Batches.Batches.html#40-70" title="Go to source code">createBatch</a>( <span>array <var>$data</var> = <span class="php-keyword1">array</span>([<span class="php-quote">&quot;method&quot;</span> =&gt; <span class="php-quote">&quot;&quot;</span>, <span class="php-quote">&quot;path&quot;</span> =&gt; <span class="php-quote">&quot;&quot;</span>, <span class="php-quote">&quot;params&quot;</span> =&gt; <span class="php-keyword1">null</span>, <span class="php-quote">&quot;body&quot;</span>=&gt; <span class="php-keyword1">null</span>, <span class="php-quote">&quot;operation_id&quot;</span> =&gt; <span class="php-keyword1">null</span>]) </span> )</code>
 
 			<div class="description short">
 				<p>Begin processing a batch operations request.</p>
@@ -309,7 +303,7 @@ array["exclude_fields"]          array       list of strings of response fields 
 
 			<td class="name"><div>
 			<a class="anchor" href="#_deleteBatch">#</a>
-			<code><a href="source-class-MailChimp.Batches.Batches.html#69-76" title="Go to source code">deleteBatch</a>( <span>string <var>$batch_id</var></span> )</code>
+			<code><a href="source-class-MailChimp.Batches.Batches.html#72-80" title="Go to source code">deleteBatch</a>( <span>string <var>$batch_id</var></span> )</code>
 
 			<div class="description short">
 				<p>Delete a batch request and stop if from processing further.</p>
@@ -366,21 +360,6 @@ array["exclude_fields"]          array       list of strings of response fields 
 
 
 
-
-
-
-
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h2>Properties summary</h2></div>
-		</div>
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h3>Properties inherited from <a href="class-MailChimp.MailChimp.html#properties">MailChimp\MailChimp</a></h3></div>
-			<p class="elementList">
-				<code><a href="class-MailChimp.MailChimp.html#$client"><var>$client</var></a></code>
-			</p>
-		</div>
 
 
 

@@ -158,7 +158,7 @@
 		<b>Namespace:</b> <a href="namespace-MailChimp.html">MailChimp</a>\<a href="namespace-MailChimp.FileManager.html">FileManager</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-MailChimp.FileManager.Folders.html#7-87" title="Go to source code">FileManager/Folders.php</a>
+			<b>Located at</b> <a href="source-class-MailChimp.FileManager.Folders.html#7-89" title="Go to source code">FileManager/Folders.php</a>
 		<br>
 	</div>
 
@@ -178,26 +178,16 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getFolders">#</a>
-			<code><a href="source-class-MailChimp.FileManager.Folders.html#10-30" title="Go to source code">getFolders</a>( <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.FileManager.Folders.html#10-31" title="Go to source code">getFolders</a>( <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get a list of all folders in the File Manager.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
-array["count"]               int         number of records to return
-array["offset"]              int         number of records from a collection to skip.
-array["folder_id"]           int         Filter results by a specific campaign folder.
-array["created_by"]          string      The MailChimp account user who created the File Manager file.
-array["before_created_at"]   string      Restrict the response to files created before the set date
-                                         ISO 8601 time format: 2015-10-21T15:41:36+00:00.
-array["since_created_at"]    string      Restrict the response to files created after the set date.
-                                         ISO 8601 time format: 2015-10-21T15:41:36+00:00.</p>
+				<p>Get a list of all folders in the File Manager.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get a list of all folders in the File Manager.
-Available query fields:
+				<p>Get a list of all folders in the File Manager.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")
 array["count"]               int         number of records to return
@@ -236,18 +226,16 @@ array["since_created_at"]    string      Restrict the response to files created 
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getFolder">#</a>
-			<code><a href="source-class-MailChimp.FileManager.Folders.html#32-45" title="Go to source code">getFolder</a>( <span>integer <var>$folder_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.FileManager.Folders.html#33-47" title="Go to source code">getFolder</a>( <span>integer <var>$folder_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get information about a specific folder in the File Manager.
-Available query fields:
-array["fields"]              array       list of strings of response fields to return
-array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
+				<p>Get information about a specific folder in the File Manager.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get information about a specific folder in the File Manager.
-Available query fields:
+				<p>Get information about a specific folder in the File Manager.</p>
+
+<p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
 
@@ -282,7 +270,7 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_createFolder">#</a>
-			<code><a href="source-class-MailChimp.FileManager.Folders.html#47-60" title="Go to source code">createFolder</a>( <span>string <var>$name</var></span> )</code>
+			<code><a href="source-class-MailChimp.FileManager.Folders.html#49-62" title="Go to source code">createFolder</a>( <span>string <var>$name</var></span> )</code>
 
 			<div class="description short">
 				<p>Create a new folder in the File Manager.</p>
@@ -320,7 +308,7 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_updateFolder">#</a>
-			<code><a href="source-class-MailChimp.FileManager.Folders.html#62-75" title="Go to source code">updateFolder</a>( <span>string <var>$folder_id</var></span>, <span>array <var>$name</var></span> )</code>
+			<code><a href="source-class-MailChimp.FileManager.Folders.html#64-77" title="Go to source code">updateFolder</a>( <span>string <var>$folder_id</var></span>, <span>array <var>$name</var></span> )</code>
 
 			<div class="description short">
 				<p>Update a File Manager Folder.</p>
@@ -356,7 +344,7 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_deleteFolder">#</a>
-			<code><a href="source-class-MailChimp.FileManager.Folders.html#77-85" title="Go to source code">deleteFolder</a>( <span>integer <var>$folder_id</var></span> )</code>
+			<code><a href="source-class-MailChimp.FileManager.Folders.html#79-87" title="Go to source code">deleteFolder</a>( <span>integer <var>$folder_id</var></span> )</code>
 
 			<div class="description short">
 				<p>Delete a specific folder in the File Manager.</p>
@@ -413,21 +401,6 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 
 
-
-
-
-
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h2>Properties summary</h2></div>
-		</div>
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h3>Properties inherited from <a href="class-MailChimp.MailChimp.html#properties">MailChimp\MailChimp</a></h3></div>
-			<p class="elementList">
-				<code><a href="class-MailChimp.MailChimp.html#$client"><var>$client</var></a></code>
-			</p>
-		</div>
 
 
 

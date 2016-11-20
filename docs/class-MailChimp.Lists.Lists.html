@@ -174,7 +174,7 @@
 		<b>Namespace:</b> <a href="namespace-MailChimp.html">MailChimp</a>\<a href="namespace-MailChimp.Lists.html">Lists</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-MailChimp.Lists.Lists.html#12-271" title="Go to source code">Lists/Lists.php</a>
+			<b>Located at</b> <a href="source-class-MailChimp.Lists.Lists.html#12-293" title="Go to source code">Lists/Lists.php</a>
 		<br>
 	</div>
 
@@ -194,29 +194,16 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getLists">#</a>
-			<code><a href="source-class-MailChimp.Lists.Lists.html#14-37" title="Go to source code">getLists</a>( <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Lists.Lists.html#14-38" title="Go to source code">getLists</a>( <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get a list of lists for the account
-Available query fields:
-array["fields"]                  array       list of strings of response fields to return
-array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")
-array["count"]                   int         number of records to return
-array["offset"]                  int         number of records from a collection to skip.
-array["before_date_created"]     string      Restrict response to lists created before the set date.
-                                             ISO 8601 time format: 2015-10-21T15:41:36+00:00.
-array["since_date_created"]      string      Restrict results to lists created after the set date.
-                                             ISO 8601 time format: 2015-10-21T15:41:36+00:00.
-array["before_campaign_last_sent"] string    Restrict results to lists created before the last campaign send date.
-                                             ISO 8601 time format: 2015-10-21T15:41:36+00:00.
-array["since_campaign_last_sent"] string     Restrict results to lists created after the last campaign send date.
-                                             ISO 8601 time format: 2015-10-21T15:41:36+00:00.
-email                            string      Restrict results to lists that include a specific subscriber’s email address.`</p>
+				<p>Get a list of lists for the account</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get a list of lists for the account
-Available query fields:
+				<p>Get a list of lists for the account</p>
+
+<p>Available query fields:
 array["fields"]                  array       list of strings of response fields to return
 array["exclude_fields"]          array       list of strings of response fields to exclude (not to be used with "fields")
 array["count"]                   int         number of records to return
@@ -256,14 +243,14 @@ email                            string      Restrict results to lists that incl
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getList">#</a>
-			<code><a href="source-class-MailChimp.Lists.Lists.html#39-52" title="Go to source code">getList</a>( <span>string <var>$list_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Lists.Lists.html#40-53" title="Go to source code">getList</a>( <span>string <var>$list_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get a single campaign</p>
+				<p>Get a single list</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get a single campaign</p>
+				<p>Get a single list</p>
 
 <p>array["fields"]              array       list of strings of response fields to return
 array["exclude_fields"]      array       list of strings of response fields to exclude (not to be used with "fields")</p>
@@ -299,37 +286,16 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_createList">#</a>
-			<code><a href="source-class-MailChimp.Lists.Lists.html#54-104" title="Go to source code">createList</a>( <span>string <var>$name</var></span>, <span>string <var>$permission_reminder</var></span>, <span>boolean <var>$email_type_option</var></span>, <span>array <var>$campaign_defaults</var> = []</span>, <span>array <var>$contact</var> = []</span>, <span>array <var>$optional_settings</var> = <span class="php-keyword1">null</span></span> )</code>
+			<code><a href="source-class-MailChimp.Lists.Lists.html#55-106" title="Go to source code">createList</a>( <span>string <var>$name</var></span>, <span>string <var>$permission_reminder</var></span>, <span>boolean <var>$email_type_option</var></span>, <span>array <var>$campaign_defaults</var> = []</span>, <span>array <var>$contact</var> = []</span>, <span>array <var>$optional_settings</var> = <span class="php-keyword1">null</span></span> )</code>
 
 			<div class="description short">
-				<p>Create a list
-     ["name"]                string      required
-     ["permission_reminder"] string      required
-     ["email_type_option"]   boolean     required
-array["contact"]             array       required
-         ["company"]         string      required
-         ["address1"]        string      required
-         ["address2"]        string
-         ["city"]            string      required
-         ["state"]           string      required
-         ["zip"]             string      required
-         ["country"]         string      required
-         ["phone"]           string
-array["campaign_defaults"]   array       required
-         ["from_name"]       string      required
-         ["from_email"]      string      required
-         ["subject"]         string      required
-         ["language"]        string      required
-array["optional_settings"]
-     ["use_archive_bar"]     boolean
-     ["notify_on_subscribe"] string      The email address to send subscribe notifications to.
-     ["notify_on_unsubscribe"] string    The email address to send unsubscribe notifications to.
-     ["visibility"]          string      Whether this list is public or private.
-                                         Possible Values: pub,prv</p>
+				<p>Create a list</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Create a list ["name"]                string      required ["permission_reminder"] string      required ["email_type_option"]   boolean     required
+				<p>Create a list</p>
+
+<p>["name"]                string      required ["permission_reminder"] string      required ["email_type_option"]   boolean     required
 array["contact"]             array       required ["company"]         string      required ["address1"]        string      required ["address2"]        string ["city"]            string      required ["state"]           string      required ["zip"]             string      required ["country"]         string      required ["phone"]           string
 array["campaign_defaults"]   array       required ["from_name"]       string      required ["from_email"]      string      required ["subject"]         string      required ["language"]        string      required
 array["optional_settings"] ["use_archive_bar"]     boolean ["notify_on_subscribe"] string      The email address to send subscribe notifications to. ["notify_on_unsubscribe"] string    The email address to send unsubscribe notifications to. ["visibility"]          string      Whether this list is public or private. Possible Values: pub,prv</p>
@@ -373,7 +339,7 @@ array["optional_settings"] ["use_archive_bar"]     boolean ["notify_on_subscribe
 
 			<td class="name"><div>
 			<a class="anchor" href="#_updateList">#</a>
-			<code><a href="source-class-MailChimp.Lists.Lists.html#106-116" title="Go to source code">updateList</a>( <span>string <var>$list_id</var></span>, <span>array <var>$data</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Lists.Lists.html#108-118" title="Go to source code">updateList</a>( <span>string <var>$list_id</var></span>, <span>array <var>$data</var> = []</span> )</code>
 
 			<div class="description short">
 				<p>Update an existing list</p>
@@ -413,7 +379,7 @@ array["optional_settings"] ["use_archive_bar"]     boolean ["notify_on_subscribe
 
 			<td class="name"><div>
 			<a class="anchor" href="#_batchMembers">#</a>
-			<code><a href="source-class-MailChimp.Lists.Lists.html#121-126" title="Go to source code">batchMembers</a>( <span> <var>$list_id</var></span>, <span>array <var>$batch</var> = []</span>, <span> <var>$updateExisting</var> = <span class="php-keyword1">false</span></span> )</code>
+			<code><a href="source-class-MailChimp.Lists.Lists.html#123-128" title="Go to source code">batchMembers</a>( <span> <var>$list_id</var></span>, <span>array <var>$batch</var> = []</span>, <span> <var>$updateExisting</var> = <span class="php-keyword1">false</span></span> )</code>
 
 			<div class="description short">
 				
@@ -442,7 +408,7 @@ array["optional_settings"] ["use_archive_bar"]     boolean ["notify_on_subscribe
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getAbuseReports">#</a>
-			<code><a href="source-class-MailChimp.Lists.Lists.html#128-143" title="Go to source code">getAbuseReports</a>( <span>string <var>$list_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Lists.Lists.html#130-145" title="Go to source code">getAbuseReports</a>( <span>string <var>$list_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
 				<p>Get all abuse reports for a specific list.</p>
@@ -488,7 +454,7 @@ array["offset"]              int         number of records from a collection to 
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getAbuseReport">#</a>
-			<code><a href="source-class-MailChimp.Lists.Lists.html#145-159" title="Go to source code">getAbuseReport</a>( <span>string <var>$list_id</var></span>, <span>string <var>$report_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Lists.Lists.html#147-161" title="Go to source code">getAbuseReport</a>( <span>string <var>$list_id</var></span>, <span>string <var>$report_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
 				<p>Get details about a specific abuse report.</p>
@@ -534,16 +500,16 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getActivity">#</a>
-			<code><a href="source-class-MailChimp.Lists.Lists.html#161-175" title="Go to source code">getActivity</a>( <span>string <var>$list_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Lists.Lists.html#163-178" title="Go to source code">getActivity</a>( <span>string <var>$list_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Get recent daily, aggregated activity stats for your list.
-For example, view unsubscribes, signups, total emails sent, opens, clicks, and more, for up to 180 days.</p>
+				<p>Get recent daily, aggregated activity stats for your list.</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Get recent daily, aggregated activity stats for your list.
-For example, view unsubscribes, signups, total emails sent, opens, clicks, and more, for up to 180 days.</p>
+				<p>Get recent daily, aggregated activity stats for your list.</p>
+
+<p>For example, view unsubscribes, signups, total emails sent, opens, clicks, and more, for up to 180 days.</p>
 
 <p>Available query fields:
 array["fields"]              array       list of strings of response fields to return
@@ -580,7 +546,7 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getClients">#</a>
-			<code><a href="source-class-MailChimp.Lists.Lists.html#177-190" title="Go to source code">getClients</a>( <span>string <var>$list_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Lists.Lists.html#180-193" title="Go to source code">getClients</a>( <span>string <var>$list_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
 				<p>Get a list of the top email clients based on user-agent strings.</p>
@@ -624,7 +590,7 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getGrowthHistory">#</a>
-			<code><a href="source-class-MailChimp.Lists.Lists.html#192-207" title="Go to source code">getGrowthHistory</a>( <span>string <var>$list_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Lists.Lists.html#195-210" title="Go to source code">getGrowthHistory</a>( <span>string <var>$list_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
 				<p>Get a month-by-month summary of a specific list’s growth activity.</p>
@@ -670,7 +636,7 @@ array["offset"]              int         number of records from a collection to 
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getGrowthHistoryMonth">#</a>
-			<code><a href="source-class-MailChimp.Lists.Lists.html#209-223" title="Go to source code">getGrowthHistoryMonth</a>( <span>string <var>$list_id</var></span>, <span>string <var>$month</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Lists.Lists.html#212-226" title="Go to source code">getGrowthHistoryMonth</a>( <span>string <var>$list_id</var></span>, <span>string <var>$month</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
 				<p>Get a summary of a specific list’s growth activity for a specific month and year.</p>
@@ -716,7 +682,7 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_deleteList">#</a>
-			<code><a href="source-class-MailChimp.Lists.Lists.html#227-235" title="Go to source code">deleteList</a>( <span>string <var>$list_id</var></span> )</code>
+			<code><a href="source-class-MailChimp.Lists.Lists.html#230-238" title="Go to source code">deleteList</a>( <span>string <var>$list_id</var></span> )</code>
 
 			<div class="description short">
 				<p>Delete a list</p>
@@ -750,14 +716,14 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_interests">#</a>
-			<code><a href="source-class-MailChimp.Lists.Lists.html#238-244" title="Go to source code">interests</a>( )</code>
+			<code><a href="source-class-MailChimp.Lists.Lists.html#245-251" title="Go to source code">interests</a>( )</code>
 
 			<div class="description short">
-				<p>Instantiate lists subresources</p>
+				<p>Instantiate lists interests subresources</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Instantiate lists subresources</p>
+				<p>Instantiate lists interests subresources</p>
 
 
 
@@ -779,14 +745,14 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_members">#</a>
-			<code><a href="source-class-MailChimp.Lists.Lists.html#246-249" title="Go to source code">members</a>( )</code>
+			<code><a href="source-class-MailChimp.Lists.Lists.html#253-259" title="Go to source code">members</a>( )</code>
 
 			<div class="description short">
-				
+				<p>Instantiate lists Members subresources</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Instantiate lists Members subresources</p>
 
 
 
@@ -808,14 +774,14 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_mergeFields">#</a>
-			<code><a href="source-class-MailChimp.Lists.Lists.html#251-254" title="Go to source code">mergeFields</a>( )</code>
+			<code><a href="source-class-MailChimp.Lists.Lists.html#261-267" title="Go to source code">mergeFields</a>( )</code>
 
 			<div class="description short">
-				
+				<p>Instantiate lists MergeFields subresources</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Instantiate lists MergeFields subresources</p>
 
 
 
@@ -837,14 +803,14 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_segments">#</a>
-			<code><a href="source-class-MailChimp.Lists.Lists.html#256-259" title="Go to source code">segments</a>( )</code>
+			<code><a href="source-class-MailChimp.Lists.Lists.html#269-275" title="Go to source code">segments</a>( )</code>
 
 			<div class="description short">
-				
+				<p>Instantiate lists Segments subresources</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Instantiate lists Segments subresources</p>
 
 
 
@@ -866,14 +832,14 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_signupForms">#</a>
-			<code><a href="source-class-MailChimp.Lists.Lists.html#261-264" title="Go to source code">signupForms</a>( )</code>
+			<code><a href="source-class-MailChimp.Lists.Lists.html#277-283" title="Go to source code">signupForms</a>( )</code>
 
 			<div class="description short">
-				
+				<p>Instantiate lists signupForms subresources</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Instantiate lists signupForms subresources</p>
 
 
 
@@ -895,14 +861,14 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 			<td class="name"><div>
 			<a class="anchor" href="#_webhooks">#</a>
-			<code><a href="source-class-MailChimp.Lists.Lists.html#266-269" title="Go to source code">webhooks</a>( )</code>
+			<code><a href="source-class-MailChimp.Lists.Lists.html#285-291" title="Go to source code">webhooks</a>( )</code>
 
 			<div class="description short">
-				
+				<p>Instantiate lists webhooks subresources</p>
 			</div>
 
 			<div class="description detailed hidden">
-				
+				<p>Instantiate lists webhooks subresources</p>
 
 
 
@@ -947,21 +913,6 @@ array["exclude_fields"]      array       list of strings of response fields to e
 
 
 
-
-
-
-
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h2>Properties summary</h2></div>
-		</div>
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h3>Properties inherited from <a href="class-MailChimp.MailChimp.html#properties">MailChimp\MailChimp</a></h3></div>
-			<p class="elementList">
-				<code><a href="class-MailChimp.MailChimp.html#$client"><var>$client</var></a></code>
-			</p>
-		</div>
 
 
 

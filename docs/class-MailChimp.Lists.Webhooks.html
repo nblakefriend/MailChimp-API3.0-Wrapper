@@ -170,7 +170,7 @@
 		<b>Namespace:</b> <a href="namespace-MailChimp.html">MailChimp</a>\<a href="namespace-MailChimp.Lists.html">Lists</a><br>
 		
 
-			<b>Located at</b> <a href="source-class-MailChimp.Lists.Webhooks.html#4-64" title="Go to source code">Lists/Webhooks.php</a>
+			<b>Located at</b> <a href="source-class-MailChimp.Lists.Webhooks.html#4-67" title="Go to source code">Lists/Webhooks.php</a>
 		<br>
 	</div>
 
@@ -230,7 +230,7 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_getWebhook">#</a>
-			<code><a href="source-class-MailChimp.Lists.Webhooks.html#17-27" title="Go to source code">getWebhook</a>( <span>string <var>$list_id</var></span>, <span>string <var>$webhook_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Lists.Webhooks.html#17-28" title="Go to source code">getWebhook</a>( <span>string <var>$list_id</var></span>, <span>string <var>$webhook_id</var></span>, <span>array <var>$query</var> = []</span> )</code>
 
 			<div class="description short">
 				<p>Get a single webhook</p>
@@ -272,28 +272,16 @@
 
 			<td class="name"><div>
 			<a class="anchor" href="#_createWebhook">#</a>
-			<code><a href="source-class-MailChimp.Lists.Webhooks.html#29-52" title="Go to source code">createWebhook</a>( <span>string <var>$list_id</var></span>, <span>array <var>$data</var> = []</span> )</code>
+			<code><a href="source-class-MailChimp.Lists.Webhooks.html#30-54" title="Go to source code">createWebhook</a>( <span>string <var>$list_id</var></span>, <span>array <var>$data</var> = []</span> )</code>
 
 			<div class="description short">
-				<p>Create a new webhook
-array["data"]
-     ["url"]             string      A valid URL for the Webhook.
-     ["events"]          array      The events that can trigger the webhook and whether they are enabled.
-         "subscribe"     boolean
-         "unsubscribe"   boolean
-         "profile"       boolean
-         "cleaned"       boolean
-         "upemail"       boolean
-         "campaign"      boolean
-     ["sources"]         array      The possible sources of any events that can trigger the webhook and whether they are enabled.
-         "user"          boolean
-         "admin"         boolean
-         "api"           boolean</p>
+				<p>Create a new webhook</p>
 			</div>
 
 			<div class="description detailed hidden">
-				<p>Create a new webhook
-array["data"] ["url"]             string      A valid URL for the Webhook. ["events"]          array      The events that can trigger the webhook and whether they are enabled. "subscribe"     boolean "unsubscribe"   boolean "profile"       boolean "cleaned"       boolean "upemail"       boolean "campaign"      boolean ["sources"]         array      The possible sources of any events that can trigger the webhook and whether they are enabled. "user"          boolean "admin"         boolean "api"           boolean</p>
+				<p>Create a new webhook</p>
+
+<p>array["data"] ["url"]             string      A valid URL for the Webhook. ["events"]          array      The events that can trigger the webhook and whether they are enabled. "subscribe"     boolean "unsubscribe"   boolean "profile"       boolean "cleaned"       boolean "upemail"       boolean "campaign"      boolean ["sources"]         array      The possible sources of any events that can trigger the webhook and whether they are enabled. "user"          boolean "admin"         boolean "api"           boolean</p>
 
 
 					<h4>Parameters</h4>
@@ -326,7 +314,7 @@ array["data"] ["url"]             string      A valid URL for the Webhook. ["eve
 
 			<td class="name"><div>
 			<a class="anchor" href="#_deleteWebhook">#</a>
-			<code><a href="source-class-MailChimp.Lists.Webhooks.html#54-62" title="Go to source code">deleteWebhook</a>( <span>string <var>$list_id</var></span>, <span>string <var>$webhook_id</var></span> )</code>
+			<code><a href="source-class-MailChimp.Lists.Webhooks.html#56-65" title="Go to source code">deleteWebhook</a>( <span>string <var>$list_id</var></span>, <span>string <var>$webhook_id</var></span> )</code>
 
 			<div class="description short">
 				<p>Delete a webhook</p>
@@ -408,21 +396,6 @@ array["data"] ["url"]             string      A valid URL for the Webhook. ["eve
 
 
 
-
-
-
-
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h2>Properties summary</h2></div>
-		</div>
-
-		<div class="panel panel-default">
-            <div class="panel-heading"><h3>Properties inherited from <a href="class-MailChimp.MailChimp.html#properties">MailChimp\MailChimp</a></h3></div>
-			<p class="elementList">
-				<code><a href="class-MailChimp.MailChimp.html#$client"><var>$client</var></a></code>
-			</p>
-		</div>
 
 
 
