@@ -12,7 +12,8 @@ PHP wrapper for the MailChimp API v 3.0.
 Using Composer: `composer require nblakefriend/mailchimp-apiv3`
 
 ### Getting Started
-1. In MailChimp/src create `config.ini` file with structure:
+When downloading from composer *(recommended)*:
+1. In `vendor/nblakefriend/mailchimp-apiv3/src` create `config.ini` file with structure:
 
 ```
 [api_keys]
@@ -35,13 +36,17 @@ Whichever key[active] is true will be used.
 
 ***config.ini is excluded in the .gitignore file. Make sure this is not changed!***
 
-2. Navigate to the MailChimp folder and run `composer update` to download Dependencies.
-3. Call `require_once 'MailChimp/vendor/autoload.php'` in your file.
-4. Instantiate with `$mc = new MailChimp\MailChimp`;
-5. `print_r($mc->getAccountInfo());` should return the MailChimp API Root call.
+2. Instantiate with `$mc = new MailChimp\MailChimp`;
+3. `print_r($mc->getAccountInfo());` should return the MailChimp API Root call.
 
-### Using collections
-Each MailChimp collections *(lists, campaigns, e-commerce etc.)* is accessed using a method found at the bottom of the `MailChimp.php` file.
+If downloading this repo directly:
+1. From your command line, navigate to the MailChimp folder and run `composer update` to download Dependencies.
+2. Add the package to your add `require_once 'MailChimp/vendor/autoload.php'` in your file.
+3. Instantiate with `$mc = new MailChimp\MailChimp`;
+4. `print_r($mc->getAccountInfo());` should return the MailChimp API Root call.
+
+### Using the Wrapper
+Each MailChimp collections *(lists, campaigns, e-commerce etc.)* is accessed using a method found at the bottom of the `MailChimp.php` file that instantiates the collection's class.
 
 **For example:**
 *Assuming your MailChimp instance is stored in the `$mc` variable*
@@ -59,6 +64,24 @@ Adding a new store customer:
 
 This would create a new customer to the store with id `STORE123` with the customer id `CUST123` and the email address `freddie@freddiesjokes.com` and an opt-in status of true which subscribes the customer to the list.
 
-**[See complete list of available methods and classes here](https://nblakefriend.github.io/MailChimp-API3.0-Wrapper/index.html)**
+**Collection Reference**
+* authorizedApps()
+* automations()
+* batchOps()
+* campaignFolders()
+* campaigns()
+* conversations()
+* ecommerce()
+*   - ecommerce()->carts()
+*   - ecommerce()->customers()
+*   - ecommerce()->orders()
+*   - ecommerce()->products()
+* fileManager()
+* lists()
+* reports()
+* templateFolders()
+* templates()
+
+**[See complete list of available methods for each class/collection here](https://nblakefriend.github.io/MailChimp-API3.0-Wrapper/index.html)**
 
 Docs also able to be run locally from the `docs/index.html`
