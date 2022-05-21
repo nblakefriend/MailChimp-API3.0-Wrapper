@@ -1,7 +1,7 @@
 # MailChimp API v3.0 PHP Wrapper
 
 
-##*DEPRECATED*: 
+## *DEPRECATED*: 
 This project is no longer maintained and is honestly not good. 
 MC now offers official 3.0 libraries now: [mailchimp.com/developer](https://mailchimp.com/developer)
 
