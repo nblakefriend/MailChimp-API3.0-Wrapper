@@ -3,7 +3,7 @@
 
 ## *DEPRECATED*: 
 This project is no longer maintained and is honestly not good. 
-MC now offers official 3.0 libraries now: [mailchimp.com/developer](https://mailchimp.com/developer)
+MC offers official 3.0 libraries now: [mailchimp.com/developer](https://mailchimp.com/developer)
 
 PHP wrapper for the MailChimp API v 3.0.
 
